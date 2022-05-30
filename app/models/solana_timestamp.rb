@@ -1,0 +1,2 @@
+class SolanaTimestamp < ApplicationRecord
+end

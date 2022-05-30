@@ -9,6 +9,7 @@ require 'json'
 # Floor price: Pass in collection
 url = URI("https://api-mainnet.magiceden.dev/v2/collections/#{collection}/stats")
 
+#
 
 http = Net::HTTP.new(url.hostname, url.port);
 request = Net::HTTP::Get.new(url)
