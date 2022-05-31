@@ -50,4 +50,8 @@ def price(wallet_key)
   end
 end
 
-puts price() # Pass in wallet_key as string and run ruby lib/api.rb to try it in the terminal.
+
+# API call for current price with start high low close. DO NOT DELETE THIS
+# https://api.coingecko.com/api/v3/coins/solana/ohlc?vs_currency=usd&days=1
+
+puts price('Fxu4D17LYhgyxQsrF6Xt5d1Kfe1AiZXD71U6wjamGDLn') # Pass in wallet_key as string and run ruby lib/api.rb to try it in the terminal.
