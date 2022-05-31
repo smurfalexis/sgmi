@@ -1,6 +1,8 @@
 
-<div>
-<div class="chart-container" style="position: relative; height:10vh; width:30vw">
-<canvas id="myChart" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
-</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="chart-container" style="position: relative; height:10vh; width:30vw">   <%# we can just use width and height to make the chart smaller %>
+      <canvas id="myChart" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
+    </div>
+  </div>
 </div>

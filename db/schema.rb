@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_171808) do
+ActiveRecord::Schema.define(version: 2022_05_31_171854) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_171808) do
     t.integer "collection_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "purchase_date"
     t.index ["collection_id"], name: "index_nfts_on_collection_id"
     t.index ["wallet_id"], name: "index_nfts_on_wallet_id"
   end
