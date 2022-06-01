@@ -1,7 +1,8 @@
 class WatchlistsController < ApplicationController
-  before_action :set_watchlist, only: %i[show update]
+  before_action :set_watchlist, only: [:show, :update]
 
-  def show; end
+  def show
+  end
 
   def update
     if @watchlist.update(watchlist_params)
