@@ -1,18 +1,19 @@
 class CollectionsController < ApplicationController
 
   def index
-    @collections = policy_scope(@collections.search_by_category(params[:search][:category])) if params[:search][:category].present?
-    @collections = policy_scope(@collections.search_by_keyword(params[:search][:keyword])) if params[:search][:keyword].present?
+    @collections = Collection.all
+    authorize @collections
   end
 
   def show
     @collection = Collection.find(params[:id])
+    # authorize @collections
   end
 
-def popular
-  @collections = Collection.all
-end 
-
+  def popular
+    @collections = Collection.limit(10).order('volume desc')
+    # authorize @collections
+  end
 
 def drops
 
