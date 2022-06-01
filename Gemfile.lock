@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/heartcombo/simple_form.git
+  revision: 23205201a935c7e52c39549756e2ec2e2ec47793
+  specs:
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,6 +70,8 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (10.2.5.0)
+      execjs (< 2.8.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.11.1)
@@ -78,7 +88,9 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    chronic (0.10.2)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crass (1.0.6)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -87,7 +99,10 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
+    execjs (2.7.0)
     ffi (1.15.5)
+    font-awesome-sass (5.6.1)
+      sassc (>= 1.11)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -116,6 +131,8 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.3.1)
     rack-mini-profiler (2.3.4)
@@ -154,6 +171,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -176,6 +194,12 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    sidekiq (6.4.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+    sidekiq-failures (1.0.1)
+      sidekiq (>= 4.0.0)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -212,6 +236,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.4)
@@ -220,17 +246,23 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
   devise
+  font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)
+  pundit
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  sidekiq
+  sidekiq-failures (~> 1.0)
+  simple_form!
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
@@ -238,6 +270,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  whenever
 
 RUBY VERSION
    ruby 3.0.3p157

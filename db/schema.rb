@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_143650) do
+ActiveRecord::Schema.define(version: 2022_06_01_122327) do
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.float "floor_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+    t.text "description"
+    t.string "symbol"
+    t.string "discord"
+    t.string "twitter"
+    t.string "website"
+  end
+
+  create_table "nfts", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.string "image"
+    t.string "rarity"
+    t.integer "wallet_id", null: false
+    t.integer "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "purchase_date"
+    t.index ["collection_id"], name: "index_nfts_on_collection_id"
+    t.index ["wallet_id"], name: "index_nfts_on_wallet_id"
+  end
+
+  create_table "solana_timestamps", force: :cascade do |t|
+    t.date "date"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +60,26 @@ ActiveRecord::Schema.define(version: 2022_05_30_143650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.string "wallet_key"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wallets_on_user_id"
+  end
+
+  create_table "watchlists", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_watchlists_on_collection_id"
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
+  add_foreign_key "nfts", "collections"
+  add_foreign_key "nfts", "wallets"
+  add_foreign_key "wallets", "users"
+  add_foreign_key "watchlists", "collections"
+  add_foreign_key "watchlists", "users"
 end
