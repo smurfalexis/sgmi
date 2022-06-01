@@ -1,8 +1,43 @@
+<div class="container">
+  <h1 class="profile-header">My Wallet</h1>
+  <div class="my-wallet">
+    <div class="dashboard-container">
+      <h2 class="dashboard-header">My wallet's performance</h2>
+      <div class="dashboard-wrapper">
+        <div class="sol-usd">SOL/USD</div>
+        <div class="dashboard"></div>
+      </div>
+    </div>
+
+    <div class="best-performing"></div>
+    <div class="highest-floor-price"></div>
+  </div>
+
+  <div class="my-watchlist">
+    <div class="watchlist-container"></div>
+  </div>
+</div>
+
 
 <div class="row">
   <div class="col-md-6">
     <div class="chart-container" style="position: relative; height:10vh; width:30vw">   <%# we can just use width and height to make the chart smaller %>
       <canvas id="myChart" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
     </div>
+  </div>
+</div>
+
+<h1>"Here I am !"</h1>
+
+<div class="profile-container"  data-controller="profiles">
+   <div class="profile-menu">
+    <p> <%= link_to "My profile", profile_path %> </p>
+    <p data-action="click->profiles#index" data-profiles-class-param="my-requests"> My requests </p>
+    <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
+    <p> <%= link_to "Make a request", new_request_path %> </p>
+    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
+  </div>
+
+  <div class="profile-content">
   </div>
 </div>

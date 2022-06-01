@@ -1,0 +1,87 @@
+.profile-header{
+  font-family: "Nutino Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #8B8B8B;
+  margin-bottom: 30px;
+  margin-left: 78px;
+}
+
+.my-wallet {
+  display: flex;
+  justify-content: center;
+
+  .dashboard-container {
+    background-color: #FFFFFF;
+    height: 492px;
+    width: 560px;
+    border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+
+    .dashboard-header {
+      position: absolute;
+      left: 11.25%;
+      top: 11.55%;
+
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 27px;
+
+      color: #8B8B8B;
+    }
+
+    .dashboard-wrapper {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .sol-usd {
+        background-color: #F6F6F6;
+        position: absolute;
+        width: 536px;
+        height: 56px;
+        left: 162px;
+        top: 371px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+.best-performing {
+  background-color: #FFFFFF;
+  height: 492px;
+  width: 270px;
+  border-radius: 10px;
+}
+
+.highest-floor-price {
+  background-color: #FFFFFF;
+  height: 492px;
+  width: 270px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.my-watchlist {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.watchlist-container {
+  background-color: #FFFFFF;
+  height: 492px;
+  width: 1140px;
+  border-radius: 20px;
+}

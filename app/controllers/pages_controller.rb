@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
-  def home; end
+  def home
+    @popular_collections = Collection.order(volume: :desc).first(10)
+    @upcoming_collections = Collection.where(volume: nil).first(3)
+  end
 
   def profile
     @user = current_user
