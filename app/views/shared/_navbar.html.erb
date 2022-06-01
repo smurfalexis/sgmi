@@ -1,28 +1,19 @@
-  <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <%# image_tag 'HELPIFUL.png', size: "80" %>
-        </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white'%></li>
-          <li><a href="#" class="nav-link px-2 text-white">About us</a></li>
-        </ul>
-
-        <div class="text-end">
-          <% if current_user %>
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-light me-2'%>
-            <% if current_user.avatar.attached? %>
-              <%= link_to cl_image_tag(current_user.avatar.key), profile_path, class: "avatar-large", alt: "avatar-large" %>
-            <% else %>
-              <%= link_to image_tag("avatar"), profile_path, class: "avatar-large", alt: "avatar-large" %>
-            <% end %>
-          <% else %>
-          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-light me-2'%>
-          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-warning'%>
-          <% end %>
+<header>
+  <div class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+            <p class="logo">SGMI</p>
+            <div class="search-bar">
+              <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+                <div class="search-bar-form">
+                  <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
+                  <%= f.submit "Search", class: "btn-search" %>
+                </div>
+              <% end %>
+            </div>
+            <%= link_to "Connect wallet", profile_path, class:"connect" %>
         </div>
       </div>
-    </div>
-  </header>
+  </div>
+</header>
