@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_06_01_152551) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.float "floor_price"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 2022_06_01_152551) do
     t.float "price"
     t.string "image"
     t.string "rarity"
-    t.integer "wallet_id", null: false
-    t.integer "collection_id", null: false
+    t.bigint "wallet_id", null: false
+    t.bigint "collection_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "purchase_date"
@@ -63,15 +66,15 @@ ActiveRecord::Schema.define(version: 2022_06_01_152551) do
 
   create_table "wallets", force: :cascade do |t|
     t.string "wallet_key"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
   create_table "watchlists", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "collection_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "collection_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["collection_id"], name: "index_watchlists_on_collection_id"

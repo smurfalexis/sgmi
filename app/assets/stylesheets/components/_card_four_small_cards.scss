@@ -1,0 +1,83 @@
+// This refers to the four small cards with a button
+
+.card-container {
+  height: 492px;
+  width: 270px;
+  border-radius: 10px;
+  position: relative;
+  margin-right: 20px;
+}
+
+  .card-header-big {
+    position: absolute;
+    left: 11.25%;
+    top: 11.55%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+    color: #8B8B8B;
+  }
+
+  .wrapper-cards-btn {
+    height: 392px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+
+    .card-xs-small {
+      width: 270px;
+      height: 81px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background-color: #FFFFFF;
+      display: flex;
+
+
+      .card-xs-small-image {
+        width: 80px;
+        height: 80px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .card-xs-small-content {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        flex-grow: 1;
+      }
+
+      .card-xs-small-content-headers {
+        flex-grow: 1;
+
+        .collection-name {
+          color: #8B8B8B;
+          font-size: 12px;
+          margin-bottom: 0px;
+        }
+
+        .nft-name {
+          color: #353535;
+          font-size: 12px;
+          font-weight: bold;
+          margin-bottom: 0px;
+        }
+      }
+
+
+      .card-xs-small-content-info {
+        display: flex;
+        justify-content: space-between;
+        color: #8B8B8B;
+        font-size: 12px;
+
+        p {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
