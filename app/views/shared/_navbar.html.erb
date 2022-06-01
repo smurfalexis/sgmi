@@ -1,5 +1,5 @@
-
-<header>
+<% if !current_page?('/') %>
+  <header>
   <div class="navbar">
       <div class="container">
         <div class="navbar-content">
@@ -17,3 +17,5 @@
       </div>
   </div>
 </header>
+
+<% end %>
