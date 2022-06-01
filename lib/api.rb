@@ -1,5 +1,5 @@
-require "uri"
-require "net/http"
+require 'uri'
+require 'net/http'
 require 'json'
 
 # Magic Eden: Provides info about a wallet and the NFTs it holds
@@ -49,7 +49,6 @@ def price(wallet_key)
     end
   end
 end
-
 
 # API call for current price with start high low close. DO NOT DELETE THIS
 # https://api.coingecko.com/api/v3/coins/solana/ohlc?vs_currency=usd&days=1

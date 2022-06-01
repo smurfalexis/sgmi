@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_171854) do
+ActiveRecord::Schema.define(version: 2022_06_01_122327) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.float "floor_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+    t.text "description"
+    t.string "symbol"
+    t.string "discord"
+    t.string "twitter"
+    t.string "website"
   end
 
   create_table "nfts", force: :cascade do |t|
