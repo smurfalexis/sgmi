@@ -64,3 +64,5 @@ gem 'pundit'
 # Sidekiq
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+
+gem 'whenever', require: false
