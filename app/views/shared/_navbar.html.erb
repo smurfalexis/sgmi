@@ -1,8 +1,8 @@
+
 <header>
   <div class="navbar">
       <div class="container">
         <div class="navbar-content">
-
             <p class="logo">SGMI</p>
             <div class="search-bar">
               <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
@@ -12,9 +12,7 @@
                 </div>
               <% end %>
             </div>
-
             <%= link_to "Connect wallet", profile_path, class:"connect" %>
-
         </div>
       </div>
   </div>

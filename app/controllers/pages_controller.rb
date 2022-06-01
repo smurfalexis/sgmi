@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :about]
+  skip_before_action :authenticate_user!, only: %i[home about]
 
-  def home
-  end
+  def home; end
 
   def profile
     @user = current_user
@@ -33,11 +32,7 @@ class PagesController < ApplicationController
       'December 22'
     ]
     @data_values = [100, 400, 175, 200, 50, 350, 600]
-
-
   end
 
-  def about
-
-  end
+  def about; end
 end
