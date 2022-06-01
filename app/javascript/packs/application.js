@@ -9,9 +9,12 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import displayChart from "../channels/line_chart"
 import Chart from "chart.js/auto"
+import "bootstrap"
 
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 document.addEventListener('turbolinks:load', () => {displayChart()})
+
+import "controllers"
