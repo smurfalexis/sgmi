@@ -60,3 +60,7 @@ gem 'devise'
 
 # Pundit
 gem 'pundit'
+
+# Sidekiq
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
