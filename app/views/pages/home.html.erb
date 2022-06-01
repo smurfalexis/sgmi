@@ -1,2 +1,68 @@
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>Popular collections</h2>
+        </div>
+        <div class="col"><button type="button" class="btn btn-secondary">Visit Dashboard</button></div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Collection</th>
+            <th scope="col">Supply</th>
+            <th scope="col">Floor Price</th>
+            <th scope="col">Listings</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @popular_collections.each do |collection| %>
+            <tr>
+              <td><%=image_tag "SGMI-LOGO.png", class: "rounded", width: "35"%><%=collection.name%></td>
+              <td><%=collection.supply %></td>
+              <td><%=collection.floor_price %> SOL</td>
+              <td><%=collection.listings %></td>
+              <td>
+                <%=link_to collection.website do%>
+                  <i class="fa-solid fa-eye" style="color: grey"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <h2>Upcoming drops</h2>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <% @upcoming_collections.each do |collection| %>
+              <%=image_tag "SGMI-LOGO.png", class: "thumbnail", width: "110"%>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title"><%=collection.name%></h3>
+                <p class="card-text"><%=collection.description%></p>
+                <p class="card-text"><small class="text-muted">Supply: <%=collection.supply%></small></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary">See more</button>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <%= link_to "http://www.google.com", :class => "btn btn-small"  do %>
+            Most Popular today:
+            <% image_tag "SGMI-LOGO.png", class: "img-thumbnail"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
