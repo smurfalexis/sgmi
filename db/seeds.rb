@@ -31,34 +31,34 @@ alex.save
 
 
 # Gaming
-Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", floor_price: '50SOL', category: 'Gaming', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Solana Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', floor_price: '60SOL', category: 'Gaming', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", floor_price: '60SOL', category: 'Gaming', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'DegenIslands', description: 'A cool nft collection.', symbol: "DI", floor_price: '20SOL', category: 'Gaming', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", floor_price: 14, categories: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 124553232)
+Collection.create(name: 'na Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', floor_price: 26, categories: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
+Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", floor_price: 360, categories: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
+Collection.create(name: 'DegenIslands', description: 'A cool nft collection.', symbol: "DI", floor_price: 20, categories: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689)
 
 # Sports
-Collection.create(name: 'STEPN', description: 'A cool nft collection.', symbol: "SPN", floor_price: '50SOL', category: 'Sports', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Runners', description: 'A cool nft collection.', symbol: 'RNRS', floor_price: '60SOL', category: 'Sports', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'STEPNxNIKE', description: 'A cool nft collection.', symbol: "STENKE", floor_price: '60SOL', category: 'Sports', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'RunDogs', description: 'A cool nft collection.', symbol: "RD", floor_price: '20SOL', category: 'Sports', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'STEPN', description: 'A cool nft collection.', symbol: "SPN", floor_price: 5, categories: 'Sports', website: '#', twitter: '#', discord: '#', volume: 213412)
+Collection.create(name: 'Runners', description: 'A cool nft collection.', symbol: 'RNRS', floor_price: 17, categories: 'Sports', website: '#', twitter: '#', discord: '#', volume: 1234 )
+Collection.create(name: 'STEPNxNIKE', description: 'A cool nft collection.', symbol: "STENKE", floor_price: 2.8, categories: 'Sports', website: '#', twitter: '#', discord: '#', volume: 354363 )
+Collection.create(name: 'RunDogs', description: 'A cool nft collection.', symbol: "RD", floor_price: 4.4, categories: 'Sports', website: '#', twitter: '#', discord: '#', volume: 4235 )
 
 # Metaverse
-Collection.create(name: 'SolGods', description: 'A cool nft collection.', symbol: "SG", floor_price: '50SOL', category: 'Metaverse', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'CetsOnCreck', description: 'A cool nft collection.', symbol: 'COC', floor_price: '60SOL', category: 'Metaverse', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Mous in da hous', description: 'A cool nft collection.', symbol: "MIDH", floor_price: '60SOL', category: 'Metaverse', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Duppies', description: 'A cool nft collection.', symbol: "DUPP", floor_price: '20SOL', category: 'Metaverse', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'ods', description: 'A cool nft collection.', symbol: "SG", floor_price: 54, categories: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 675857)
+Collection.create(name: 'CetsOnCreck', description: 'A cool nft collection.', symbol: 'COC', floor_price: 68, categories: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 5685)
+Collection.create(name: 'Mous in da hous', description: 'A cool nft collection.', symbol: "MIDH", floor_price: 1.5, categories: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 87907876)
+Collection.create(name: 'Duppies', description: 'A cool nft collection.', symbol: "DUPP", floor_price: 20, categories: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 13453464 )
 
 
 # Music
-Collection.create(name: 'Renegades', description: 'A cool nft collection.', symbol: "REN", floor_price: '50SOL', category: 'Music', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Rock Bulls', description: 'A cool nft collection.', symbol: 'RB', floor_price: '60SOL', category: 'Music', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Music Raptors', description: 'A cool nft collection.', symbol: "MRAP", floor_price: '60SOL', category: 'Music', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'Renegades', description: 'A cool nft collection.', symbol: "REN", floor_price: 18, categories: 'Music', website: '#', twitter: '#', discord: '#', volume: 123456)
+Collection.create(name: 'Rock Bulls', description: 'A cool nft collection.', symbol: 'RB', floor_price: 9.3, categories: 'Music', website: '#', twitter: '#', discord: '#', volume: 23455)
+Collection.create(name: 'Music Raptors', description: 'A cool nft collection.', symbol: "MRAP", floor_price: 20.7, categories: 'Music', website: '#', twitter: '#', discord: '#', volume: 45478)
 
 # Art
-Collection.create(name: 'Moars', description: 'A cool nft collection.', symbol: "MRS", floor_price: '50SOL', category: 'Art', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Ugly People', description: 'A cool nft collection.', symbol: 'UP', floor_price: '60SOL', category: 'Art', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Toxic Skulls Club', description: 'A cool nft collection.', symbol: "TSC", floor_price: '60SOL', category: 'Art', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'Moars', description: 'A cool nft collection.', symbol: "MRS", floor_price: 12, categories: 'Art', website: '#', twitter: '#', discord: '#', volume: 2458 )
+Collection.create(name: 'Ugly People', description: 'A cool nft collection.', symbol: 'UP', floor_price: 6.5, categories: 'Art', website: '#', twitter: '#', discord: '#', volume: 84645)
+Collection.create(name: 'Toxic Skulls Club', description: 'A cool nft collection.', symbol: "TSC", floor_price: 90, categories: 'Art', website: '#', twitter: '#', discord: '#', volume: 98764)
 
 # Utility
-Collection.create(name: 'Famous Fox Federation', description: 'A cool nft collection.', symbol: "FFF", floor_price: '50SOL', category: 'Utility', website: '#', twitter: '#', discord: '#')
-Collection.create(name: 'Stoned Frogs', description: 'A cool nft collection.', symbol: "SF", floor_price: '15SOL', category: 'Utility', website: '#', twitter: '#', discord: '#')
+Collection.create(name: 'Famous Fox Federation', description: 'A cool nft collection.', symbol: "FFF", floor_price: 125, categories: 'Utility', website: '#', twitter: '#', discord: '#', volume: 123467)
+Collection.create(name: 'Stoned Frogs', description: 'A cool nft collection.', symbol: "SF", floor_price: 15, categories: 'Utility', website: '#', twitter: '#', discord: '#', volume: 323456)

@@ -10,8 +10,7 @@ class CollectionsController < ApplicationController
   end
 
 def popular
-  n = 10
-
+  @collections = Collection.all
 end 
 
 
@@ -20,6 +19,7 @@ def drops
 end 
 
 def pop_today
+
 end 
 
 end

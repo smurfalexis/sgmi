@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_122327) do
+ActiveRecord::Schema.define(version: 2022_06_01_152551) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_122327) do
     t.string "discord"
     t.string "twitter"
     t.string "website"
+    t.float "volume"
   end
 
   create_table "nfts", force: :cascade do |t|
