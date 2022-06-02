@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @popular_collections = Collection.order(volume: :desc).first(10)
     @upcoming_collections = Collection.where(volume: 0).first(3)
+    @performing_collections = Collection.where("volume24 > 25").first(3)
   end
 
   # def highest_floor_price
