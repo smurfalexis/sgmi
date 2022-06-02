@@ -17,31 +17,25 @@
       <h2 class="card-header-big">Best performing NFTs</h2>
 
 <!-- Iteration for the best performing NFTs -->
-      <% @best_performing_nfts.each do |nft| %>
-      <%= nft.name %>
-        <%= nft.collection.name %>
-        <%= nft.collection.floor_price %>
-      <% end %>
+
       <div class="wrapper-cards-btn">
+      <% @best_performing_nfts.each do |nft| %>
         <div class="card-xs-small">
-          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-xs-small-image">
+           <%= image_tag nft.image %>
           <div class="card-xs-small-content">
             <div class="card-xs-small-content-headers">
-              <p class="collection-name">Collection name</p>
-              <p class="nft-name">NFT name</p>
+              <%= nft.name %>
             </div>
             <div class="card-xs-small-content-info">
               <div>
-                <p class="collection-floor-price">Purchased price</p>
-                <p class="collection-floor-price">USD</p>
+                <%= nft.price %>
+                <%= nft.collection.floor_price %>SOL</p>
               </div>
-              <p class="collection-supply">Rarity</p>
+              <%= nft.rarity %></p>
             </div>
           </div>
         </div>
-        <div class="card-xs-small"></div>
-        <div class="card-xs-small"></div>
-        <div class="card-xs-small"></div>
+        <% end %>
         <%= link_to "See more", profile_path, class: "btn-big-white-green-border"%>
       </div>
     </div>
@@ -50,14 +44,14 @@
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
         <div class="big-image">
-          <img src=<%= @highest_floor_price[0].image %> alt="" class="card-lg-image">
-          <h2 class="h2-highest"> <%= @highest_floor_price[0].name %> </h2>
-          <p class="p-highest"> <%= @highest_floor_price[0].collection.name %> </p>
+          <img src=<%= @highest_floor_price_nfts[0].collection.image %> alt="" class="card-lg-image">
+          <h2 class="h2-highest"> <%= @highest_floor_price_nfts[0].collection.floor_price %> SOL</h2>
+          <p class="p-highest"> <%= @highest_floor_price_nfts[0].collection.name %> </p>
         </div>
         <div class="big-image">
-          <img src=<%= @highest_floor_price[1].image %> alt="" class="card-lg-image">
-          <h2 class="h2-highest"> <%= @highest_floor_price[1].name %> </h2>
-          <p class="p-highest"> <%= @highest_floor_price[1].collection.name %> </p>
+          <img src=<%= @highest_floor_price_nfts[1].collection.image %> alt="" class="card-lg-image">
+          <h2 class="h2-highest"> <%= @highest_floor_price_nfts[1].collection.floor_price %> SOL</h2>
+          <p class="p-highest"> <%= @highest_floor_price_nfts[1].collection.name %> </p>
         </div>
         <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
