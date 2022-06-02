@@ -15,7 +15,6 @@ class PagesController < ApplicationController
 
   def profile
     @highest_floor_price = highest_floor_price
-    raise
     @user = current_user
     @data_keys = [
       'January 21',
