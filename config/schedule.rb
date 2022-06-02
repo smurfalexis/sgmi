@@ -19,13 +19,13 @@
 
 # Learn more: http://github.com/javan/whenever
 
-#Creates a output log for you to view previously run cron jobs
-set :output, "logs/cron.log"
+# Creates a output log for you to view previously run cron jobs
+set :output, 'logs/cron.log'
 
-#Sets the environment to run during development mode (Set to production by default)
-set :environment, "development"
+# Sets the environment to run during development mode (Set to production by default)
+set :environment, 'development'
 every 1.minute do
   #   command "/usr/bin/some_great_command"
-    runner "SolanaTimestamp.update_daily_price"
+  runner 'SolanaTimestamp.update_daily_price'
   #   rake "some:great:rake:task"
-  end
+end
