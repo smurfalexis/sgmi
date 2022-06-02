@@ -15,6 +15,13 @@
 
     <div class="card-container">
       <h2 class="card-header-big">Best performing NFTs</h2>
+
+<!-- Iteration for the best performing NFTs -->
+      <% @best_performing_nfts.each do |nft| %>
+      <%= nft.name %>
+        <%= nft.collection.name %>
+        <%= nft.collection.floor_price %>
+      <% end %>
       <div class="wrapper-cards-btn">
         <div class="card-xs-small">
           <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-xs-small-image">

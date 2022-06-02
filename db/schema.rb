@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_104646) do
 
   create_table "nfts", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.float "price"
     t.string "image"
     t.string "rarity"
     t.bigint "wallet_id", null: false
