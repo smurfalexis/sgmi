@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @popular_collections = Collection.order(volume: :desc).first(10)
-    @upcoming_collections = Collection.where(volume: nil).first(3)
+    @upcoming_collections = Collection.where(volume: 0).first(3)
   end
 
   def profile

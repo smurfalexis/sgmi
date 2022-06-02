@@ -10,10 +10,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Collection</th>
+            <th scope="col">Collection Name</th>
             <th scope="col">Supply</th>
-            <th scope="col">Floor Price</th>
             <th scope="col">Listings</th>
+            <th scope="col">Floor Price</th>
+              <th scope="col">Total Volume</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -22,8 +23,9 @@
             <tr>
               <td><%=image_tag "SGMI-LOGO.png", class: "rounded", width: "35"%><%=collection.name%></td>
               <td><%=collection.supply %></td>
-              <td><%=collection.floor_price %> SOL</td>
               <td><%=collection.listings %></td>
+              <td><%=collection.floor_price %> SOL</td>
+              <td><%=collection.volume %> SOL</td>
               <td>
                 <%=link_to collection.website do%>
                   <i class="fa-solid fa-eye" style="color: grey"></i>
