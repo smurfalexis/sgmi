@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
     @collections = policy_scope(Collection.where(nil))
     @collections = policy_scope(@collections.search_by_category(params[:search][:category])) if params[:search][:category].present?
     @collections = policy_scope(@collections.search_by_keyword(params[:search][:keyword])) if params[:search][:keyword].present?
+    @key_word = params[:search]['keyword']
   end
 
   def show

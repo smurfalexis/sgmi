@@ -1,3 +1,38 @@
 // Place all the styles related to the collections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card-nft-search {
+  background-color: #FFFFFF;
+  height: 424px;
+  width: 320px;
+  border-radius: 10px;
+  position: relative;
+  margin: 0px 30px;
+  margin-bottom: 7px;
+}
+
+
+
+.nft-search-image {
+  height: 245px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.wrapper-nft-search {
+  height: 392px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 10px;
+}
+
+.nft-description {
+  font-weight: lighter;
+  color: #8B8B8B;
+  font-size: 14px;
+  padding: 0px;
+}
