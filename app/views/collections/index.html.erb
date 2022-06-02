@@ -1,20 +1,26 @@
 <div class="container">
-  <div class="container-collection-card">
-    <% @collections.each do |collection| %>
-
-      <div class="col-sm-6 col-md-6 col-lg-4 ">
-        <div class="collection-card">
-          <div class="collection-info">
-            <div class="collection-card-info">
-              <p class="card-title"> <%= link_to "#{collection.name}", collection_path(collection), class: "card-title text-black" %></p>
-              <p class="card-price"> <%= collection.floor_price %></p>
-              <p class="card-volume"> <%= collection.volume %></p>
-              <p class="card-description"> <%= collection.description %></p>
-              <p class="card-listings"> <%= collection.listings %></p>
+  <h1 class="profile-header">"<%= @key_word %>" search result</h1>
+  <div class="nft-container">
+    <div class="wrapper-nfts">
+      <% @collections.each do |collection| %>
+        <div class="card-nft-search">
+          <div class="wrapper-nft-search">
+            <div class="nft-seach-image">
+              <img src=<%= collection.image %> alt="" class="nft-search-image">
+              <h2 class="nft-name"><%= collection.name %></h2>
+              <p class="nft-description"><%= collection.description %></p>
+              <div class="nft-data">
+                <p>Floor price: <%= collection.floor_price %> SOL</p>
+                <p>Volume: <%= collection.volume %></p>
+                <p>Listings: <%= collection.listings %></p>
+              </div>
             </div>
+            <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#s<%= @collections[0].id.to_s %>">
+              See more
+            </button>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
