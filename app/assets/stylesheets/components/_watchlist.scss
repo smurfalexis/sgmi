@@ -1,0 +1,28 @@
+.my-watchlist {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.watchlist-container {
+  background-color: #FFFFFF;
+  height: 492px;
+  width: 1140px;
+  border-radius: 20px;
+  position: relative;
+}
+
+
+.watchlist-header {
+  position: absolute;
+  left: 12px;
+  top: 11.55%;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #8B8B8B;
+}
