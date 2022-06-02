@@ -125,9 +125,6 @@ class PagesController < ApplicationController
 
 end
 
-
-end
-
   # Grab all NFTs related to current user from the wallet
 
   # Grab all collections in a watchlist related to current user
