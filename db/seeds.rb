@@ -8,6 +8,12 @@
 
 require 'csv'
 
+SolanaTimestamp.destroy_all
+Nft.destroy_all
+Collection.destroy_all
+Wallet.destroy_all
+User.destroy_all
+
 csv_solana = File.read(Rails.root.join('db/solana_prices.csv'))
 solana_history = CSV.parse(csv_solana, headers: true, encoding: 'ISO-8859-1')
 
@@ -33,6 +39,7 @@ Wallet.create(wallet_key: '12345678', user_id: alex)
 Wallet.create(wallet_key: '23456789', user_id: mahmoud)
 Wallet.create(wallet_key: '56789043', user_id: spiros)
 Wallet.create(wallet_key: '23689045', user_id: raisa)
+
 
 
 # Collections:
@@ -73,20 +80,19 @@ Collection.create(name: 'The Stoned Frogs', image: 'https://bafybeig36sok3pfoxsm
 Collection.create(name: 'Smoke Heads', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/smokeheads_pfp_1652898735936.png', description: 'A cool nft collection.', symbol: "SH", supply: 6767, listings: 569, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 3256, volume24: 10)
 Collection.create(name: 'The X-Vault DAO', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/the_vaultx_dao_pfp_1650030637531.gif', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 24)
 
+
 # NFTs:
 Nft.create(name: 'Okay Bear #2345', price: 17, image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet_id: '12345678', collection_id: '1', purchase_date: '12.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49371')
-Nft.create(name: 'DeGod #88', price: 28, image: 'https://metadata.degods.com/g/2209.png', rarity: 'Mythic', wallet_id: '12345678', collection_id: '3', purchase_date: '15.03.2022', mint_address: 'xsfsndjfgagdfcdfdgfdgk87hecs4')
-Nft.create(name: 'SMB #123', price: 5, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://cdn.solanamonkey.business/gen2/294.png', rarity: 'Uncommon', wallet_id: '12345678', collection_id: '2', purchase_date: '02.03.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d56789')
-Nft.create(name: 'Cet #2400', price: 8, image: 'https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/https://arweave.net/d6Q22tnqWkKOZQUNALt38YrTjwglorkn-JiLUUAJg1s?ext=png', rarity: 'Rare', wallet_id: '12345678', collection_id: '4', purchase_date: '12.11.2021', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d43478')
-Nft.create(name: 'STEPN #3332', price: 1, image: 'https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/https://arweave.net/BToZC2BgKOGNiZd1t15j9ZaHNMku8PYtw-3Y0I71UjI', rarity: 'Common', wallet_id: '12345678', collection_id: '5', purchase_date: '10.12.2021', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d95678')
-Nft.create(name: 'Cardboard Citizen #457', price: 2, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeidvsm7s3gccpnjsq6vmxzfegrxf67dk34ezgq45nc5wjej32v7wky.ipfs.dweb.link/2085.png', rarity: 'Epic', wallet_id: '12345678', collection_id: '6', purchase_date: '01.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d12356')
-Nft.create(name: 'Creamy Friend #398', price: 4, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://www.arweave.net/mDnGUZP_R3g0Uo15lCrdhujqC6ItmltAkrWgMog8yrE?ext=png', rarity: 'Epic', wallet_id: '23689045', collection_id: '7', purchase_date: '08.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d34589')
-Nft.create(name: 'LavaRunner #222', price: 44, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/bsjdWnlDtFxoSeRVZ2OC2Msjkn5l1LDA1G26lRKiXig', rarity: 'Common', wallet_id: '12345678', collection_id: '8', purchase_date: '14.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49345')
-Nft.create(name: 'Blocksmith #900', price: 13, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibyio7mu3hrughzxdryz45prwhgt5s5l64qp5f6n67664quuo226m.ipfs.dweb.link/2400.png?ext=png', rarity: 'Rare', wallet_id: '12345678', collection_id: '12', purchase_date: '12.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d59071')
-Nft.create(name: 'Mous #3245', price: 6, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/G3dTlVEeUJHJ3ToTwzOqkA3EgAG3p5z3pFrfnkNGV7A?ext=png', rarity: 'Legendary', wallet_id: '23689045', collection_id: '11', purchase_date: '24.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d23308')
-Nft.create(name: 'Moonly #455', price: 3, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeigvliimk4m4yciqwebsrwbfmr4lsnlme7iphfbxezwstr67lzimpi.ipfs.dweb.link/3466.png?ext=png', rarity: 'Mythic', wallet_id: '12345678', collection_id: '10', purchase_date: '09.01.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d35678')
-Nft.create(name: 'Tripin Ape #2355', price: 4, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiblifubtp4rzgkxs4uklisn3en6yulhmrnm4zj7rmvtnql2nibfle.ipfs.dweb.link/1363.png?ext=png', rarity: 'Uncommon', wallet_id: '56789043', collection_id: '13', purchase_date: '16.01.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d77890')
-Nft.create(name: 'THS #344', price: 75, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/m0_NyfxvB-5WUlVZS5J3V9uDu7ayHnABgypmUvL-XK0', rarity: 'Epic', wallet_id: '12345678', collection_id: '14', purchase_date: '13.03.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d44356')
-Nft.create(name: 'Bohemia #55', price: 32, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/E-DgJY_vT76C7vwmFboXa0q0QF7JUygIlpaV0rraaDg?ext=png', rarity: 'Rare', wallet_id: '56789043', collection_id: '19', purchase_date: '04.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d88911')
-Nft.create(name: 'Smoke Head #666', price: 27, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet_id: '23456789', collection_id: '22', purchase_date: '31.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
-Nft.create(name: 'TSF #567', price: 19, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet_id: '23456789', collection_id: '21', purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')
+Nft.create(name: 'DeGod #88', price: 28, image: 'https://metadata.degods.com/g/2209.png', rarity: 'Mythic', wallet: '12345678', collection: '3', purchase_date: '15.03.2022', mint_address: 'xsfsndjfgagdfcdfdgfdgk87hecs4')
+Nft.create(name: 'STEPN #3332', price: 1, image: 'https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/https://arweave.net/BToZC2BgKOGNiZd1t15j9ZaHNMku8PYtw-3Y0I71UjI', rarity: 'Common', wallet: 2, collection: 5, purchase_date: '10.12.2021', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d95678')
+Nft.create(name: 'Cardboard Citizen #457', price: 2, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeidvsm7s3gccpnjsq6vmxzfegrxf67dk34ezgq45nc5wjej32v7wky.ipfs.dweb.link/2085.png', rarity: 'Epic', wallet: 2, collection: 6, purchase_date: '01.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d12356')
+Nft.create(name: 'Creamy Friend #398', price: 4, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://www.arweave.net/mDnGUZP_R3g0Uo15lCrdhujqC6ItmltAkrWgMog8yrE?ext=png', rarity: 'Epic', wallet: 2, collection: 7, purchase_date: '08.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d34589')
+Nft.create(name: 'LavaRunner #222', price: 44, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/bsjdWnlDtFxoSeRVZ2OC2Msjkn5l1LDA1G26lRKiXig', rarity: 'Common', wallet: 3, collection: 8, purchase_date: '14.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49345')
+Nft.create(name: 'Blocksmith #900', price: 13, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibyio7mu3hrughzxdryz45prwhgt5s5l64qp5f6n67664quuo226m.ipfs.dweb.link/2400.png?ext=png', rarity: 'Rare', wallet: 3, collection: 12, purchase_date: '12.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d59071')
+Nft.create(name: 'Mous #3245', price: 6, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/G3dTlVEeUJHJ3ToTwzOqkA3EgAG3p5z3pFrfnkNGV7A?ext=png', rarity: 'Legendary', wallet: 3, collection: 11, purchase_date: '24.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d23308')
+Nft.create(name: 'Moonly #455', price: 3, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeigvliimk4m4yciqwebsrwbfmr4lsnlme7iphfbxezwstr67lzimpi.ipfs.dweb.link/3466.png?ext=png', rarity: 'Mythic', wallet: 3, collection: 10, purchase_date: '09.01.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d35678')
+Nft.create(name: 'Tripin Ape #2355', price: 4, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiblifubtp4rzgkxs4uklisn3en6yulhmrnm4zj7rmvtnql2nibfle.ipfs.dweb.link/1363.png?ext=png', rarity: 'Uncommon', wallet: 4, collection: 10, purchase_date: '16.01.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d77890')
+Nft.create(name: 'THS #344', price: 75, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/m0_NyfxvB-5WUlVZS5J3V9uDu7ayHnABgypmUvL-XK0', rarity: 'Epic', wallet: 4, collection: 14, purchase_date: '13.03.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d44356')
+Nft.create(name: 'Bohemia #55', price: 32, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/E-DgJY_vT76C7vwmFboXa0q0QF7JUygIlpaV0rraaDg?ext=png', rarity: 'Rare', wallet: 4, collection: 19, purchase_date: '04.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d88911')
+Nft.create(name: 'Smoke Head #666', price: 27, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet: 2, collection: 22, purchase_date: '31.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
+Nft.create(name: 'TSF #567', price: 19, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet: 4, collection: 21, purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')

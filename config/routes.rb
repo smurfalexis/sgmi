@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
-
+  get '/best_nfts', to: 'pages#best_nfts'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :wallets, only: [:show]
   resources :nfts, only: %i[index show]

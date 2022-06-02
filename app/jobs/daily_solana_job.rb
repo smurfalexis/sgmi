@@ -5,8 +5,10 @@ class DailySolanaJob < ApplicationJob
   require "net/http"
   require 'json'
   require 'date'
+
+
   def perform
-    url = URI("https://api.coingecko.com/api/v3/coins/solana/history?date=#{Date.today}")
+    url = URI("https://api.coingecko.com/api/v3/coins/solana/history?date=#{Date.today.strftime("%d-%m-%Y")}")
     http = Net::HTTP.new(url.hostname, url.port)
     request = Net::HTTP::Get.new(url)
     http.use_ssl = true
