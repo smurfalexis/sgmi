@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_093339) do
+ActiveRecord::Schema.define(version: 2022_06_02_104646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_093339) do
     t.integer "supply"
     t.integer "owner"
     t.string "image"
+    t.decimal "volume24"
   end
 
   create_table "nfts", force: :cascade do |t|

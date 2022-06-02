@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @performing_nfts = Nft.where(volume24: > 25).first(4)
     @user = current_user
     @data_keys = [
       'January 21',
