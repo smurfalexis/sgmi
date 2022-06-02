@@ -31,9 +31,9 @@ alex.save
 
 # Collections:
 # Gaming
-Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
+Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 140, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
 Collection.create(name: 'na Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
-Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 740, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
+Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 340, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
 Collection.create(name: 'DegenIslands', description: 'A cool nft collection.', symbol: "DI", supply: 10000, listings: 1035, floor_price: 20, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689)
 
 # Sports
@@ -68,7 +68,12 @@ Collection.create(name: 'Smoke Heads', description: 'A cool nft collection.', sy
 Collection.create(name: 'X-Vault', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0)
 
 # NFTs:
+Nft.create(name: 'Okay Bear', price: 17, image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet_id: '12345678', collection_id: '1', purchase_date: '12.04.2022')
+
 
 
 # Wallets:
-Wallet.create(wallet_key: '12345678', user_id: alex[:id] )
+Wallet.create(wallet_key: '12345678', user_id: alex[:id])
+Wallet.create(wallet_key: '23456789', user_id: mahmoud[:id])
+Wallet.create(wallet_key: '56789043', user_id: spiros[:id])
+Wallet.create(wallet_key: '23689045', user_id: raisa[:id])
