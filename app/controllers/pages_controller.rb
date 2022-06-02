@@ -15,6 +15,8 @@ class PagesController < ApplicationController
 
   def profile
     @highest_floor_price = highest_floor_price
+    @wallet = Wallet.where(user: current_user)
+    @nfts = Nft.where(wallet: @wallet)
     @user = current_user
     @data_keys = [
       'January 21',
@@ -63,14 +65,12 @@ end
   # Sort by desc highest profil in USD. Grab the top four.
 
 
-  # Highest floor price
-  # Check floor price of collections
-  # Grab the first two with the highest floor price
-
-
 
   # Add collections button --> promt user to search for collection with an allert
 
   # Grab all watchlist items related to the current user
 
   # Grab all NFTs related to current user from the wallet
+
+  # Grab all collections in a watchlist related to current user
+  # Make it possible to add collection from search result
