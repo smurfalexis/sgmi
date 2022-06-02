@@ -31,6 +31,8 @@ alex.save
 
 # Collections:
 # Gaming
+okay_bears = Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
+
 Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 140, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
 Collection.create(name: 'Solana Monkey Business', image: 'https://i.imgur.com/bMH6qNc.png', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
 Collection.create(name: 'DeGods', image: 'https://i.imgur.com/fO3tI1t.png', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 340, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
