@@ -46,14 +46,17 @@ class PagesController < ApplicationController
     @data_values = [100, 400, 175, 200, 50, 350, 600]
   end
 
-  def about; end
-end
+  def about
+  end
+
+
   # Best performing NFTs
   def best_nfts
     raise
     @nfts = Nft.all.order(:price).first(10)
 
   end
+  
   # The price in USD that you bought it for vs. what it's worth in USD right now.
   # Purchased price of NFT in Solana.
   # Purchased price of NFT in USD.
