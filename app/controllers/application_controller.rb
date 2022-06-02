@@ -20,7 +20,10 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 799fef3c2dab25179bedfed64007e1d53def3ef2
+=======
+>>>>>>> 73fb422226482b312c329e59ef3a2849761501b9
 end
