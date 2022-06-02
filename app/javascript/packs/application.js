@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import displayChart from "../channels/line_chart"
 import Chart from "chart.js/auto"
-import "bootstrap"
+
 
 
 Rails.start()
@@ -26,3 +26,4 @@ wallet.addEventListener("click", (event) => {
 
 
 import "controllers"
+import "bootstrap"

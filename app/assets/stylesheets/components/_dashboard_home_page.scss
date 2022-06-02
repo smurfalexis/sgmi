@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+  .dashboard-container {
+    background-color: #FFFFFF;
+    height: 492px;
+    width: 560px;
+    border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+  }
+    .dashboard-header {
+      position: absolute;
+      left: 12px;
+      top: 11.55%;
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 27px;
+      color: #8B8B8B;
+    }
+
+    .dashboard-wrapper {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+      .dashboard-wrapper-headers {
+        background-color: #F6F6F6;
+        position: absolute;
+        display: flex;
+        width: 536px;
+        height: 56px;
+        left: 12px;
+        top: 100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        align-items: center;
+
+        .p1 {
+          margin-left: 20px;
+          margin-right: 100px;
+        }
+
+        p {
+          margin: 0px;
+          margin-right: 40px;
+          font-size: 12px;
+        };
+
+
+      }
+
+      .dashboard {
+        border: 1px solid #F0F0F0;
+        position: absolute;
+        width: 536px;
+        height: 300px;
+        left: 12px;
+        top: 154px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+        .dashboard-item {
+          width: 100%;
+          height: 56px;
+          border-bottom: 1px solid #F0F0F0;
+          display: flex;
+          padding: 0px 20px;
+          align-items: center;
+          position: relative;
+        }
+
+        .dashboard-item-image-wrapper {
+          display: flex;
+            align-items: center;
+
+        }
+          .dashboard-item-image {
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+           }
+
+           .dashboard-item-image-p {
+            margin-left: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #8B8B8B;
+            font-weight: lighter;
+            font-size: 10px;
+
+          }
+
+          .item-p {
+            margin-left: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #8B8B8B;
+            font-weight: lighter;
+            font-size: 10px;
+            position: absolute;
+          }
+
+          .item-p1 {
+            left: 170px;
+          }
+
+          .item-p2 {
+            left: 251px;
+          }
+
+          .item-p3 {
+            right: 142px;
+          }
+
+          .item-p4 {
+            right: 55px;
+          }
+
+          .fa-solid {
+            position: absolute;
+            right: 20px;
+          }
