@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @performing_collections = Collection.where("volume24 > 25").first(3)
   end
 
+
   # def highest_floor_price
   #   nfts = []
   #   user_wallet = Wallet.where(user_id: current_user)
@@ -18,7 +19,6 @@ class PagesController < ApplicationController
   # end
 
   def profile
-    # highest_floor_price
     @user = current_user
     @data_keys = [
       'January 21',
@@ -49,13 +49,22 @@ class PagesController < ApplicationController
     @data_values = [100, 400, 175, 200, 50, 350, 600]
   end
 
-  def about; end
-end
   # Best performing NFTs
   def best_nfts
-    raise
-    @nfts = Nft.all.order(:price).first(10)
+    @nfts = Nft.all.order(:price).first(10) #price of the user
   end
+
+  def about
+
+  end
+
+  def nft_original_price
+    raise
+  end
+end
+
+
+
   # The price in USD that you bought it for vs. what it's worth in USD right now.
   # Purchased price of NFT in Solana.
   # Purchased price of NFT in USD.

@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Best Performing NFTs</h1>
+</div>
+
+<div class="container">
+  <div class="row mt-4 justify-content-center">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Collection</th>
+        </tr>
+      </thead>
+
+
+
+
+        <tbody>
+          <% @nfts.each do |nft| %>
+            <tr>
+              <td><%= nft.name %></td>
+              <td><%= nft.image %></td>
+              <td><%= nft.price %></td>
+              <td><%= nft.collection %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
