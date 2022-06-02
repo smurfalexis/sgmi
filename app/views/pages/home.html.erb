@@ -20,7 +20,7 @@
         <tbody>
           <% @popular_collections.each do |collection| %>
             <tr>
-              <td><%=image_tag "SGMI-LOGO.png", class: "rounded", width: "35"%><%=collection.name%></td>
+              <td><%=image_tag "#{collection.image}", class: "rounded", width: "35"%><%=collection.name%></td>
               <td><%=collection.supply %></td>
               <td><%=collection.listings %></td>
               <td><%=collection.floor_price %> SOL</td>
