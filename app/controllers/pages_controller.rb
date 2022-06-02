@@ -6,18 +6,18 @@ class PagesController < ApplicationController
     @upcoming_collections = Collection.where(volume: 0).first(3)
   end
 
-  def highest_floor_price
-    nfts = []
-    user_wallet = Wallet.where(user_id: current_user)
-    user_wallet.nfts.each do |nft|
-      nfts << nft
-    end
-    nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
-    raise
-  end
+  # def highest_floor_price
+  #   nfts = []
+  #   user_wallet = Wallet.where(user_id: current_user)
+  #   user_wallet.nfts.each do |nft|
+  #     nfts << nft
+  #   end
+  #   nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
+  #   raise
+  # end
 
   def profile
-    highest_floor_price
+    # highest_floor_price
     @user = current_user
     @data_keys = [
       'January 21',
@@ -54,7 +54,6 @@ end
   def best_nfts
     raise
     @nfts = Nft.all.order(:price).first(10)
-
   end
   # The price in USD that you bought it for vs. what it's worth in USD right now.
   # Purchased price of NFT in Solana.
