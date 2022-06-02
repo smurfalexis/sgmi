@@ -27,3 +27,4 @@ wallet.addEventListener("click", (event) => {
 
 
 import "controllers"
+import "bootstrap"
