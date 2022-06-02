@@ -93,10 +93,13 @@
   }
 }
 
-
-// My NFTs
-
-.my-nfts {
+.nft-container {
   display: flex;
   justify-content: center;
+}
+
+.wrapper-nfts {
+  width: 1140px;
+  display: flex;
+
 }
