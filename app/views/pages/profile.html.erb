@@ -15,6 +15,13 @@
 
     <div class="card-container">
       <h2 class="card-header-big">Best performing NFTs</h2>
+
+<!-- Iteration for the best performing NFTs -->
+      <% @best_performing_nfts.each do |nft| %>
+      <%= nft.name %>
+        <%= nft.collection.name %>
+        <%= nft.collection.floor_price %>
+      <% end %>
       <div class="wrapper-cards-btn">
         <div class="card-xs-small">
           <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-xs-small-image">
@@ -43,11 +50,14 @@
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
         <div class="big-image">
-          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
+          <img src=<%= @highest_floor_price[0].image %> alt="" class="card-lg-image">
+          <h2 class="h2-highest"> <%= @highest_floor_price[0].name %> </h2>
+          <p class="p-highest"> <%= @highest_floor_price[0].collection.name %> </p>
         </div>
         <div class="big-image">
-          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
-
+          <img src=<%= @highest_floor_price[1].image %> alt="" class="card-lg-image">
+          <h2 class="h2-highest"> <%= @highest_floor_price[1].name %> </h2>
+          <p class="p-highest"> <%= @highest_floor_price[1].collection.name %> </p>
         </div>
         <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
@@ -91,67 +101,25 @@
     <h1 class="profile-header">My NFTs</h1>
     <div class="nft-container">
       <div class="wrapper-nfts">
-        <div class="card-nft">
-          <div class="wrapper-nft-info">
-            <div class="nft-image-container">
-              <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="nft-image">
+        <% @nfts.each do |nft| %>
+          <div class="card-nft">
+            <div class="wrapper-nft-info">
+            <!-- Should be an if statement here later -->
+              <div class="nft-image-container">
+                <img src=<%= nft.image %> alt="" class="nft-image">
+              </div>
+              <h2 class="nft-name"><%= nft.name %></h2>
+              <h3 class="nft-collection"><%= nft.collection.name %></h3>
+              <div class="nft-data">
+                <p>Floor price: <%= nft.collection.floor_price %></p>
+                <p>Supply: <%= nft.collection.supply %></p>
+              </div>
+              <%= link_to "See more", profile_path, class: "btn-green-link"%>
             </div>
-            <h2 class="nft-name">NFT name</h2>
-            <h3 class="nft-collection">Collection name</h3>
-            <div class="nft-data">
-              <p>Floor price</p>
-              <p>Supply</p>
-            </div>
-            <%= link_to "See more", profile_path, class: "btn-green-link"%>
           </div>
-        </div>
-
-
-        <div class="card-nft">
-        </div>
-        <div class="card-nft">
-        </div>
-        <div class="card-nft">
-        </div>
+         <% end %>
       </div>
     </div>
   </div>
 
 </div>
-
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="chart-container" style="position: relative; height:10vh; width:30vw">   <%# we can just use width and height to make the chart smaller %>
-      <canvas id="myChart" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
-    </div>
-  </div>
-</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 73fb422226482b312c329e59ef3a2849761501b9
-
-<h1>"Here I am !"</h1>
-
-<div class="profile-container"  data-controller="profiles">
-   <div class="profile-menu">
-    <p> <%= link_to "My profile", profile_path %> </p>
-    <p data-action="click->profiles#index" data-profiles-class-param="my-requests"> My requests </p>
-    <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
-    <p> <%= link_to "Make a request", profile_path %> </p>
-    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
-  </div>
-
-  <div class="profile-content">
-  </div>
-</div>
-<<<<<<< HEAD
-=======
->>>>>>> 15c5f50f46e74d3a96c6c8874579fdbbd406fcb2
->>>>>>> 799fef3c2dab25179bedfed64007e1d53def3ef2
-=======
->>>>>>> 73fb422226482b312c329e59ef3a2849761501b9

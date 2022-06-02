@@ -96,10 +96,29 @@
 .nft-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .wrapper-nfts {
   width: 1140px;
   display: flex;
+  flex-wrap: wrap;
 
+}
+
+.h2-highest {
+  color: #FFFFFF;
+  font-size: 20px;
+  position: absolute;
+  left: 12px;
+  bottom: 20px;
+}
+
+.p-highest {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: lighter;
+  position: absolute;
+  left: 12px;
+  bottom: -6px;
 }

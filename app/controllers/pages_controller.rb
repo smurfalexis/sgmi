@@ -7,15 +7,47 @@ class PagesController < ApplicationController
     @performing_collections = Collection.where("volume24 > 25").first(3)
   end
 
-  def highest_floor_price
-    nfts = current_user.nfts
-    nfts.sort { |a, b| b.collection.floor_price <=> a.collection.floor_price }
-    # col = sorted_nfts.map { |nft| nft.collection.floor_price }
-  end
+
+  # def highest_floor_price
+  #   nfts = []
+  #   user_wallet = Wallet.where(user_id: current_user)
+  #   user_wallet.nfts.each do |nft|
+  #     nfts << nft
+  #   end
+  #   nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
+  #   raise
+  # end
 
   def profile
-    @highest_floor_price = highest_floor_price
-    raise
+
+    @wallet = Wallet.find_by(user: current_user)
+
+    # Grab all NFTs related to current user from the wallet
+    @nfts = @wallet.nfts
+
+    # Highest floor price
+    # Check floor price of collections
+    # Grab the first two with the highest floor price
+
+    @highest_floor_price_nfts = @nfts.sort_by { |nft| -nft.collection.floor_price}.first(2)
+
+    # Best performing NFTs
+    # highest floor price - original price
+
+    @array = []
+
+    @nfts.each do |nft|
+     delta = nft.collection.floor_price - nft.price
+     @array << {delta: delta, nft: nft}
+
+    end
+
+   @highest_delta = @array.sort_by { |element| -element[:delta] }.first(4)
+   @best_performing_nfts = @highest_delta.map { |element| element[:nft] }
+
+
+    @wallet = Wallet.where(user: current_user)
+    @nfts = Nft.where(wallet: @wallet)
     @user = current_user
     @data_keys = [
       'January 21',
@@ -61,20 +93,42 @@ class PagesController < ApplicationController
   # Purchased price of NFT in Solana.
   # Purchased price of NFT in USD.
 
-  # Floor price of NFT collection in Solana
-  # Floor price of NFT collection in USD
-
-  # Sort by desc highest profil in USD. Grab the top four.
 
 
-  # Highest floor price
-  # Check floor price of collections
-  # Grab the first two with the highest floor price
+    # Floor price of NFT collection in Solana
+    # Floor price of NFT collection in USD
 
 
 
-  # Add collections button --> promt user to search for collection with an allert
+    # Sort by desc highest profil in USD. Grab the top four.
 
-  # Grab all watchlist items related to the current user
+
+
+
+
+    # Add collections button --> promt user to search for collection with an allert
+
+
+    # Grab all watchlist items related to the current user
+
+
+
+
+
+  def best_nfts
+    @nfts = Nft.all.order(:price).first(10) #price of the user
+  end
+
+  def about
+
+  end
+
+end
+
+
+end
 
   # Grab all NFTs related to current user from the wallet
+
+  # Grab all collections in a watchlist related to current user
+  # Make it possible to add collection from search result
