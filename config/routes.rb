@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     resources :watchlists, only: [:create]
   end
 
-  resources :watchlists, only: [:show, :update, :destroy]
+  resources :watchlists, only: %i[show update destroy]
 
-  require "sidekiq/web"
+  resources :watchlist_items, only: %i[create]
+
+  require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end

@@ -10,6 +10,7 @@ import "channels"
 import displayChart from "../channels/line_chart"
 import Chart from "chart.js/auto"
 import "bootstrap"
+import "chartkick/chart.js"
 
 
 Rails.start()

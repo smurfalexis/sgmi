@@ -1,5 +1,5 @@
-require "uri"
-require "net/http"
+require 'uri'
+require 'net/http'
 require 'json'
 
 def sol_transfers(wallet_key)

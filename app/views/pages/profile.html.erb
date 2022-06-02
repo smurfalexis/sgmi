@@ -62,7 +62,9 @@
   <div class="my-watchlist">
     <div class="watchlist-container">
       <h2 class="watchlist-header">My watchlist</h2>
-      <%= link_to "Add collections", profile_path, class:"btn-green-big btn-watchlist" %>
+      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add Collections
+      </button>
       <div class="watchlist-wrapper">
         <div class="watchlist-headers">
           <p>Collection</p>
@@ -116,4 +118,49 @@
     </div>
   </div>
 
+</div>
+
+
+<%# <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  ...
+</div> %> 
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Collection Name</th>
+            <th scope="col">Supply</th>
+            <th scope="col">Listings</th>
+            <th scope="col">Floor Price</th>
+              <th scope="col">Total Volume</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @collections.each do |collection| %>
+            <tr>
+              <td><%=image_tag "#{collection.image}", class: "rounded", width: "35"%><%=collection.symbol%></td>
+              <td><%=collection.supply %></td>
+              <td><%=collection.listings %></td>
+              <td><%=collection.floor_price %> SOL</td>
+              <td><%=collection.volume %> SOL</td>
+              <td>
+               <button type="button" class="btn btn-primary">Add</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
 </div>
