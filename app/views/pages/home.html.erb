@@ -60,7 +60,10 @@
         <div class="card-body">
           <%= link_to "http://www.google.com", :class => "btn btn-small"  do %>
             Most Popular today:
+            <% @performing_collections.each do |collection| %>
             <% image_tag "SGMI-LOGO.png", class: "img-thumbnail"%>
+            <h3 class="card-title"><%=collection.name%></h3>
+            <% end %>
           <% end %>
         </div>
       </div>
