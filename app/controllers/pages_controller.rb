@@ -8,17 +8,14 @@ class PagesController < ApplicationController
   end
 
   def highest_floor_price
-    nfts = []
-    user_wallet = Wallet.where(user_id: current_user)
-    user_wallet.nfts.each do |nft|
-      nfts << nft
-    end
-    nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
-    raise
+    nfts = current_user.nfts
+    nfts.sort { |a, b| b.collection.floor_price <=> a.collection.floor_price }
+    # col = sorted_nfts.map { |nft| nft.collection.floor_price }
   end
 
   def profile
-    highest_floor_price
+    @highest_floor_price = highest_floor_price
+    raise
     @user = current_user
     @data_keys = [
       'January 21',
