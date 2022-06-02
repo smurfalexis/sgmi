@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_104646) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
-    t.decimal "floor_price", precision: 10, scale: 2
+    t.float "floor_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2022_06_02_104646) do
     t.string "discord"
     t.string "twitter"
     t.string "website"
-    t.decimal "volume", precision: 10, scale: 2
+    t.float "volume"
     t.integer "listings"
     t.integer "supply"
     t.integer "owner"
     t.string "image"
-    t.decimal "volume24"
+    t.float "volume24"
   end
 
   create_table "nfts", force: :cascade do |t|
