@@ -39,14 +39,24 @@
     <div class="card-container2">
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
+        <div class="big-image">
+          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
+        </div>
+        <div class="big-image">
+          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
+
+        </div>
+        <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
     </div>
 
   </div>
 
   <div class="my-watchlist">
-    <div class="watchlist-container"></div>
-  </div>
+    <div class="watchlist-container">
+      <h2 class="watchlist-header">My watchlist</h2>
+    </div>
+    </div>
 </div>
 
 
@@ -55,20 +65,5 @@
     <div class="chart-container" style="position: relative; height:10vh; width:30vw">   <%# we can just use width and height to make the chart smaller %>
       <canvas id="myChart" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
     </div>
-  </div>
-</div>
-
-<h1>"Here I am !"</h1>
-
-<div class="profile-container"  data-controller="profiles">
-   <div class="profile-menu">
-    <p> <%= link_to "My profile", profile_path %> </p>
-    <p data-action="click->profiles#index" data-profiles-class-param="my-requests"> My requests </p>
-    <p data-action="click->profiles#index" data-profiles-class-param="my-offers"> My offers </p>
-    <p> <%= link_to "Make a request", new_request_path %> </p>
-    <p> <%= link_to "Update profile", edit_user_registration_path(current_user) %> </p>
-  </div>
-
-  <div class="profile-content">
   </div>
 </div>
