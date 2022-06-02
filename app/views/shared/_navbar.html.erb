@@ -3,7 +3,7 @@
   <div class="navbar">
       <div class="container">
         <div class="navbar-content">
-            <p class="logo">SGMI</p>
+            <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
             <div class="search-bar">
               <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
                 <div class="search-bar-form">
