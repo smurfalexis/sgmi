@@ -21,7 +21,7 @@
 
     .dashboard-header {
       position: absolute;
-      left: 11.25%;
+      left: 12px;
       top: 11.55%;
 
       font-family: 'Nunito Sans', sans-serif;
@@ -43,45 +43,63 @@
         position: absolute;
         width: 536px;
         height: 56px;
-        left: 162px;
-        top: 371px;
+        left: 12px;
+        top: 100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        align-items: center;
+
+        p {
+          margin: 0px;
+          margin-left: 52px;
+          padding: 19px 0px;
+        };
+      }
+
+      .dashboard {
+        border: 1px solid #F0F0F0;
+        position: absolute;
+        width: 536px;
+        height: 246px;
+        left: 12px;
+        top: 154px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
       }
     }
   }
 }
 
 
-
-
-
-
-
-
-
-.best-performing {
-  background-color: #FFFFFF;
-  height: 492px;
-  width: 270px;
-  border-radius: 10px;
-}
-
+// Highest floor price
 .highest-floor-price {
   background-color: #FFFFFF;
   height: 492px;
   width: 270px;
   border-radius: 10px;
   margin-left: 20px;
+  position: relative;
+
+  .highest-header {
+    position: absolute;
+    left: 11.25%;
+    top: 11.55%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+    color: #8B8B8B;
+  }
 }
 
-.my-watchlist {
+.nft-container {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
-.watchlist-container {
-  background-color: #FFFFFF;
-  height: 492px;
+.wrapper-nfts {
   width: 1140px;
-  border-radius: 20px;
+  display: flex;
+
 }

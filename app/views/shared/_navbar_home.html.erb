@@ -1,9 +1,12 @@
-<% if !current_page?('/') %>
-  <header>
+ <% if current_page?('/') %>
+ <header>
   <div class="navbar">
       <div class="container">
         <div class="navbar-content">
             <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
+            <%= link_to "About Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
             <div class="search-bar">
               <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
                 <div class="search-bar-form">
@@ -12,10 +15,9 @@
                 </div>
               <% end %>
             </div>
-            <%= link_to "Connect wallet", profile_path, class:"connect"%>
+            <%= link_to "Connect wallet", profile_path, class:"connect" %>
         </div>
       </div>
   </div>
 </header>
-
 <% end %>
