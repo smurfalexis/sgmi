@@ -6,7 +6,18 @@ class PagesController < ApplicationController
     @upcoming_collections = Collection.where(volume: 0).first(3)
   end
 
+  def highest_floor_price
+    nfts = []
+    user_wallet = Wallet.where(user_id: current_user)
+    user_wallet.nfts.each do |nft|
+      nfts << nft
+    end
+    nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
+    raise
+  end
+
   def profile
+    highest_floor_price
     @user = current_user
     @data_keys = [
       'January 21',
@@ -37,6 +48,8 @@ class PagesController < ApplicationController
     @data_values = [100, 400, 175, 200, 50, 350, 600]
   end
 
+  def about; end
+end
   # Best performing NFTs
   # The price in USD that you bought it for vs. what it's worth in USD right now.
   # Purchased price of NFT in Solana.
@@ -59,6 +72,3 @@ class PagesController < ApplicationController
   # Grab all watchlist items related to the current user
 
   # Grab all NFTs related to current user from the wallet
-
-  def about; end
-end

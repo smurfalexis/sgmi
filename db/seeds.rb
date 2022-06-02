@@ -8,6 +8,12 @@
 
 require 'csv'
 
+SolanaTimestamp.destroy_all
+Nft.destroy_all
+Collection.destroy_all
+Wallet.destroy_all
+User.destroy_all
+
 csv_solana = File.read(Rails.root.join('db/solana_prices.csv'))
 solana_history = CSV.parse(csv_solana, headers: true, encoding: 'ISO-8859-1')
 
@@ -27,6 +33,7 @@ spiros.save
 mahmoud.save
 raisa.save
 alex.save
+
 
 
 # Collections:
@@ -69,33 +76,32 @@ Collection.create(name: 'Stoned Frogs', description: 'A cool nft collection.', s
 Collection.create(name: 'Smoke Heads', description: 'A cool nft collection.', symbol: "SH", supply: 6767, listings: 569, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 3256)
 Collection.create(name: 'X-Vault', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0)
 
+# Wallets:
+Wallet.create(wallet_key: '12345678', user: alex)
+Wallet.create(wallet_key: '23456789', user: mahmoud)
+Wallet.create(wallet_key: '56789043', user: spiros)
+Wallet.create(wallet_key: '23689045', user: raisa)
+
+
 # NFTs:
 Nft.create(mint_address: 'G4TU9HU6GjJdmBQzE2UYiraDC6JVVTAFEMSyT1cqrqZm', name: 'Okay Bear #9989',
   price: 40, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
 
 Nft.create(mint_address: '8sPRUXUbNYqPGvfsrQJBJuA6CfGo3925Rhr6pa5XfB6r', name: 'Okay Bear #9972 ',
   price: 100, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
-  rarity: 'rare', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+  rarity: 'rare', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
 
 Nft.create(mint_address: '6PKU5dbY3c9eDnXkkwutM8Cm9DmiA1vMTnG891mn4aai', name: 'Okay Bear #9999',
   price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png',
-  rarity: 'rare', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+  rarity: 'rare', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
 
 Nft.create(mint_address: '4WD3rMDkMomGxNmLg4PRwd44eQKydDKsH7TA9YPeGRpQ', name: 'Okay Bear #9997',
   price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9996.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
 
 Nft.create(mint_address: 'BKY3nztnk29ugvyMXtFyXVDvUp4uenUt9oBC6bMq97yA', name: 'Okay Bear #10000',
   price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9999.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
 
-  Nft.create(name: 'Okay Bear', price: 17, image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet_id: '12345678', collection_id: '1', purchase_date: '12.04.2022')
-
-
-
-# Wallets:
-Wallet.create(wallet_key: '12345678', user_id: alex[:id])
-Wallet.create(wallet_key: '23456789', user_id: mahmoud[:id])
-Wallet.create(wallet_key: '56789043', user_id: spiros[:id])
-Wallet.create(wallet_key: '23689045', user_id: raisa[:id])
+  Nft.create(name: 'Okay Bear', price: 17, image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet: '12345678', collection_id: '1', purchase_date: '12.04.2022')
