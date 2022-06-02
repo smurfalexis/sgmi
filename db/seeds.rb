@@ -31,7 +31,7 @@ alex.save
 
 
 # Gaming
-Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 124553232)
+# Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 124553232)
 Collection.create(name: 'na Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
 Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 740, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
 Collection.create(name: 'DegenIslands', description: 'A cool nft collection.', symbol: "DI", supply: 10000, listings: 1035, floor_price: 20, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689)
