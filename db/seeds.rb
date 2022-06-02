@@ -31,7 +31,7 @@ alex.save
 
 # Collections:
 # Gaming
-Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
+okay_bears = Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
 Collection.create(name: 'na Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
 Collection.create(name: 'DeGods', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 740, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
 Collection.create(name: 'DegenIslands', description: 'A cool nft collection.', symbol: "DI", supply: 10000, listings: 1035, floor_price: 20, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689)
@@ -68,7 +68,23 @@ Collection.create(name: 'Smoke Heads', description: 'A cool nft collection.', sy
 Collection.create(name: 'X-Vault', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0)
 
 # NFTs:
+Nft.create(mint_address: 'G4TU9HU6GjJdmBQzE2UYiraDC6JVVTAFEMSyT1cqrqZm', name: 'Okay Bear #9989',
+  price: 40, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
+  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+
+Nft.create(mint_address: '8sPRUXUbNYqPGvfsrQJBJuA6CfGo3925Rhr6pa5XfB6r', name: 'Okay Bear #9972 ',
+  price: 100, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
+  rarity: 'rare', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
 
 
-# Wallets:
-Wallet.create(wallet_key: '12345678', user_id: alex[:id] )
+Nft.create(mint_address: '6PKU5dbY3c9eDnXkkwutM8Cm9DmiA1vMTnG891mn4aai', name: 'Okay Bear #9999',
+  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png',
+  rarity: 'rare', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+
+Nft.create(mint_address: '4WD3rMDkMomGxNmLg4PRwd44eQKydDKsH7TA9YPeGRpQ', name: 'Okay Bear #9997',
+  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9996.png?ext=png',
+  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
+
+Nft.create(mint_address: 'BKY3nztnk29ugvyMXtFyXVDvUp4uenUt9oBC6bMq97yA', name: 'Okay Bear #10000',
+  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9999.png?ext=png',
+  rarity: 'uncommon', purchase_date: Date.today, wallet_id: '12345678', collection_id: okay_bears)
