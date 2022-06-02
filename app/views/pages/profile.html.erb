@@ -24,8 +24,11 @@
               <p class="nft-name">NFT name</p>
             </div>
             <div class="card-xs-small-content-info">
-              <p class="collection-floor-price">Floor price</p>
-              <p class="collection-supply">Supply</p>
+              <div>
+                <p class="collection-floor-price">Purchased price</p>
+                <p class="collection-floor-price">USD</p>
+              </div>
+              <p class="collection-supply">Rarity</p>
             </div>
           </div>
         </div>
@@ -39,14 +42,81 @@
     <div class="card-container2">
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
+        <div class="big-image">
+          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
+        </div>
+        <div class="big-image">
+          <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-lg-image">
+
+        </div>
+        <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
     </div>
 
   </div>
 
   <div class="my-watchlist">
-    <div class="watchlist-container"></div>
+    <div class="watchlist-container">
+      <h2 class="watchlist-header">My watchlist</h2>
+      <%= link_to "Add collections", profile_path, class:"btn-green-big btn-watchlist" %>
+      <div class="watchlist-wrapper">
+        <div class="watchlist-headers">
+          <p>Collection</p>
+          <p>Supply</p>
+          <p>Floor price</p>
+          <p>Volume</p>
+          <p>Owners</p>
+        </div>
+
+        <div class="watchlist">
+          <div class="watchlist-item">
+            <div class="watchlist-image-collection">
+              <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="watchlist-item-image">
+              <p class="watchlist-p">Collection</p>
+            </div>
+            <p class="watchlist-p supply-p">Supply</p>
+            <p class="watchlist-p floor-p">Floor price</p>
+            <p class="watchlist-p volume-p">Volume</p>
+            <p class="watchlist-p owners-p">Owners</p>
+            <p class="watchlist-p remove-p">Remove</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+<!-- -->
+  <div class="my-nfts">
+    <h1 class="profile-header">My NFTs</h1>
+    <div class="nft-container">
+      <div class="wrapper-nfts">
+        <div class="card-nft">
+          <div class="wrapper-nft-info">
+            <div class="nft-image-container">
+              <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="nft-image">
+            </div>
+            <h2 class="nft-name">NFT name</h2>
+            <h3 class="nft-collection">Collection name</h3>
+            <div class="nft-data">
+              <p>Floor price</p>
+              <p>Supply</p>
+            </div>
+            <%= link_to "See more", profile_path, class: "btn-green-link"%>
+          </div>
+        </div>
+
+
+        <div class="card-nft">
+        </div>
+        <div class="card-nft">
+        </div>
+        <div class="card-nft">
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -57,6 +127,7 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 
 <h1>"Here I am !"</h1>
 
@@ -72,3 +143,5 @@
   <div class="profile-content">
   </div>
 </div>
+=======
+>>>>>>> 15c5f50f46e74d3a96c6c8874579fdbbd406fcb2

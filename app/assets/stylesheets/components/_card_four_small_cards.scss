@@ -10,7 +10,7 @@
 
   .card-header-big {
     position: absolute;
-    left: 11.25%;
+    left: 12px;
     top: 11.55%;
     font-family: 'Nunito Sans', sans-serif;
     font-style: normal;
@@ -27,6 +27,8 @@
     flex-direction: column;
     position: absolute;
     top: 100px;
+    justify-content: center;
+    align-items: center;
 
     .card-xs-small {
       width: 270px;

@@ -1,0 +1,56 @@
+.card-nft {
+  background-color: #FFFFFF;
+  height: 424px;
+  width: 270px;
+  border-radius: 10px;
+  position: relative;
+  margin: 0px 7px;
+}
+
+.nft-image-container {
+  height: 492px;
+  width: 270px;
+  border-radius: 10px;
+}
+
+.nft-image {
+  height: 245px;
+  width: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.wrapper-nft-info {
+  height: 392px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 10px;
+}
+
+.nft-name {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+  color: #353535;
+}
+
+.nft-collection {
+  font-weight: lighter;
+  color: #8B8B8B;
+  font-size: 16px;
+}
+
+.nft-data {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    color: #8B8B8B;
+    font-weight: lighter;
+    font-size: 12px;
+  }
+}
