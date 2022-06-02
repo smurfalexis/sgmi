@@ -38,4 +38,4 @@ def connect_wallet(wallet_key)
   end
 end
 
-connect_wallet()
+connect_wallet
