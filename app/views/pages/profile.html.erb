@@ -20,8 +20,9 @@
           <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="card-xs-small-image">
           <div class="card-xs-small-content">
             <div class="card-xs-small-content-headers">
-              <p class="collection-name">Collection name</p>
-              <p class="nft-name">NFT name</p>
+            <% @performing_nfts.each do |nft| %>
+              <p class="collection-name"><%= nft.collection.name %></p>
+              <p class="nft-name"><%= nft.name %></p>
             </div>
             <div class="card-xs-small-content-info">
               <div>

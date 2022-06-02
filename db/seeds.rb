@@ -34,77 +34,52 @@ mahmoud.save
 raisa.save
 alex.save
 
+# Wallets:
+Wallet.create(wallet_key: '12345678', user_id: alex)
+Wallet.create(wallet_key: '23456789', user_id: mahmoud)
+Wallet.create(wallet_key: '56789043', user_id: spiros)
+Wallet.create(wallet_key: '23689045', user_id: raisa)
 
 
 # Collections:
 # Gaming
-okay_bears = Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
-
-Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 140, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
-Collection.create(name: 'Solana Monkey Business', image: 'https://i.imgur.com/bMH6qNc.png', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
-Collection.create(name: 'DeGods', image: 'https://i.imgur.com/fO3tI1t.png', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 340, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 )
-Collection.create(name: 'CETS ON CRECK', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/cats_on_crack_pfp_1644850873089.png', description: 'A cool nft collection.', symbol: "COC", supply: 10000, listings: 1035, floor_price: 20, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689)
+Collection.create(name: 'Okay Bears', image: 'https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 140, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532, volume24: 20)
+Collection.create(name: 'Solana Monkey Business', image: 'https://i.imgur.com/bMH6qNc.png', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234, volume24: 25)
+Collection.create(name: 'DeGods', image: 'https://i.imgur.com/fO3tI1t.png', description: 'A cool nft collection.', symbol: "DG", supply: 8888, listings: 200, floor_price: 340, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 4353456 , volume24: 2)
+Collection.create(name: 'CETS ON CRECK', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/cats_on_crack_pfp_1644850873089.png', description: 'A cool nft collection.', symbol: "COC", supply: 10000, listings: 1035, floor_price: 20, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 468689, volume24: 1)
 
 # Sports
-Collection.create(name: 'STEPN', image: 'https://dl.airtable.com/.attachmentThumbnails/d5c12b4eb46e676d72569a2084345c94/6ef0628f', description: 'A cool nft collection.', symbol: "STPN", supply: 4444, listings: 227, floor_price: 5, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 213412)
-Collection.create(name: 'Cardboard Citizens', image: 'https://bafybeigmadq45sivgqhmzfgckf6leravmnflv7ybrdycpdzmknux5hw444.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'CC', supply: 3333, listings: 614, floor_price: 17, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 1234 )
-Collection.create(name: 'Creamy Friends', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/creamy_friends_pfp_1650234862751.png', description: 'A cool nft collection.', symbol: "CF", supply: 6666, listings: 129, floor_price: 2.8, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 354363 )
-Collection.create(name: 'LavaRunners', image: 'https://dl.airtable.com/.attachmentThumbnails/ed78d34f38a945fe5ec6d4f2cf7c122f/07ae15aa', description: 'A cool nft collection.', symbol: "LRUN", supply: 7777, listings: 657, floor_price: 4.4, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 4235 )
+Collection.create(name: 'STEPN', image: 'https://dl.airtable.com/.attachmentThumbnails/d5c12b4eb46e676d72569a2084345c94/6ef0628f', description: 'A cool nft collection.', symbol: "STPN", supply: 4444, listings: 227, floor_price: 5, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 213412, volume24: 30)
+Collection.create(name: 'Cardboard Citizens', image: 'https://bafybeigmadq45sivgqhmzfgckf6leravmnflv7ybrdycpdzmknux5hw444.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'CC', supply: 3333, listings: 614, floor_price: 17, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 1234 , volume24: 50)
+Collection.create(name: 'Creamy Friends', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/creamy_friends_pfp_1650234862751.png', description: 'A cool nft collection.', symbol: "CF", supply: 6666, listings: 129, floor_price: 2.8, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 354363 , volume24: 19)
+Collection.create(name: 'LavaRunners', image: 'https://dl.airtable.com/.attachmentThumbnails/ed78d34f38a945fe5ec6d4f2cf7c122f/07ae15aa', description: 'A cool nft collection.', symbol: "LRUN", supply: 7777, listings: 657, floor_price: 4.4, category: 'Sports', website: '#', twitter: '#', discord: '#', volume: 4235 , volume24: 20)
 
 # Metaverse
-Collection.create(name: 'Aurory', image: 'https://arweave.net/XnmNKTJOthZ1PcqSspYLPTjFHGJRCe-lGrapzNM0VVQ', description: 'A cool nft collection.', symbol: "ARY", supply: 5555, listings: 543, floor_price: 54, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 675857)
-Collection.create(name: 'Moonly', image: 'https://bafybeiek4gm4d5zsbgpaqjfd6xo5rfasdituixl4j4mx4b2yqqpvr2v3fu.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'MNLY', supply: 4422, listings: 672, floor_price: 68, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 5685)
-Collection.create(name: 'Mous in da hous', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/midh_pfp_1650739885263.png', description: 'A cool nft collection.', symbol: "MIDH", supply: 3366, listings: 3097, floor_price: 1.5, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 2790787)
-Collection.create(name: 'Blocksmith Labs', image: 'https://dl.airtable.com/.attachmentThumbnails/b1aabaad68ef1a7512de6a0ddd15f38d/47c53a89', description: 'A cool nft collection.', symbol: "BL", supply: 9999, listings: 230, floor_price: 20, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 13453464 )
-
+Collection.create(name: 'Aurory', image: 'https://arweave.net/XnmNKTJOthZ1PcqSspYLPTjFHGJRCe-lGrapzNM0VVQ', description: 'A cool nft collection.', symbol: "ARY", supply: 5555, listings: 543, floor_price: 54, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 675857, volume24: 22)
+Collection.create(name: 'Moonly', image: 'https://bafybeiek4gm4d5zsbgpaqjfd6xo5rfasdituixl4j4mx4b2yqqpvr2v3fu.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'MNLY', supply: 4422, listings: 672, floor_price: 68, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 5685, volume24: 23)
+Collection.create(name: 'Mous in da hous', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/midh_pfp_1650739885263.png', description: 'A cool nft collection.', symbol: "MIDH", supply: 3366, listings: 3097, floor_price: 1.5, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 2790787, volume24: 21)
+Collection.create(name: 'Blocksmith Labs', image: 'https://dl.airtable.com/.attachmentThumbnails/b1aabaad68ef1a7512de6a0ddd15f38d/47c53a89', description: 'A cool nft collection.', symbol: "BL", supply: 9999, listings: 230, floor_price: 20, category: 'Metaverse', website: '#', twitter: '#', discord: '#', volume: 13453464 , volume24: 20)
 
 # Music
-Collection.create(name: 'Trippin Ape Tribe', image: 'https://i.imgur.com/iFgvQva.png', description: 'A cool nft collection.', symbol: "TAT", supply: 11111, listings: 1003, floor_price: 18, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 623456)
-Collection.create(name: 'Gemmy', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/gemmy_pfp_1651420536407.png', description: 'A cool nft collection.', symbol: 'GMY', supply: 10000, listings: 816, floor_price: 9.3, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 23455)
-Collection.create(name: 'Tombstoned High Society', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/tombstoned_pfp_1645169267186.gif', description: 'A cool nft collection.', symbol: "THS", supply: 10000, listings: 78, floor_price: 20.7, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 45478)
-Collection.create(name: 'Jelly Rascals', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/rascals_pfp_1653133332626.png', description: 'A cool nft collection.', symbol: "JR", supply: 8585, listings: 0, floor_price: nil, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 0)
+Collection.create(name: 'Trippin Ape Tribe', image: 'https://i.imgur.com/iFgvQva.png', description: 'A cool nft collection.', symbol: "TAT", supply: 11111, listings: 1003, floor_price: 18, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 623456, volume24: 20)
+Collection.create(name: 'Gemmy', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/gemmy_pfp_1651420536407.png', description: 'A cool nft collection.', symbol: 'GMY', supply: 10000, listings: 816, floor_price: 9.3, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 23455, volume24: 15)
+Collection.create(name: 'Tombstoned High Society', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/tombstoned_pfp_1645169267186.gif', description: 'A cool nft collection.', symbol: "THS", supply: 10000, listings: 78, floor_price: 20.7, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 45478, volume24: 26)
+Collection.create(name: 'Jelly Rascals', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/rascals_pfp_1653133332626.png', description: 'A cool nft collection.', symbol: "JR", supply: 8585, listings: 0, floor_price: nil, category: 'Music', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 
 # Art
-Collection.create(name: 'Bot Head', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bothead_pfp_1650926539002.gif', description: 'A cool nft collection.', symbol: "BH", supply: 2222, listings: 200, floor_price: 12, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 2458 )
-Collection.create(name: 'OG Atadians', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/atadians_pfp_1646721263627.gif', description: 'A cool nft collection.', symbol: 'OGA', supply: 7575, listings: 488, floor_price: 6.5, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 84645)
-Collection.create(name: 'Smart Sea Society', image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "SSS", supply: 6969, listings: 398, floor_price: 90, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 98764)
-Collection.create(name: 'Bohemia', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bohemia_pfp_1645251493690.gif', description: 'A cool nft collection.', symbol: "BHM", supply: 4646, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0)
+Collection.create(name: 'Bot Head', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bothead_pfp_1650926539002.gif', description: 'A cool nft collection.', symbol: "BH", supply: 2222, listings: 200, floor_price: 12, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 2458 , volume24: 3)
+Collection.create(name: 'OG Atadians', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/atadians_pfp_1646721263627.gif', description: 'A cool nft collection.', symbol: 'OGA', supply: 7575, listings: 488, floor_price: 6.5, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 84645, volume24: 5)
+Collection.create(name: 'Smart Sea Society', image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "SSS", supply: 6969, listings: 398, floor_price: 90, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 98764, volume24: 20)
+Collection.create(name: 'Bohemia', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bohemia_pfp_1645251493690.gif', description: 'A cool nft collection.', symbol: "BHM", supply: 4646, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 
 # Utility
-Collection.create(name: 'Famous Fox Federation', image: 'https://bafybeiglipep6klutky4atw7jhf7lknpgzbfqlmqmamqh5s6lwih6uopma.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "FFF", supply: 4545, listings: 422,floor_price: 125, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 123467)
-Collection.create(name: 'The Stoned Frogs', image: 'https://bafybeig36sok3pfoxsms6x6wfaizt6m2qtqmmxpun4au3kvdypz6pxqdem.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "TSF", supply: 8787, listings: 521, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 323456)
-Collection.create(name: 'Smoke Heads', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/smokeheads_pfp_1652898735936.png', description: 'A cool nft collection.', symbol: "SH", supply: 6767, listings: 569, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 3256)
-Collection.create(name: 'The X-Vault DAO', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/the_vaultx_dao_pfp_1650030637531.gif', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0)
-
-# Wallets:
-Wallet.create(wallet_key: '12345678', user: alex)
-Wallet.create(wallet_key: '23456789', user: mahmoud)
-Wallet.create(wallet_key: '56789043', user: spiros)
-Wallet.create(wallet_key: '23689045', user: raisa)
-
+Collection.create(name: 'Famous Fox Federation', image: 'https://bafybeiglipep6klutky4atw7jhf7lknpgzbfqlmqmamqh5s6lwih6uopma.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "FFF", supply: 4545, listings: 422,floor_price: 125, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 123467, volume24: 4)
+Collection.create(name: 'The Stoned Frogs', image: 'https://bafybeig36sok3pfoxsms6x6wfaizt6m2qtqmmxpun4au3kvdypz6pxqdem.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: "TSF", supply: 8787, listings: 521, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 323456, volume24: 17)
+Collection.create(name: 'Smoke Heads', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/smokeheads_pfp_1652898735936.png', description: 'A cool nft collection.', symbol: "SH", supply: 6767, listings: 569, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 3256, volume24: 10)
+Collection.create(name: 'The X-Vault DAO', image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/the_vaultx_dao_pfp_1650030637531.gif', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 
 # NFTs:
-Nft.create(mint_address: 'G4TU9HU6GjJdmBQzE2UYiraDC6JVVTAFEMSyT1cqrqZm', name: 'Okay Bear #9989',
-  price: 40, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
-
-Nft.create(mint_address: '8sPRUXUbNYqPGvfsrQJBJuA6CfGo3925Rhr6pa5XfB6r', name: 'Okay Bear #9972 ',
-  price: 100, image: 'https://bafybeidihp4ez5lw4sqqxu4kwcvhjc2qhm2szz7kkayyee425oamdfzrkm.ipfs.nftstorage.link/9988.png?ext=png',
-  rarity: 'rare', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
-
-Nft.create(mint_address: '6PKU5dbY3c9eDnXkkwutM8Cm9DmiA1vMTnG891mn4aai', name: 'Okay Bear #9999',
-  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png',
-  rarity: 'rare', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
-
-Nft.create(mint_address: '4WD3rMDkMomGxNmLg4PRwd44eQKydDKsH7TA9YPeGRpQ', name: 'Okay Bear #9997',
-  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9996.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
-
-Nft.create(mint_address: 'BKY3nztnk29ugvyMXtFyXVDvUp4uenUt9oBC6bMq97yA', name: 'Okay Bear #10000',
-  price: 80, image: 'https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9999.png?ext=png',
-  rarity: 'uncommon', purchase_date: Date.today, wallet: Wallet.first, collection: okay_bears)
-
-
+Nft.create(name: 'Okay Bear #2345', price: 17, image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet_id: '12345678', collection_id: '1', purchase_date: '12.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49371')
 Nft.create(name: 'DeGod #88', price: 28, image: 'https://metadata.degods.com/g/2209.png', rarity: 'Mythic', wallet: '12345678', collection: '3', purchase_date: '15.03.2022', mint_address: 'xsfsndjfgagdfcdfdgfdgk87hecs4')
 Nft.create(name: 'STEPN #3332', price: 1, image: 'https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/https://arweave.net/BToZC2BgKOGNiZd1t15j9ZaHNMku8PYtw-3Y0I71UjI', rarity: 'Common', wallet: 2, collection: 5, purchase_date: '10.12.2021', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d95678')
 Nft.create(name: 'Cardboard Citizen #457', price: 2, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeidvsm7s3gccpnjsq6vmxzfegrxf67dk34ezgq45nc5wjej32v7wky.ipfs.dweb.link/2085.png', rarity: 'Epic', wallet: 2, collection: 6, purchase_date: '01.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d12356')
@@ -118,4 +93,3 @@ Nft.create(name: 'THS #344', price: 75, image: 'https://img-cdn.magiceden.dev/rs
 Nft.create(name: 'Bohemia #55', price: 32, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://arweave.net/E-DgJY_vT76C7vwmFboXa0q0QF7JUygIlpaV0rraaDg?ext=png', rarity: 'Rare', wallet: 4, collection: 19, purchase_date: '04.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d88911')
 Nft.create(name: 'Smoke Head #666', price: 27, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet: 2, collection: 22, purchase_date: '31.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
 Nft.create(name: 'TSF #567', price: 19, image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet: 4, collection: 21, purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')
-
