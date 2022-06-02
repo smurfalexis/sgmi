@@ -52,6 +52,16 @@ class PagesController < ApplicationController
   # Best performing NFTs
   def best_nfts
     @nfts = Nft.all.order(:price).first(10) #price of the user
+
+
+    Nft.collection(:floor_price)
+
+    #5 nfts for 10 Sol ->
+    # Nft nr. 1 after one month. Floor_price of the collection = 20 Sol
+    # Nft nr. 2 after one month. Floor_price of the collection = 15 Sol
+    # Nft nr. 3 after one month. Floor_price of the collection = 10 Sol
+    # Nft nr. 4 after one month. Floor_price of the collection = 5 Sol
+    # Nft nr. 5 after one month. Floor_price of the collection = 2 Sol
   end
 
   def about
@@ -76,6 +86,9 @@ end
 
 
   # Highest floor price
+def highest_floor_price
+  @floor_price = Collection.all()
+end
   # Check floor price of collections
   # Grab the first two with the highest floor price
 
