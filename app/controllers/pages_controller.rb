@@ -41,6 +41,7 @@ class PagesController < ApplicationController
   def best_nfts
     raise
     @nfts = Nft.all.order(:price).first(10)
+
   end
   # The price in USD that you bought it for vs. what it's worth in USD right now.
   # Purchased price of NFT in Solana.
