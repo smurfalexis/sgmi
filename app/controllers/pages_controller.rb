@@ -19,49 +19,18 @@ class PagesController < ApplicationController
   # end
 
   def profile
-    @user = current_user
-    @data_keys = [
-      'January 21',
-      'February 21',
-      'March 21',
-      'April 21',
-      'May 21',
-      'June 21',
-      'July 21',
-      'August 21',
-      'September 21',
-      'October 21',
-      'November 21',
-      'December 21',
-      'January 22',
-      'February 22',
-      'March 22',
-      'April 22',
-      'May 22',
-      'June 22',
-      'July 22',
-      'August 22',
-      'September 22',
-      'October 22',
-      'November 22',
-      'December 22'
-    ]
-    @data_values = [100, 400, 175, 200, 50, 350, 600]
+
+    @wallet = Wallet.find_by(user: current_user)
+
+    @nfts = @wallet.nfts
+
+    @highest_floor_price_nfts = @nfts.sort_by { |nft| nft.collection.floor_price }
+    raise
   end
 
   # Best performing NFTs
   def best_nfts
     @nfts = Nft.all.order(:price).first(10) #price of the user
-
-
-    Nft.collection(:floor_price)
-
-    #5 nfts for 10 Sol ->
-    # Nft nr. 1 after one month. Floor_price of the collection = 20 Sol
-    # Nft nr. 2 after one month. Floor_price of the collection = 15 Sol
-    # Nft nr. 3 after one month. Floor_price of the collection = 10 Sol
-    # Nft nr. 4 after one month. Floor_price of the collection = 5 Sol
-    # Nft nr. 5 after one month. Floor_price of the collection = 2 Sol
   end
 
   def about
@@ -71,6 +40,13 @@ class PagesController < ApplicationController
   def nft_original_price
     raise
   end
+
+  #5 nfts for 10 Sol ->
+    # Nft nr. 1 after one month. Floor_price of the collection = 20 Sol
+    # Nft nr. 2 after one month. Floor_price of the collection = 15 Sol
+    # Nft nr. 3 after one month. Floor_price of the collection = 10 Sol
+    # Nft nr. 4 after one month. Floor_price of the collection = 5 Sol
+    # Nft nr. 5 after one month. Floor_price of the collection = 2 Sol
 end
 
 
