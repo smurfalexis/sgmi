@@ -29,7 +29,7 @@ raisa.save
 alex.save
 
 
-
+# Collections:
 # Gaming
 Collection.create(name: 'Okay Bears', description: 'A cool nft collection.', symbol: "OB", supply: 10000, listings: 984, floor_price: 14, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 1245532)
 Collection.create(name: 'na Monkey Business', description: 'A cool nft collection.', symbol: 'SMB', supply: 5555, listings: 459, floor_price: 26, category: 'Gaming', website: '#', twitter: '#', discord: '#', volume: 34234)
@@ -66,3 +66,9 @@ Collection.create(name: 'Famous Fox Federation', description: 'A cool nft collec
 Collection.create(name: 'Stoned Frogs', description: 'A cool nft collection.', symbol: "SF", supply: 8787, listings: 521, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 323456)
 Collection.create(name: 'Smoke Heads', description: 'A cool nft collection.', symbol: "SH", supply: 6767, listings: 569, floor_price: 15, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 3256)
 Collection.create(name: 'X-Vault', description: 'A cool nft collection.', symbol: "XVLT", supply: 15000, listings: 0, floor_price: nil, category: 'Utility', website: '#', twitter: '#', discord: '#', volume: 0)
+
+# NFTs:
+
+
+# Wallets:
+Wallet.create(wallet_key: '12345678', user_id: alex[:id] )
