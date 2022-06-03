@@ -1,25 +1,10 @@
-<% if current_page?('/') %>
+
   <footer>
     <div class="footer">
       <div class="container">
         <div class="footer-content">
           <div class="links">
             <p class="link"></p>
-          </div>
-          <div class="social">
-            <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
-            <a href="#"><i class="fa-brands fa-github-square"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-<% else %>
-  <footer>
-    <div class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="links">
             <%= link_to "About Us", "#", class:"link text", style:"text-decoration: none" %>
             <%= link_to "Contact Us", "#", class:"link text", style:"text-decoration: none" %>
             <%= link_to "FAQ", "#", class:"link text", style:"text-decoration: none" %>
@@ -27,9 +12,10 @@
           <div class="social">
             <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
             <a href="#"><i class="fa-brands fa-github-square"></i></a>
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
           </div>
         </div>
       </div>
     </div>
   </footer>
-<% end %>
+

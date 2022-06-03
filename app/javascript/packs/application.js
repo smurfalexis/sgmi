@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("bootstrap/dist/js/bootstrap")
+// require("bootstrap/dist/js/bootstrap")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -19,12 +19,17 @@ Turbolinks.start()
 ActiveStorage.start()
 // document.addEventListener('turbolinks:load', () => {displayChart()})
 
-// // Add event to the connect wallet
-// const wallet = document.querySelector(".connect");
-// wallet.addEventListener("click", (event) => {
-//   console.log(event);
-//   console.log(event.currentTarget);
-// });
+
+// Add event to the connect wallet
+const wallet = document.querySelector(".connect");
+ if (wallet) {
+  wallet.addEventListener("click", (event) => {
+    console.log(event);
+    console.log(event.currentTarget);
+  });
+ }
+
+
 
 
 import "controllers"
