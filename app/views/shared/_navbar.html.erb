@@ -10,7 +10,7 @@
             <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
             <div>
               <%= link_to "My wallet", profile_path, class:"session"%>
-              <%= link_to "Log out", profile_path, class:"session"%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"session"%>
             </div>
         </div>
       </div>
