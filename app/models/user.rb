@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :wallets
   has_many :nfts, through: :wallets
   has_one :watchlist
-  after_create { |record| record.create_watchlist }
 end

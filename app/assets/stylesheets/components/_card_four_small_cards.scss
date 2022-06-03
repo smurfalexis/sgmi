@@ -18,6 +18,7 @@
     font-size: 20px;
     line-height: 27px;
     color: #8B8B8B;
+    margin: 0px;
   }
 
   .wrapper-cards-btn {
@@ -26,7 +27,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100px;
+    top: 96px;
     justify-content: center;
     align-items: center;
 
@@ -40,7 +41,6 @@
 
 
       .card-xs-small-image {
-        width: 100%;
         height: 80px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -83,3 +83,9 @@
       }
     }
   }
+.card-text-thin {
+  color: #8B8B8B;
+  font-size: 12px;
+  font-weight: lighter;
+  padding: 0px;
+}

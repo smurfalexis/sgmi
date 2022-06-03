@@ -1,3 +1,16 @@
+<div class="banner">
+  <h1 class="banner-header">Solana is the new black</h1>
+  <div class="search-bar">
+    <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <div class="search-bar-form">
+        <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
+        <%= f.submit "Search", class: "btn-search" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="wrapper">
 

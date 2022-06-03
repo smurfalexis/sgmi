@@ -1,6 +1,43 @@
-<% if !current_page?('/') %>
+<!-- Home page logged in-->
+<% if current_user && current_page?('/') %>
+ <header>
+    <div class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+            <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
+            <%= link_to "About Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
+            <div>
+              <%= link_to "My wallet", profile_path, class:"session"%>
+              <%= link_to "Log out", profile_path, class:"session"%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<!-- Home page not logged in-->
+<% elsif current_page?('/') %>
   <header>
-  <div class="navbar">
+    <div class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+            <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
+            <%= link_to "About Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "Connect wallet", new_user_session_path, class:"connect"%>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Profile page-->
+<% elsif current_page?('/profile') %>
+  <header>
+    <div class="navbar">
       <div class="container">
         <div class="navbar-content">
             <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
@@ -12,10 +49,56 @@
                 </div>
               <% end %>
             </div>
-            <%= link_to "Connect wallet", profile_path, class:"connect"%>
+            <%= link_to "Log out", profile_path, class:"session"%>
         </div>
       </div>
-  </div>
-</header>
+    </div>
+  </header>
+
+
+<!-- Logged in but not on home page or profile page -->
+<% elsif current_user && (!current_page?('/') && !current_page?('/profile')) %>
+  <header>
+    <div class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+            <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
+            <div class="search-bar">
+              <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+                <div class="search-bar-form">
+                  <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
+                  <%= f.submit "Search", class: "btn-search" %>
+                </div>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to "My wallet", profile_path, class:"session"%>
+              <%= link_to "Log out", profile_path, class:"session"%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Not logged in and not on home page -->
+<% elsif !current_page?('/') %>
+  <header>
+    <div class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+            <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
+            <div class="search-bar">
+              <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+                <div class="search-bar-form">
+                  <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
+                  <%= f.submit "Search", class: "btn-search" %>
+                </div>
+              <% end %>
+            </div>
+              <%= link_to "Connect wallet", profile_path, class:"connect"%>
+        </div>
+      </div>
+    </div>
+  </header>
 
 <% end %>

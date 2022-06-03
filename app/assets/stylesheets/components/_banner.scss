@@ -1,0 +1,18 @@
+.banner {
+  background: linear-gradient(90deg, #C651E0  0%, #22D8B1 100%);
+  margin: 0px;
+  height: 250px;
+  padding: 19px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-header {
+  color: #FFFFFF;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 19px;
+}

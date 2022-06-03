@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require("bootstrap/dist/js/bootstrap")
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -11,7 +13,6 @@ import displayChart from "../channels/line_chart"
 import Chart from "chart.js/auto"
 import "bootstrap"
 import "chartkick/chart.js"
-
 
 Rails.start()
 Turbolinks.start()
@@ -27,4 +28,3 @@ wallet.addEventListener("click", (event) => {
 
 
 import "controllers"
-import "bootstrap"

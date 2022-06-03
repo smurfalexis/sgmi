@@ -107,3 +107,18 @@ end
 
 # Grab all collections in a watchlist related to current user
 # Make it possible to add collection from search result
+
+
+
+# Chart Wallet
+# Start date = The purchase date of the first bought NFT
+# Add purchase dates to NFT Model as column
+# Important break points will be the purchase date of each NFT which increases the value of the wallet.
+# Add purschase price in USD of each NFT including the purschase date
+
+
+# Chart NFT
+# Start date = The purchase date of the first bought NFT
+# Start point = purchased date end point = today/yesterday
+# Purchase price - What was USD at the point of purchase?
+# Floor price today - USD today?
