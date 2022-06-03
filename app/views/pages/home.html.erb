@@ -100,12 +100,12 @@
         <div class="big-image">
           <%= image_tag "#{@performing_collections[0].image}", class: "card-lg-image"%>
           <h2 class="h2-highest"> <%= @performing_collections[0].name %> </h2>
-          <p class="p-highest"> <%= @performing_collections[0].supply %></p>
+          <p class="p-highest">Supply: <%= @performing_collections[0].supply %></p>
         </div>
         <div class="big-image">
           <%= image_tag "#{@performing_collections[1].image}", class: "card-lg-image"%>
           <h2 class="h2-highest"> <%= @performing_collections[1].name %> </h2>
-          <p class="p-highest"> <%= @performing_collections[1].supply %></p>
+          <p class="p-highest">Supply: <%= @performing_collections[1].supply %></p>
         </div>
         <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
