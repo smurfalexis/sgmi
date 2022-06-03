@@ -50,7 +50,7 @@
       <h2 class="card-header-big">Upcoming drops</h2>
       <div class="wrapper-cards-btn drop">
         <div class="card-xs-small">
-            <%=image_tag "SGMI-LOGO.png", class:"card-xs-small-image" %>
+            <%=image_tag "#{@upcoming_collections[0].image}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
               <p class="content-info collection-name"><%= @upcoming_collections[0].name %></p>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="card-xs-small">
-          <%=image_tag "SGMI-LOGO.png", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[1].image}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
               <p class="content-info collection-name"><%= @upcoming_collections[1].name %></p>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="card-xs-small">
-          <%=image_tag "SGMI-LOGO.png", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[2].image}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
               <p class="content-info collection-name"><%= @upcoming_collections[2].name %></p>
@@ -80,10 +80,10 @@
         </div>
 
         <div class="card-xs-small">
-          <%=image_tag "SGMI-LOGO.png", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[3].image}", class:"card-xs-small-image" %>
            <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
-              <p class="content-info collection-name"><%= @upcoming_collections[2].name %></p>
+              <p class="content-info collection-name"><%= @upcoming_collections[3].name %></p>
               <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[2].supply%></small></p>
             </div>
           </div>
@@ -98,12 +98,12 @@
       <h2 class="card-header-big">Most popular today</h2>
       <div class="wrapper-cards-btn">
         <div class="big-image">
-          <%= image_tag "SGMI-LOGO.png", class: "card-lg-image"%>
+          <%= image_tag "#{@performing_collections[0].image}", class: "card-lg-image"%>
           <h2 class="h2-highest"> <%= @performing_collections[0].name %> </h2>
           <p class="p-highest"> <%= @performing_collections[0].supply %></p>
         </div>
         <div class="big-image">
-          <%= image_tag "SGMI-LOGO.png", class: "card-lg-image"%>
+          <%= image_tag "#{@performing_collections[1].image}", class: "card-lg-image"%>
           <h2 class="h2-highest"> <%= @performing_collections[1].name %> </h2>
           <p class="p-highest"> <%= @performing_collections[1].supply %></p>
         </div>

@@ -86,7 +86,7 @@ bothead = Collection.create(name: 'Bot Head',
 atadian = Collection.create(name: 'OG Atadians',
                             image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/atadians_pfp_1646721263627.gif', description: 'A cool nft collection.', symbol: 'OGA', supply: 7575, listings: 488, floor_price: 6.5, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 84_645, volume24: 5)
 ssc = Collection.create(name: 'Smart Sea Society',
-                        image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'SSS', supply: 6969, listings: 398, floor_price: 90, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 98_764, volume24: 20)
+                        image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'SSS', supply: 6969, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 bohemia = Collection.create(name: 'Bohemia',
                             image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bohemia_pfp_1645251493690.gif', description: 'A cool nft collection.', symbol: 'BHM', supply: 4646, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 
