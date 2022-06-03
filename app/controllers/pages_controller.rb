@@ -60,10 +60,10 @@ class PagesController < ApplicationController
       "31.05.2022" =>310,
       "01.06.2022" =>512}
 
-    @collections_prices.each do |k, v| 
+    @collections_prices.each do |k, v|
       v
     end
-    
+
 
 
     @data_values = [100, 400]
@@ -96,11 +96,6 @@ class PagesController < ApplicationController
     @nfts = Nft.all.order(:price).first(10) # price of the user
   end
 end
-
-# Grab all NFTs related to current user from the wallet
-
-# Grab all collections in a watchlist related to current user
-# Make it possible to add collection from search result
 
 
 
