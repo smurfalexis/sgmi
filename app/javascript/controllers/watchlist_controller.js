@@ -1,5 +1,5 @@
 import { Controller } from "stimulus"
-import NodeWatchFileSystem from "webpack/lib/node/NodeWatchFileSystem";
+
 
 export default class extends Controller {
   // static targets = [ "collection" ]
