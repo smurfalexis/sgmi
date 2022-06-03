@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_201340) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
-    t.float "floor_price"
+    t.jsonb "floor_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
