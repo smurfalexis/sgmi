@@ -8,6 +8,9 @@
           <p>SOL/USD</p>
         </div>
         <div class="dashboard">
+
+      <%= line_chart (@data_keys) %>
+
         </div>
       </div>
     </div>
@@ -128,6 +131,7 @@
                 <div class="wrapper-dashboard-data">
                 <div class="modal-nft-dashboard">
                 <!-- insert dashboard here -->
+                 <%= line_chart (@data_keys) %>
                 </div>
                 <div class="modal-nft-data">
                 <div>
@@ -152,7 +156,7 @@
                 </div>
                 <div  class="modal-nft-wrapper-info">
                   <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
-                   <button class="close-modal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                   <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                 </div>
                </div>
 
@@ -170,3 +174,50 @@
   </div>
 
 </div>
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="watchlist">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Collection Name</th>
+            <th scope="col">Supply</th>
+            <th scope="col">Listings</th>
+            <th scope="col">Floor Price</th>
+              <th scope="col">Total Volume</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @collections.each do |collection| %>
+            <tr>
+              <td><%=image_tag "#{collection.image}", class: "rounded", width: "35"%><%=collection.symbol%></td>
+              <td><%=collection.supply %></td>
+              <td><%=collection.listings %></td>
+              <td><%=collection.floor_price %> SOL</td>
+              <td><%=collection.volume %> SOL</td>
+              <td>
+               <button data-collection="<%= collection.id.to_s %>" type="button" class="btn btn-primary" data-action="click->watchlist#add">Add</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      </div>
+    </div>
+  </div>
+</div

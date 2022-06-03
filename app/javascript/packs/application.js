@@ -17,14 +17,14 @@ import "chartkick/chart.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-document.addEventListener('turbolinks:load', () => {displayChart()})
+// document.addEventListener('turbolinks:load', () => {displayChart()})
 
-// Add event to the connect wallet
-const wallet = document.querySelector(".connect");
-wallet.addEventListener("click", (event) => {
-  console.log(event);
-  console.log(event.currentTarget);
-});
+// // Add event to the connect wallet
+// const wallet = document.querySelector(".connect");
+// wallet.addEventListener("click", (event) => {
+//   console.log(event);
+//   console.log(event.currentTarget);
+// });
 
 
 import "controllers"
