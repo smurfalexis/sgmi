@@ -1,0 +1,87 @@
+.modal-nft-wrapper {
+
+  height: 500px;
+  padding: 12px;
+}
+
+.modal-nft-wrapper-image-dashboard {
+  display: flex;
+  height: 350px;
+}
+
+.modal-nft-image {
+  height: 100%;
+  width: 320px;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+.modal-nft-dashboard {
+  height: 270px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #F0F0F0;
+}
+
+.modal-nft-container-info {
+  display: flex;
+  height: 125px;
+
+}
+
+.modal-nft-wrapper-info {
+  width: 50%;
+  margin: 0px;
+  position: relative;
+}
+
+.modal-desription {
+
+  padding: 0px;
+
+}
+
+
+.close-modal {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  color: #30E8BF;
+  background-color: #CAF7ED;
+  border: 1px solid #30E8BF;
+  width: 100px;
+  height: 48px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px 0px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.close-modal:hover {
+  color: #1EC29F;
+  border-color: #1EC29F;
+}
+
+.modal-nft-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 50px 0px 20px;
+  height: 70px;
+
+}
+
+.wrapper-dashboard-data {
+display: flex;
+flex-direction: column;
+width: 100%;
+
+}
+
+.nft-data {
+  color: #8B8B8B;
+  font-size: 12px;
+  font-weight: lighter;
+  padding: 0px;
+}
