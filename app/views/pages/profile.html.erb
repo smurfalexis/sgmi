@@ -8,6 +8,9 @@
           <p>SOL/USD</p>
         </div>
         <div class="dashboard">
+
+      <%= line_chart (@data_keys) %>
+
         </div>
       </div>
     </div>
@@ -128,6 +131,7 @@
                 <div class="wrapper-dashboard-data">
                 <div class="modal-nft-dashboard">
                 <!-- insert dashboard here -->
+                 <%= line_chart (@data_keys) %>
                 </div>
                 <div class="modal-nft-data">
                 <div>
@@ -152,7 +156,7 @@
                 </div>
                 <div  class="modal-nft-wrapper-info">
                   <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
-                   <button class="close-modal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                   <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                 </div>
                </div>
 
@@ -171,17 +175,10 @@
 
 </div>
 
-<table>
-<%= line_chart (@data_keys) %>
-</table>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -209,7 +206,9 @@
               <td><%=collection.floor_price %> SOL</td>
               <td><%=collection.volume %> SOL</td>
               <td>
-               <button type="button" class="btn btn-primary">Add</button>
+
+               <button data-collection="<%= collection.id.to_s %>" type="button" class="btn btn-primary" data-action="click->watchlist#add">Add</button>
+
               </td>
             </tr>
           <% end %>
@@ -220,3 +219,4 @@
     </div>
   </div>
 </div>
+
