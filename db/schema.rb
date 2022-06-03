@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_104646) do
+ActiveRecord::Schema.define(version: 2022_06_02_201340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,18 +78,24 @@ ActiveRecord::Schema.define(version: 2022_06_02_104646) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
-  create_table "watchlists", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "collection_id", null: false
+  create_table "watchlist_items", force: :cascade do |t|
+    t.bigint "watchlist_id"
+    t.bigint "collection_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["collection_id"], name: "index_watchlists_on_collection_id"
+    t.index ["collection_id"], name: "index_watchlist_items_on_collection_id"
+    t.index ["watchlist_id"], name: "index_watchlist_items_on_watchlist_id"
+  end
+
+  create_table "watchlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_watchlists_on_user_id"
   end
 
   add_foreign_key "nfts", "collections"
   add_foreign_key "nfts", "wallets"
   add_foreign_key "wallets", "users"
-  add_foreign_key "watchlists", "collections"
   add_foreign_key "watchlists", "users"
 end
