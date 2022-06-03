@@ -5,7 +5,7 @@
       <div class="container">
         <div class="navbar-content">
             <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
-            <%= link_to "About Us", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "About Us", about_path, class:"text", style:"text-decoration: none" %>
             <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
             <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
             <div>
@@ -49,7 +49,7 @@
                 </div>
               <% end %>
             </div>
-            <%= link_to "Log out", profile_path, class:"session"%>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"session"%>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@
             </div>
             <div>
               <%= link_to "My wallet", profile_path, class:"session"%>
-              <%= link_to "Log out", profile_path, class:"session"%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"session"%>
             </div>
         </div>
       </div>
