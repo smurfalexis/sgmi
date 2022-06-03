@@ -11,11 +11,12 @@ Rails.application.routes.draw do
 
   resources :collections, only: %i[index show] do
     resources :watchlists, only: [:create]
+    resources :watchlist_items, only: %i[create]
   end
 
   resources :watchlists, only: %i[show update destroy]
 
-  resources :watchlist_items, only: %i[create]
+
 
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do

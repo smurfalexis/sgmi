@@ -1,9 +1,11 @@
+require 'json'
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
   def home
     @popular_collections = Collection.order(volume: :desc).first(10)
-    @upcoming_collections = Collection.where(volume: 0).first(3)
+    @upcoming_collections = Collection.where(volume: 0).first(4)
     @performing_collections = Collection.where('volume24 > 25').first(3)
   end
 
@@ -22,8 +24,10 @@ class PagesController < ApplicationController
 
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
-
     # Highest floor price
+
+    json = File.open('db/floor_price.json').read
+    @collections_prices = JSON.parse(json)
     # Check floor price of collections
     # Grab the first two with the highest floor price
 
@@ -44,33 +48,25 @@ class PagesController < ApplicationController
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
     @user = current_user
-    @data_keys = [
-      'January 21',
-      'February 21',
-      'March 21',
-      'April 21',
-      'May 21',
-      'June 21',
-      'July 21',
-      'August 21',
-      'September 21',
-      'October 21',
-      'November 21',
-      'December 21',
-      'January 22',
-      'February 22',
-      'March 22',
-      'April 22',
-      'May 22',
-      'June 22',
-      'July 22',
-      'August 22',
-      'September 22',
-      'October 22',
-      'November 22',
-      'December 22'
-    ]
-    @data_values = [100, 400, 175, 200, 50, 350, 600]
+
+
+    @data_keys = {"12.04.2022" => 5,
+      "19.04.2022" =>77,
+      "26.04.2022" => 100,
+      "03.05.2022" => 35,
+      "10.05.2022" => 66,
+      "17.05.2022" => 147,
+      "24.05.2022" =>232,
+      "31.05.2022" =>310,
+      "01.06.2022" =>512}
+
+    @collections_prices.each do |k, v| 
+      v
+    end
+    
+
+
+    @data_values = [100, 400]
 
     @collections = Collection.all
   end
