@@ -100,7 +100,9 @@ class PagesController < ApplicationController
     @nfts = Nft.all.order(:price).first(10) # price of the user
   end
 
-  def about; end
+  def about
+
+  end
 end
 
 # Grab all NFTs related to current user from the wallet

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
   get '/best_nfts', to: 'pages#best_nfts'
+  get '/about', to: 'pages#about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :wallets, only: [:show]
   resources :nfts, only: %i[index show]
