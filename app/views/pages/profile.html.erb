@@ -21,17 +21,17 @@
       <div class="wrapper-cards-btn">
       <% @best_performing_nfts.each do |nft| %>
         <div class="card-xs-small">
-           <%= image_tag nft.image %>
+           <%= image_tag nft.image, class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="card-xs-small-content-headers">
               <%= nft.name %>
             </div>
             <div class="card-xs-small-content-info">
               <div>
-                <%= nft.price %>
-                <%= nft.collection.floor_price %>SOL</p>
+                <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
+                <p class="card-text-thin">Floor price: <%= nft.collection.floor_price %> SOL</p>
               </div>
-              <%= nft.rarity %></p>
+
             </div>
           </div>
         </div>
