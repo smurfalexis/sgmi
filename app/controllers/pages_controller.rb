@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @popular_collections = Collection.order(volume: :desc).first(10)
-    @upcoming_collections = Collection.where(volume: 0).first(3)
+    @upcoming_collections = Collection.where(volume: 0).first(4)
     @performing_collections = Collection.where('volume24 > 25').first(3)
   end
 
@@ -51,14 +51,14 @@ class PagesController < ApplicationController
 
 
     @data_keys = {"12.04.2022" => 5,
-      "19.04.2022" =>7,
+      "19.04.2022" =>17,
       "26.04.2022" => 10,
       "03.05.2022" => 25,
-      "10.05.2022" => 36,
-      "17.05.2022" => 47,
-      "24.05.2022" =>33,
-      "31.05.2022" =>110,
-      "01.06.2022" =>125}
+      "10.05.2022" => 76,
+      "17.05.2022" => 147,
+      "24.05.2022" =>232,
+      "31.05.2022" =>310,
+      "01.06.2022" =>512}
 
     @collections_prices.each do |k, v| 
       v

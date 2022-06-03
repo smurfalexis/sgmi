@@ -86,7 +86,7 @@ bothead = Collection.create(name: 'Bot Head',
 atadian = Collection.create(name: 'OG Atadians',
                             image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/atadians_pfp_1646721263627.gif', description: 'A cool nft collection.', symbol: 'OGA', supply: 7575, listings: 488, floor_price: 6.5, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 84645, volume24: 5)
 ssc = Collection.create(name: 'Smart Sea Society',
-                        image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'SSS', supply: 6969, listings: 398, floor_price: 90, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 98764, volume24: 20)
+                        image: 'https://bafybeicmmomyark7um7wfxhxxjpbg3vl6htx6qudmfq4b2iw5pixcb6uxe.ipfs.dweb.link/', description: 'A cool nft collection.', symbol: 'SSS', supply: 6969, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 bohemia = Collection.create(name: 'Bohemia',
                             image: 'https://creator-hub-prod.s3.us-east-2.amazonaws.com/bohemia_pfp_1645251493690.gif', description: 'A cool nft collection.', symbol: 'BHM', supply: 4646, listings: 0, floor_price: nil, category: 'Art', website: '#', twitter: '#', discord: '#', volume: 0, volume24: 0)
 
@@ -107,7 +107,7 @@ Nft.create(name: 'DeGod #88', price: 28, image: 'https://metadata.degods.com/g/2
            wallet: wallet2, collection: degods, purchase_date: '15.03.2022', mint_address: 'xsfsndjfgagdfcdfdgfdgk87hecs4')
 Nft.create(name: 'STEPN #3332', price: 1,
            image: 'https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/https://arweave.net/BToZC2BgKOGNiZd1t15j9ZaHNMku8PYtw-3Y0I71UjI', rarity: 'Common', wallet: wallet1, collection: stepn, purchase_date: '10.12.2021', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d95678')
-Nft.create(name: 'Cardboard Citizen #457', price: 2,
+Nft.create(name: 'Cardboard Citizen #4', price: 2,
            image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeidvsm7s3gccpnjsq6vmxzfegrxf67dk34ezgq45nc5wjej32v7wky.ipfs.dweb.link/2085.png', rarity: 'Epic', wallet: wallet2, collection: cardboard, purchase_date: '01.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d12356')
 Nft.create(name: 'Creamy Friend #398', price: 4,
            image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://www.arweave.net/mDnGUZP_R3g0Uo15lCrdhujqC6ItmltAkrWgMog8yrE?ext=png', rarity: 'Epic', wallet: wallet1, collection: creamy, purchase_date: '08.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d34589')
