@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @popular_collections = Collection.order(volume: :desc).first(10)
-    @upcoming_collections = Collection.where(volume: 0).first(3)
+    @upcoming_collections = Collection.where(volume: 0).first(4)
     @performing_collections = Collection.where('volume24 > 25').first(3)
   end
 
@@ -25,7 +25,6 @@ class PagesController < ApplicationController
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
     # Highest floor price
-
 
     # Check floor price of collections
     # Grab the first two with the highest floor price
@@ -55,7 +54,6 @@ class PagesController < ApplicationController
       "17.05.2022" => 47,
       "24.05.2022" =>33,
       "31.05.2022" =>110}
-
 
     @okay = Collection.find_by(name: "Okay Bears")
     @okay.floor_price = @data_keys
@@ -93,10 +91,10 @@ class PagesController < ApplicationController
       "31.05.2022" =>300}
     @cardboard.floor_price = @cardboard_fp
     @nfts_chart = []
-    @nfts_chart << @okay.floor_price
-    @nfts_chart << @degods.floor_price
-    @nfts_chart << @smokeheads.floor_price
-    @nfts_chart << @cardboard.floor_price
+    @nfts_chart << @okay
+    @nfts_chart << @degods
+    @nfts_chart << @smokeheads
+    @nfts_chart << @cardboard
     @collections = Collection.all
   end
 
@@ -123,14 +121,7 @@ class PagesController < ApplicationController
   def best_nfts
     @nfts = Nft.all.order(:price).first(10) # price of the user
   end
-
-  def about; end
 end
-
-# Grab all NFTs related to current user from the wallet
-
-# Grab all collections in a watchlist related to current user
-# Make it possible to add collection from search result
 
 
 
