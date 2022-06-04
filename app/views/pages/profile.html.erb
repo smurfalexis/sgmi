@@ -10,7 +10,7 @@
         <div class="dashboard">
           <%= line_chart @nfts_chart.map { |nft|
             {name: nft.name, data: nft.floor_price.group_by}
-          } %>
+          }%>
         </div>
       </div>
     </div>
@@ -147,9 +147,6 @@
                 </div>
                 <div>
                 </div>
-                <div class="modal-body">
-                  <%= line_chart(@okay.floor_price) %>
-                  <p>Modal body text goes here.</p>
                 </div>
               </div>
                <div class="modal-nft-container-info">
