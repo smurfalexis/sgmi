@@ -3,6 +3,12 @@ class WatchlistsController < ApplicationController
 
   def show; end
 
+  def create
+    if user_signed_in?
+      @watchlist = Watchlist.create(user: current_user)
+    end
+  end
+
   def update
     if @watchlist.update(watchlist_params)
       redirect_to watchlist_path
