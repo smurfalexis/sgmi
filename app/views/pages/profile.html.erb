@@ -9,7 +9,8 @@
         </div>
         <div class="dashboard">
 
-      <%= line_chart (@data_keys) %>
+         <%= line_chart @nfts_chart.map { |nft|
+          {name: nft.name, data: nft.floor_price.group_by}} %>
 
         </div>
       </div>
