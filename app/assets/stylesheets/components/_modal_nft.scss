@@ -1,3 +1,9 @@
+.modal {
+  border-radius: $border-radius;
+  background-color: $modal-backdrop-bg;
+  border: $modal-content-border-color;
+}
+
 .modal-nft-wrapper {
 
   height: 500px;
