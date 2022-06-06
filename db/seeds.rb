@@ -73,14 +73,27 @@ def get_all_collections
 
   def save_collections(result)
     result.each do |r|
+      collection_hash = collection(r['symbol'])
       Collection.create(symbol: r['symbol'], name: r['name'], description: r['description'],
                         image: r['image'], twitter: r['twitter'], discord: r['discord'],
-                        category: r['categories'])
+                        category: r['categories'], floor_price: collection_hash['floorPrice'],
+                        listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'])
     end
+    puts "collections saved"
   end
 
 
+  def collection(collection)
+    url = URI("https://api-mainnet.magiceden.dev/v2/collections/#{collection}/stats")
+    http = Net::HTTP.new(url.hostname, url.port)
+    request = Net::HTTP::Get.new(url)
+    http.use_ssl = true
+    response = http.request(request)
+    JSON.parse(response.body)
+  end
+
 get_all_collections()
+
 
 
 okay = Collection.create(name: 'Okay Bears',
