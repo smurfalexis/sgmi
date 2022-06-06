@@ -102,7 +102,7 @@ vault = Collection.create(name: 'The X-Vault DAO',
 
 # NFTs:
 Nft.create(name: 'Okay Bear #2345', price: 17,
-           image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet: wallet2, collection: okay, purchase_date: '12.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49371')
+           image: 'https://bafybeifomfjtv4nkiddyv5lzl4l6nxjsmxkezhfkr2hlh5xamwnuyxozee.ipfs.dweb.link/5269.png?ext=png', rarity: 'Legendary', wallet: wallet1, collection: okay, purchase_date: '12.04.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49371')
 Nft.create(name: 'DeGod #88', price: 28, image: 'https://metadata.degods.com/g/2209.png', rarity: 'Mythic',
            wallet: wallet2, collection: degods, purchase_date: '15.03.2022', mint_address: 'xsfsndjfgagdfcdfdgfdgk87hecs4')
 Nft.create(name: 'STEPN #3332', price: 1,
@@ -129,5 +129,3 @@ Nft.create(name: 'Smoke Head #666', price: 27,
            image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet: wallet2, collection: smokeheads, purchase_date: '13.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
 Nft.create(name: 'TSF #567', price: 19,
            image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet: wallet4, collection: tsf, purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')
-
-

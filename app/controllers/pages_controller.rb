@@ -21,6 +21,8 @@ class PagesController < ApplicationController
 
   def profile
     @wallet = Wallet.find_by(user: current_user)
+    @watchlist = Watchlist.where(user: current_user)
+    @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
 
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
