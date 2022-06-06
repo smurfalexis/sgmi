@@ -45,8 +45,6 @@ wallet2 = Wallet.create(wallet_key: '23456789', user: mahmoud)
 wallet3 = Wallet.create(wallet_key: '56789043', user: spiros)
 wallet4 = Wallet.create(wallet_key: '23689045', user: raisa)
 
-
-
 def get_all_collections
   offset = 0
   limit = 500
