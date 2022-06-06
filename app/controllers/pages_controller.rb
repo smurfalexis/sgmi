@@ -45,7 +45,7 @@ class PagesController < ApplicationController
       @array << { delta: delta, nft: nft }
     end
 
-    @highest_delta = @array.sort_by { |element| -element[:delta] }.first(4)
+    @highest_delta = @array.sort_by { |element| -element[:delta] }
     @best_performing_nfts = @highest_delta.map { |element| element[:nft] }
 
     @wallet = Wallet.where(user: current_user)
