@@ -73,14 +73,27 @@ def get_all_collections
 
   def save_collections(result)
     result.each do |r|
+      collection_hash = collection(r['symbol'])
       Collection.create(symbol: r['symbol'], name: r['name'], description: r['description'],
                         image: r['image'], twitter: r['twitter'], discord: r['discord'],
-                        category: r['categories'])
+                        category: r['categories'], floor_price: collection_hash['floorPrice'],
+                        listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'])
     end
+    puts "collections saved"
   end
 
 
+  def collection(collection)
+    url = URI("https://api-mainnet.magiceden.dev/v2/collections/#{collection}/stats")
+    http = Net::HTTP.new(url.hostname, url.port)
+    request = Net::HTTP::Get.new(url)
+    http.use_ssl = true
+    response = http.request(request)
+    JSON.parse(response.body)
+  end
+
 get_all_collections()
+
 
 
 okay = Collection.create(name: 'Okay Bears',
@@ -172,4 +185,3 @@ Nft.create(name: 'Smoke Head #666', price: 27,
 image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet: wallet2, collection: smokeheads, purchase_date: '13.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
 Nft.create(name: 'TSF #567', price: 19,
 image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet: wallet4, collection: tsf, purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')
-
