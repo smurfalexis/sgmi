@@ -52,8 +52,8 @@ def get_all_collections
   limit = 500
   result = collection_by_offset(offset, limit)
     while result.length == limit
-      sleep 5
-      puts "sleeping for 5 , calling api again"
+      sleep 2
+      puts "sleeping for 2 , calling api again"
       save_collections(result)
       offset = offset + limit
       result = collection_by_offset(offset, limit)
