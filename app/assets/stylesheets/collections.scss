@@ -35,4 +35,7 @@
   color: #8B8B8B;
   font-size: 14px;
   padding: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
