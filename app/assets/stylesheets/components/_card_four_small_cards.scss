@@ -11,7 +11,7 @@
   .card-header-big {
     position: absolute;
     left: 12px;
-    top: 11.55%;
+    top: 8.55%;
     font-family: 'Nunito Sans', sans-serif;
     font-style: normal;
     font-weight: 800;
@@ -27,8 +27,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 96px;
-    justify-content: center;
+    top: 88px;
     align-items: center;
 
     .card-xs-small {
@@ -88,4 +87,9 @@
   font-size: 12px;
   font-weight: lighter;
   padding: 0px;
+}
+
+.four-cards {
+  position: absolute;
+  bottom: -11px;
 }

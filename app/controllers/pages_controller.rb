@@ -19,8 +19,13 @@ class PagesController < ApplicationController
   #   raise
   # end
 
+
+
+
   def profile
     @wallet = Wallet.find_by(user: current_user)
+    @watchlist = Watchlist.where(user: current_user)
+    @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
 
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
@@ -36,7 +41,7 @@ class PagesController < ApplicationController
 
     @array = []
     @nfts.each do |nft|
-      delta = nft.collection.floor_price - nft.price
+      delta = nft.collection.floor_price
       @array << { delta: delta, nft: nft }
     end
 
@@ -118,9 +123,6 @@ class PagesController < ApplicationController
 
   # Grab all watchlist items related to the current user
 
-  def best_nfts
-    @nfts = Nft.all.order(:price).first(10) # price of the user
-  end
 end
 
 

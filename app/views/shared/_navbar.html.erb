@@ -12,8 +12,13 @@
             <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
             <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
             <div>
+              <% if current_user.wallets.empty?%>
+              <%= link_to "My wallet", new_wallet_path, class:"session"%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"session"%>
+              <%else%>
               <%= link_to "My wallet", profile_path, class:"session"%>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"session"%>
+              <% end %>
             </div>
         </div>
       </div>
