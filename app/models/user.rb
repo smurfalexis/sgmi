@@ -6,15 +6,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :wallets
   has_many :nfts, through: :wallets
-  has_one :watchlist
+  has_one :watchlist, dependent: :destroy
 
 
   private
 
 
   def create_watchlist
-    @user = User.last
-    @watchlist = Watchlist.create(user: @user)
-    @user.save
+    @watchlist = Watchlist.create(user: self)
   end
 end
