@@ -22,7 +22,7 @@
     .dashboard-header {
       position: absolute;
       left: 12px;
-      top: 11.55%;
+      top: 8.55%;
 
       font-family: 'Nunito Sans', sans-serif;
       font-style: normal;
@@ -44,7 +44,7 @@
         width: 536px;
         height: 56px;
         left: 12px;
-        top: 100px;
+        top: 88px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         align-items: center;
@@ -62,7 +62,7 @@
         width: 536px;
         height: 246px;
         left: 12px;
-        top: 154px;
+        top: 144px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
       }
@@ -111,7 +111,7 @@
   font-size: 20px;
   position: absolute;
   left: 12px;
-  bottom: 20px;
+  bottom: 13px;
 }
 
 .p-highest {
@@ -120,5 +120,14 @@
   font-weight: lighter;
   position: absolute;
   left: 12px;
-  bottom: -6px;
+  bottom: -12px;
+}
+
+.highest-floor {
+  padding: 15px 0px;
+}
+
+.nft-see-more {
+  position: absolute;
+  bottom: 0px;
 }

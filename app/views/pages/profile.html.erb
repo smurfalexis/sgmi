@@ -34,7 +34,7 @@
             </div>
           </div>
         <% end %>
-        <button type="button" class="btn-big-white-green-border" data-bs-toggle="modal" data-bs-target="#best-performing">
+        <button type="button" class="btn-big-white-green-border four-cards" data-bs-toggle="modal" data-bs-target="#best-performing">
           See more
         </button>
       </div>
@@ -59,27 +59,44 @@
       </div>
     </div>
 
-
- <!-- HIGHEST FLOOR PRICE-->
+    <!-- HIGHEST FLOOR PRICE -->
     <div class="card-container2">
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
-        <div class="big-image">
-          <img src=<%= @highest_floor_price_nfts[0].collection.image %> alt="" class="card-lg-image">
-          <h2 class="h2-highest"> <%= @highest_floor_price_nfts[0].collection.floor_price %> SOL</h2>
-          <p class="p-highest"> <%= @highest_floor_price_nfts[0].collection.name %> </p>
+        <% @highest_floor_price_nfts.each do |nft| %>
+          <div class="big-image" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
+            <img src="<%= nft.collection.image %>" alt="" class="card-lg-image">
+            <h2 class="h2-highest"> <%= nft.collection.floor_price %> SOL</h2>
+            <p class="p-highest"> <%= nft.collection.name %> </p>
+          </div>
+        <% end %>
+        <button type="button" class="btn btn-green-link highest-floor" data-bs-toggle="modal" data-bs-target="#highest-floor-price" >
+          See more
+        </button>
+      </div>
+    </div>
+    <!-- MODAL: HIGHEST FLOOR PRICE: See more -->
+    <div class="modal fade" id="highest-floor-price" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
-        <div class="big-image">
-          <img src=<%= @highest_floor_price_nfts[1].collection.image %> alt="" class="card-lg-image">
-          <h2 class="h2-highest"> <%= @highest_floor_price_nfts[1].collection.floor_price %> SOL</h2>
-          <p class="p-highest"> <%= @highest_floor_price_nfts[1].collection.name %> </p>
-        </div>
-        <%= link_to "See more", profile_path, class: "btn-green-link"%>
       </div>
     </div>
 
   </div>
 
+<!-- WATCHLIST -->
   <div class="my-watchlist">
     <div class="watchlist-container">
       <h2 class="watchlist-header">My watchlist</h2>
@@ -96,17 +113,20 @@
         </div>
 
         <div class="watchlist">
-          <div class="watchlist-item">
-            <div class="watchlist-image-collection">
-              <img src="https://bafybeib7iyh7l5jdqbl22jzx35xnvjjl2b2rcumqgtpnfxub7h3be3xrwq.ipfs.nftstorage.link/9998.png?ext=png" alt="" class="watchlist-item-image">
-              <p class="watchlist-p">Collection</p>
+          <% @watchlist_items.each do |item| %>
+            <div class="watchlist-item">
+              <div class="watchlist-image-collection">
+                <img src="<%= item.collection.image %>" alt="Collection image" class="watchlist-item-image">
+                <p class="watchlist-p"><%= item.collection.name %></p>
+              </div>
+              <p class="watchlist-p supply-p"><%= item.collection.supply %></p>
+              <p class="watchlist-p floor-p"><%= item.collection.floor_price %> SOL</p>
+              <p class="watchlist-p volume-p"><%= item.collection.volume %></p>
+              <%# <p class="watchlist-p owners-p"><%= item.collection.owners %>
+
+              <%= link_to "Remove", watchlist_item_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this collection?" }, class: "watchlist-p owners-p"%>
             </div>
-            <p class="watchlist-p supply-p">Supply</p>
-            <p class="watchlist-p floor-p">Floor price</p>
-            <p class="watchlist-p volume-p">Volume</p>
-            <p class="watchlist-p owners-p">Owners</p>
-            <p class="watchlist-p remove-p">Remove</p>
-          </div>
+          <% end %>
         </div>
 
       </div>
@@ -119,7 +139,7 @@
     <div class="nft-container">
       <div class="wrapper-nfts">
         <% @nfts.each do |nft| %>
-          <div class="card-nft">
+          <div class="card-nft" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
             <div class="wrapper-nft-info">
             <!-- Should be an if statement here later -->
               <div class="nft-image-container">
@@ -131,11 +151,11 @@
                 <p>Floor price: <%= nft.collection.floor_price %></p>
                 <p>Supply: <%= nft.collection.supply %></p>
               </div>
-              <!-- Modal trigger button -->
-              <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
+            </div>
+             <!-- Modal trigger button -->
+              <button type="button" class="btn btn-green-link nft-see-more" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
               See more
               </button>
-            </div>
           </div>
 
           <!-- MODAL: MY NFTs: More information about an NFT-->
@@ -188,7 +208,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="watchlist">
 
   <div class="modal-dialog">
     <div class="modal-content">
@@ -217,10 +237,11 @@
               <td><%=collection.floor_price %> SOL</td>
               <td><%=collection.volume %> SOL</td>
               <td>
-
                <button data-collection="<%= collection.id.to_s %>" type="button" class="btn btn-primary" data-action="click->watchlist#add">Add</button>
-
               </td>
+              <% if @error == true %>
+              <%= flash[:watchlist_item] %>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

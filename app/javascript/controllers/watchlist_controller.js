@@ -10,6 +10,7 @@ export default class extends Controller {
 
   add(event) {
     const id = event.currentTarget.dataset.collection
+    console.log(id)
     const url = `/collections/${id}/watchlist_items`
     function getMetaValue(name) {
       const element = document.head.querySelector(`meta[name="${name}"]`)

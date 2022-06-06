@@ -16,3 +16,9 @@
   color: #1EC29F;
   border-color: #1EC29F;
 }
+
+
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }

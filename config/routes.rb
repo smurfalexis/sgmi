@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :watchlists, only: %i[show update destroy]
+  resources :watchlist_items, only: %i[destroy]
 
 
 
