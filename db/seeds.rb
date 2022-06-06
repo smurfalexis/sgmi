@@ -45,8 +45,6 @@ wallet2 = Wallet.create(wallet_key: '23456789', user: mahmoud)
 wallet3 = Wallet.create(wallet_key: '56789043', user: spiros)
 wallet4 = Wallet.create(wallet_key: '23689045', user: raisa)
 
-
-
 def get_all_collections
   offset = 0
   limit = 500
@@ -172,4 +170,3 @@ Nft.create(name: 'Smoke Head #666', price: 27,
 image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeiepvcjfm5kppole3ugyrkinfcd4m2efjpdjnlqh3julkadnttqbxi.ipfs.dweb.link/3743.png', rarity: 'Legendary', wallet: wallet2, collection: smokeheads, purchase_date: '13.05.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d01543')
 Nft.create(name: 'TSF #567', price: 19,
 image: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://bafybeibnib5qhvcovaxq7ow5p4wgj3aav6nf747woszxxhlsjqgvrsbjna.ipfs.dweb.link/6263.png?ext=png', rarity: 'Legendary', wallet: wallet4, collection: tsf, purchase_date: '22.02.2022', mint_address: '0x0Fd433e474ECB81005ac906e0BCFab66E1d49381')
-
