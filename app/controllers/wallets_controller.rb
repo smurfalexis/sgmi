@@ -15,6 +15,7 @@ class WalletsController < ApplicationController
     authorize @wallet
     if @wallet.save
       connect_wallet(@wallet)
+      get_buy_and_sell_transactions(@wallet)
       redirect_to profile_path
     else
       render :new
@@ -62,6 +63,37 @@ class WalletsController < ApplicationController
   end
 
 
+  def get_buy_and_sell_transactions(wallet)
+    offset = 0
+    limit = 500
+    result = transactions_by_offset(offset, limit, wallet)
+      while result.length == limit
+        sleep 2
+        puts "slept for 2 secs, calling api again"
+        offset = offset + limit
+        result = transactions_by_offset(offset, limit)
+        p offset
+      end
+    end
+
+    def transactions_by_offset(offset, limit, wallet)
+      url = URI("https://api-mainnet.magiceden.dev/v2/wallets/#{wallet.wallet_key}/activities?offset=#{offset}&limit=#{limit}")
+      http = Net::HTTP.new(url.hostname, url.port)
+      request = Net::HTTP::Get.new(url)
+      http.use_ssl = true
+      response = http.request(request)
+      result = JSON.parse(response.body)
+      result.each do |r|
+        if r['type'] == 'buyNow'
+          wallet.nfts.each do
+              n = Nft.find_by(mint_address: r['tokenMint'])
+              if n != nil
+              n.update(price: r['price'])
+              end
+            end
+        end
+      end
+    end
   def wallet_params
     params.require(:wallet).permit(:wallet_key)
   end
