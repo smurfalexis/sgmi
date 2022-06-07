@@ -1,6 +1,7 @@
 <div class="container">
   <h1 class="profile-header">My Wallet</h1>
   <div class="my-wallet">
+<!-- DASHBOARD-->
     <div class="dashboard-container">
       <h2 class="dashboard-header">My wallet's performance</h2>
       <div class="dashboard-wrapper">
@@ -8,8 +9,7 @@
           <p>SOL/USD</p>
         </div>
         <div class="dashboard">
-          <%= line_chart @nfts_chart.map { |nft|
-            {name: nft.name, data: nft.floor_price.group_by, colors: ["#b00", "#666"]} } %>
+          <%= line_chart @nfts_chart, colors: ['purple'], legend: false, dataset: {fill: true}, library: {scales: { x: {display: false} }}%>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="card-container">
       <h2 class="card-header-big">Your best performing NFTs</h2>
       <div class="wrapper-cards-btn">
-        <% @best_performing_nfts.each do |nft| %>
+        <% @best_performing_nfts.first(4).each do |nft| %>
           <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
             <%= image_tag nft.image, class:"card-xs-small-image" %>
             <div class="card-xs-small-content">
@@ -42,14 +42,32 @@
 
     <!-- MODAL: BEST PERFORMING NFTs: See more -->
     <div class="modal fade" id="best-performing" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel"> Your best performing NFTs</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <% count = 1 %>
+            <% @best_performing_nfts.each do |nft| %>
+              <%= count %>.
+              <div class="modal-collection-card">
+                <%= image_tag nft.image, class:"modal-collection-card-image" %>
+                  <div class="modal-collection-card-content">
+                    <div class="modal-collection-card-content-header">
+                      <%= nft.name %>, <%= nft.collection.name %>
+                    </div>
+                    <div class="modal-collection-card-content-info">
+                      <div>
+                        <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
+                        <p class="card-text-thin">Floor price: <%= nft.collection.floor_price %> SOL</p>
+                      </div>
+                  </div>
+                </div>
+             </div>
+             <% count += 1%>
+            <% end %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -84,7 +102,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -100,8 +118,9 @@
   <div class="my-watchlist">
     <div class="watchlist-container">
       <h2 class="watchlist-header">My watchlist</h2>
-      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add Collections
+      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+      <%# <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> %>
+
       </button>
       <div class="watchlist-wrapper">
         <div class="watchlist-headers">
@@ -135,7 +154,6 @@
 
 <!-- MY NFTs-->
   <div class="my-nfts">
-    <h1 class="profile-header">My NFTs</h1>
     <div class="nft-container">
       <div class="wrapper-nfts">
         <% @nfts.each do |nft| %>
@@ -145,7 +163,7 @@
               <div class="nft-image-container">
                 <img src=<%= nft.image %> alt="" class="nft-image">
               </div>
-              <h2 class="nft-name"><%= nft.name %></h2>
+              <h2 class="nft-name" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>"><%= nft.name %></h2>
               <h3 class="nft-collection"><%= nft.collection.name %></h3>
               <div class="nft-data">
                 <p>Floor price: <%= nft.collection.floor_price %></p>
@@ -207,43 +225,28 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="watchlist">
+<!-- MODAL WATCHLIST -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="watchlist">
 
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content modal-content-search">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="modal-search-header">Search for an NFT collection!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body-search">
         <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Collection Name</th>
-            <th scope="col">Supply</th>
-            <th scope="col">Listings</th>
-            <th scope="col">Floor Price</th>
-              <th scope="col">Total Volume</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
         <tbody>
-          <% @collections.each do |collection| %>
-            <tr>
-              <td><%=image_tag "#{collection.image}", class: "rounded", width: "35"%><%=collection.symbol%></td>
-              <td><%=collection.supply %></td>
-              <td><%=collection.listings %></td>
-              <td><%=collection.floor_price %> SOL</td>
-              <td><%=collection.volume %> SOL</td>
-              <td>
-               <button data-collection="<%= collection.id.to_s %>" type="button" class="btn btn-primary" data-action="click->watchlist#add">Add</button>
-              </td>
-              <% if @error == true %>
-              <%= flash[:watchlist_item] %>
+         <div class="search-bar-small">
+              <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+                <div class="search-bar-form">
+                  <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
+                  <button type="submit" class="btn-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
               <% end %>
-            </tr>
-          <% end %>
+            </div>
         </tbody>
       </table>
 

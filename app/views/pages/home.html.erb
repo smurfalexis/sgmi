@@ -4,7 +4,9 @@
     <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
       <div class="search-bar-form">
         <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
-        <%= f.submit "Search", class: "btn-search" %>
+        <button type="submit" class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
     <% end %>
   </div>

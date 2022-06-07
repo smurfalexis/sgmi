@@ -19,6 +19,7 @@
   margin-bottom: 0px;
   font-size: 42px;
   margin-left: 15px;
+  font-weight: bolder;
 }
 
 .logo:hover {
@@ -51,7 +52,16 @@
   .form-control {
     background-color: #FFFFFF;
     border-radius: 10px;
+    transition: none;
+    width: 350px !important;
   }
+
+  .form-control:focus,.form-control:active {
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+ }
+
 }
 
 
@@ -62,11 +72,20 @@
   margin-left: 6px;
   border-radius: 10px;
   border: none;
+  padding: 0px 14px;
 }
 
 .btn-search:hover {
   background-color: #ba4cd2;
   transition: 0.3s;
+}
+
+
+
+.fa-solid {
+  position: relative !important;
+  right: 0px !important;
+
 }
 
 .connect {
@@ -76,14 +95,13 @@
     color: #C651E0;
     width: 200px;
     text-decoration: none;
-    font-weight: bolder;
     text-align: center;
     padding: 16px 0px;
   }
 
 .connect:hover {
   color: #C651E0;
-  background-color: #F6F6F6;
+  background-color: #fefdfd;
   transition: 0.3s;
 }
 
@@ -93,13 +111,12 @@
   border-radius: 10px;
   color: #C651E0;
   text-decoration: none;
-  font-weight: bolder;
   text-align: center;
-  padding: 16px 20px;
+  padding: 12px 16px;
 }
 
 .session:hover {
   color: #C651E0;
-  background-color: #F6F6F6;
+  background-color: #fefdfd;
   transition: 0.3s;
 }
