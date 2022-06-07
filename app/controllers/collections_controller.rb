@@ -1,12 +1,13 @@
 class CollectionsController < ApplicationController
   def index
-    @collections = policy_scope(Collection.where(nil))
+    @collections = policy_scope(Collection)
     @key_word = params[:search]['keyword']
     if params[:search][:category].present?
       @collections = policy_scope(@collections.search_by_category(params[:search][:category]))
-    end
-    if params[:search][:keyword].present?
+    elsif params[:search][:keyword].present?
       @collections = policy_scope(@collections.search_by_keyword(params[:search][:keyword]))
+    else
+      @collections = []
     end
   end
 

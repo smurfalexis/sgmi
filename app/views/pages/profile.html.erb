@@ -51,27 +51,27 @@
           <div class="modal-body">
             <% count = 1 %>
             <% @best_performing_nfts.each do |nft| %>
-              <%= count %>.
-              <div class="modal-collection-card">
-                <%= image_tag nft.image, class:"modal-collection-card-image" %>
-                  <div class="modal-collection-card-content">
-                    <div class="modal-collection-card-content-header">
-                      <%= nft.name %>, <%= nft.collection.name %>
-                    </div>
-                    <div class="modal-collection-card-content-info">
-                      <div>
-                        <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
-                        <p class="card-text-thin">Floor price: <%= nft.collection.floor_price %> SOL</p>
+              <div class="modal-body-search">
+                <p class="number"><%= count %>.</p>
+                <div class="modal-collection-card">
+                  <%= image_tag nft.image, class:"modal-collection-card-image" %>
+                    <div class="modal-collection-card-content">
+                      <div class="modal-collection-card-content-header">
+                        <%= nft.name %>, <%= nft.collection.name %>
                       </div>
+                      <div class="modal-collection-card-content-info">
+                        <div>
+                          <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
+                          <p class="card-text-thin">Floor price: <%= nft.collection.floor_price %> SOL</p>
+                        </div>
+                    </div>
                   </div>
-                </div>
+              </div>
              </div>
              <% count += 1%>
             <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+
           </div>
         </div>
       </div>
@@ -118,8 +118,8 @@
   <div class="my-watchlist">
     <div class="watchlist-container">
       <h2 class="watchlist-header">My watchlist</h2>
-      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-      <%# <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> %>
+      <%# <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button> %>
+      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 
       </button>
       <div class="watchlist-wrapper">
