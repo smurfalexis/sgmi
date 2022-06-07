@@ -1,0 +1,132 @@
+.session-container {
+  background-color: #FFFFFF;
+  height: 380px;
+  width: 560px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 21px 0px;
+}
+
+.session-header {
+  font-family: "Nutino Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #8B8B8B;
+  margin-bottom: 10px;
+}
+
+.field {
+  color: #7E7D7D;
+  margin: 6px 0px 12px 0px;
+  width: 250px;
+  font-size: 12px;
+
+
+
+  .session-input {
+    background-color: #FFFFFF !important;
+    border-radius: 10px;
+    border: 1px solid #F0F0F0;
+  }
+  input {
+    background-image: none !important;
+    background-color: #FFFFFF !important;
+    height: 30px;
+  }
+}
+
+input[type="email" i] {
+  background-color: #FFFFFF !important;
+  height: 35px;
+  width: 250px;
+}
+
+input[type="password" i] {
+  background-color: #FFFFFF !important;
+  height: 35px;
+  width: 250px;
+}
+input[type="submit" i] {
+  color: #30E8BF;
+  background-color: #CAF7ED;
+  border: 1px solid #30E8BF;
+  width: 100px;
+  height: 37px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 9px 0px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.session-btn {
+  display: flex;
+  justify-content: center;
+
+}
+
+.session-btn:hover {
+  color: #1EC29F;
+  border-color: #1EC29F;
+}
+
+.new-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="checkbox" i] {
+  margin-right: 4px;
+  accent-color: #C651E0;
+}
+
+input:-webkit-autofill {
+  font-size: 12px;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  padding-left: 8px;
+  outline: none !important;
+}
+
+
+input:-webkit-autofill:focus {
+  outline: none;
+
+}
+
+input:-webkit-autofill:active {
+  font-size: 12px;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+}
+
+input:-webkit-autofill{
+  -webkit-text-fill-color: #353535 !important;
+  font-size: 12px;
+  outline: none;
+}
+
+
+.session-link {
+  color: #7E7D7D;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.session-link:hover {
+  color: #7E7D7D;
+  text-decoration: underline;
+}
