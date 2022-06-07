@@ -226,31 +226,4 @@
 
 
 <!-- MODAL WATCHLIST -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="watchlist">
-
-  <div class="modal-dialog">
-    <div class="modal-content modal-content-search">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-search-header">Search for an NFT collection!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body-search">
-        <table class="table">
-        <tbody>
-         <div class="search-bar-small">
-              <%= simple_form_for :search, url: collections_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-                <div class="search-bar-form">
-                  <%= f.input :keyword, label: false, :input_html => { :style=> 'width: 470px' }  %>
-                  <button type="submit" class="btn-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              <% end %>
-            </div>
-        </tbody>
-      </table>
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'modal' %>
