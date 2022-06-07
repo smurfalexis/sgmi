@@ -7,15 +7,21 @@
           <div class="wrapper-nft-search">
             <div class="nft-seach-image">
               <img src=<%= collection.image %> alt="" class="nft-search-image">
-              <h2 class="nft-name"><%= collection.name %></h2>
+               <div class="nft-collection-container">
+                  <h2 class="nft-name"><%= collection.name %></h2>
+
+                    <p class="fa-solid fa-eye" style="color: grey"></p>
+
+                </div>
               <p class="nft-description"><%= collection.description %></p>
-              <div class="nft-data">
+              <div class="nft-search-data">
                 <p>Floor price: <%= collection.floor_price %> SOL</p>
-                <p>Volume: <%= collection.volume %></p>
+
                 <p>Listings: <%= collection.listings %></p>
               </div>
+              <p class="nft-search-data">Volume: <%= collection.volume %></p>
             </div>
-            <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#s<%= @collections[0].id.to_s %>">
+            <button type="button" class="btn collection-btn" data-bs-toggle="modal" data-bs-target="#s<%= @collections[0].id.to_s %>">
               See more
             </button>
           </div>

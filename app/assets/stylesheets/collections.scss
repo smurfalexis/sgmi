@@ -10,6 +10,7 @@
   position: relative;
   margin: 0px 30px;
   margin-bottom: 7px;
+
 }
 
 
@@ -22,20 +23,63 @@
 }
 
 .wrapper-nft-search {
-  height: 392px;
+  height: 450px;
   width: 320px;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   padding: 10px;
+
 }
 
 .nft-description {
   font-weight: lighter;
   color: #8B8B8B;
-  font-size: 14px;
-  padding: 0px;
-  white-space: nowrap;
+  font-size: 12px;
+  margin-bottom: 6px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: initial;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding: 0px;
+}
+
+.nft-search-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  font-size: 10px;
+  color: #8B8B8B;
+  font-weight: lighter;
+
+  p {
+    color: #8B8B8B;
+    font-weight: lighter;
+    font-size: 10px;
+    padding: 0px !important;
+  }
+}
+
+.collection-btn {
+position: absolute;
+bottom: 27px;
+color: #30E8BF;
+text-align: center;
+justify-content: center;
+font-size: 12px;
+font-weight: bold;
+width: 94%;
+height: 48px;
+padding: 16px 0px;
+}
+
+.collection-btn:hover {
+  color: #1EC29F;
+}
+
+.nft-collection-container {
+  display: flex;
+  justify-content: space-between;
 }
