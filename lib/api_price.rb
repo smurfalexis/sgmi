@@ -3,7 +3,7 @@ require 'net/http'
 require 'json'
 
 def sol_transfers(wallet_key)
-  url = URI("https://public-api.solscan.io/account/solTransfers?account=#{wallet_key}&offset=0&limit=50")
+  url = URI("https://public-api.solscan.io/account/splTransfers?account=#{wallet_key}&offset=0&limit=50")
   http = Net::HTTP.new(url.hostname, url.port)
   request = Net::HTTP::Get.new(url)
   http.use_ssl = true
@@ -33,4 +33,4 @@ def price(wallet_key, mint_address)
   transaction_with_mint_address[0] ? transaction_with_mint_address[0]['lamport'] : 0
 end
 
-puts price(wallet_key, mint_address)
+puts price('2kamYjE5qoBcRi2dPcfEJiSDEY3t8C39N7yEobyS7Yty', '6yqfCgPTDSUp42MkmZNKRiQdeRvSFsrbx27zAzg6jBot')
