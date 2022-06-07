@@ -35,7 +35,6 @@ def connect_wallet(wallet_key)
     Collection.create(collection_name: nft['collectionName'], collection: nft['collection'],
                       floor_price: collection['floorPrice'], listed: collection['listedCount'],
                       volume: collection['volumeAll'])
-
   end
 end
 
