@@ -27,22 +27,9 @@ solana_history.each do |row|
   )
 end
 
-mahmoud = User.new({ email: 'mahmoud@gmail.com', password: '123456', first_name: 'Mahmoud', last_name: 'Hajji' })
-spiros = User.new({ email: 'spiros12@gmail.com', password: '123456', first_name: 'Spiros', last_name: 'Tsiakalos' })
-raisa = User.new({ email: 'raise@gmail.com', password: '123456', first_name: 'Raisa', last_name: 'Tarase' })
-alex = User.new({ email: 'alex@gmail.com', password: '123456', first_name: 'Alexandra', last_name: 'Hedman' })
-spiros.save
-mahmoud.save
-raisa.save
-alex.save
 
-# Wallets:
-wallet1 = Wallet.create(wallet_key: '12345678', user: alex)
-wallet2 = Wallet.create(wallet_key: '23456789', user: mahmoud)
-wallet3 = Wallet.create(wallet_key: '56789043', user: spiros)
-wallet4 = Wallet.create(wallet_key: '23689045', user: raisa)
 
-def get_all_collections
+def get_buy_and_sell_transactions
   offset = 0
   limit = 500
   result = collection_by_offset(offset, limit)
@@ -72,10 +59,13 @@ def save_collections(result)
     collection_hash = collection(r['symbol'])
     p collection_hash
     next unless collection_hash['volumeAll'].present? && collection_hash['volumeAll'] > 5_000_000_000_000
-    Collection.create(symbol: r['symbol'], name: r['name'], description: r['description'],
+    current_collection = Collection.find_or_initialize_by(symbol: r['symbol'])
+    
+    current_collection.assign_attributes(name: r['name'], description: r['description'],
                       image: r['image'], twitter: r['twitter'], discord: r['discord'],
                       category: r['categories'], floor_price: collection_hash['floorPrice'],
                       listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'])
+    current_collection.save!
   end
   puts 'collections saved'
 end
@@ -88,5 +78,7 @@ def collection(collection)
   response = http.request(request)
   JSON.parse(response.body)
 end
+
+
 
 get_all_collections

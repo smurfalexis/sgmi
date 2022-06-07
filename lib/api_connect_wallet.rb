@@ -37,5 +37,3 @@ def connect_wallet(wallet_key)
                       volume: collection['volumeAll'])
   end
 end
-
-connect_wallet

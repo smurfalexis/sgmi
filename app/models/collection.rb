@@ -9,4 +9,14 @@ class Collection < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+SOL = 1000000000
+
+def floor_price_in_sol
+  floor_price / SOL
+end
+
+def volume_in_sol
+  volume / SOL
+end
+
 end

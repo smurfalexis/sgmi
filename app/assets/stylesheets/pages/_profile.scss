@@ -134,11 +134,9 @@
 
 .modal-body-search {
   position: relative;
-  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 30px 45px 30px;
 }
 
 .search-bar-small {
@@ -157,8 +155,25 @@
 
 .modal-header {
   border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+  color: #8B8B8B;
+  margin: 0px;
 }
 
 .modal-content-search {
   width: 550px;
+}
+
+.number {
+  color: #353535;
+  margin-right: 8px;
+}
+
+.modal-body-best {
+  display: flex;
+
 }

@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
   def home
-    @popular_collections = Collection.order(volume: :desc).first(10)
+    @popular_collections = Collection.order(volume: :desc).first(5)
     @upcoming_collections = Collection.where(volume: 0).first(4)
-    @performing_collections = Collection.where('volume24 > 25').first(3)
+    @popular_collections_today = popular_collections_24h()
   end
 
   # def highest_floor_price
@@ -107,28 +107,19 @@ class PagesController < ApplicationController
     @nfts = Nft.all.order(:price).first(10)
   end
 
-  # The price in USD that you bought it for vs. what it's worth in USD right now.
-  # Purchased price of NFT in Solana.
-  # Purchased price of NFT in USD.
+  private 
 
-  # Floor price of NFT collection in Solana
-  # Floor price of NFT collection in USD
+  def popular_collections_24h
+    url = URI("https://api-mainnet.magiceden.io/popular_collections?more=true&timeRange=1d&edge_cache=true")
+    http = Net::HTTP.new(url.hostname, url.port)
+    request = Net::HTTP::Get.new(url)
+    http.use_ssl = true
+    response = http.request(request)
+    result = JSON.parse(response.body)
+    first3 = result["collections"].first(3).map {|collection| collection["name"]}
+    first3.map {|collection| Collection.find_by(name: collection)}
+  end
 
-  # Sort by desc highest profil in USD. Grab the top four.
 
-  # Add collections button --> promt user to search for collection with an allert
 
-  # Grab all watchlist items related to the current user
 end
-
-# Chart Wallet
-# Start date = The purchase date of the first bought NFT
-# Add purchase dates to NFT Model as column
-# Important break points will be the purchase date of each NFT which increases the value of the wallet.
-# Add purschase price in USD of each NFT including the purschase date
-
-# Chart NFT
-# Start date = The purchase date of the first bought NFT
-# Start point = purchased date end point = today/yesterday
-# Purchase price - What was USD at the point of purchase?
-# Floor price today - USD today?
