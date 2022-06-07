@@ -105,6 +105,9 @@ class PagesController < ApplicationController
 
   def about; end
 
+  def introduction
+  end
+
   # Best performing NFTs
   def best_nfts
     @nfts = Nft.all.order(:price).first(10)
