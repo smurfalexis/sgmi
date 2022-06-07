@@ -45,53 +45,28 @@ wallet2 = Wallet.create(wallet_key: '23456789', user: mahmoud)
 wallet3 = Wallet.create(wallet_key: '56789043', user: spiros)
 wallet4 = Wallet.create(wallet_key: '23689045', user: raisa)
 
-def get_all_collections
+def get_buy_and_sell_transactions
   offset = 0
   limit = 500
-  result = collection_by_offset(offset, limit)
+  current_user.wallet
+  result = transactions_by_offset(offset, limit)
     while result.length == limit
-      sleep 5
-      puts "sleeping for 5 , calling api again"
-      save_collections(result)
+      sleep 2
+      puts "slept for 2 secs, calling api again"
       offset = offset + limit
-      result = collection_by_offset(offset, limit)
+      result = transactions_by_offset(offset, limit)
       p offset
     end
-    save_collections(result)
   end
 
-  def collection_by_offset(offset, limit)
-    url = URI("https://api-mainnet.magiceden.dev/v2/collections?offset=#{offset}&limit=#{limit}")
+  def transactions_by_offset(offset, limit, wallet_key)
+    url = URI("https://api-mainnet.magiceden.dev/v2/wallets/#{wallet_key}/activities?offset=#{offset}&limit=#{limit}")
     http = Net::HTTP.new(url.hostname, url.port)
     request = Net::HTTP::Get.new(url)
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
   end
-
-  def save_collections(result)
-    result.each do |r|
-      collection_hash = collection(r['symbol'])
-      Collection.create(symbol: r['symbol'], name: r['name'], description: r['description'],
-                        image: r['image'], twitter: r['twitter'], discord: r['discord'],
-                        category: r['categories'], floor_price: collection_hash['floorPrice'],
-                        listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'])
-    end
-    puts "collections saved"
-  end
-
-
-  def collection(collection)
-    url = URI("https://api-mainnet.magiceden.dev/v2/collections/#{collection}/stats")
-    http = Net::HTTP.new(url.hostname, url.port)
-    request = Net::HTTP::Get.new(url)
-    http.use_ssl = true
-    response = http.request(request)
-    JSON.parse(response.body)
-  end
-
-get_all_collections()
-
 
 
 okay = Collection.create(name: 'Okay Bears',
