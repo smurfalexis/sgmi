@@ -81,5 +81,5 @@ gem 'whenever', require: false
 gem 'searchkick'
 
 gem 'elasticsearch'
+gem 'groupdate'
 gem 'pg_search', '~> 2.3.0'
-gem "groupdate"

@@ -3,8 +3,8 @@ require 'net/http'
 require 'json'
 SOL = 0.000000001
 class WalletsController < ApplicationController
-  before_action :set_wallet, only: %i[edit update]
 
+  before_action :set_wallet, only: %i[edit update]
   def new
     @wallet = Wallet.new
     authorize @wallet
@@ -22,6 +22,10 @@ class WalletsController < ApplicationController
       render :new
     end
   end
+
+
+  private
+
 
   def edit
   end
@@ -42,6 +46,7 @@ class WalletsController < ApplicationController
   end
 
 # All the nfts in a wallet
+
   def nfts(wallet_key)
     url = URI("https://api-mainnet.magiceden.dev/v2/wallets/#{wallet_key}/tokens?offset=0&limit=500&listStatus=both")
     http = Net::HTTP.new(url.hostname, url.port)
@@ -67,11 +72,11 @@ class WalletsController < ApplicationController
     @nfts = nfts(wallet.wallet_key)
     @nfts.each do |nft|
       collection = collection(nft['collection'])
-    new_collection = Collection.create(name: nft['collectionName'], symbol: nft['symbol'],
-      floor_price: (collection['floorPrice'] * SOL), listings: collection['listedCount'],
-      volume: collection['volumeAll'], description: collection['description'])
+      new_collection = Collection.create(name: nft['collectionName'], symbol: nft['symbol'],
+                                         floor_price: (collection['floorPrice'] * SOL), listings: collection['listedCount'],
+                                         volume: collection['volumeAll'], description: collection['description'])
       Nft.create(mint_address: nft['mintAddress'], name: nft['name'], image: nft['image'],
-        wallet: wallet,collection: new_collection)
+                 wallet: wallet, collection: new_collection)
     end
   end
 

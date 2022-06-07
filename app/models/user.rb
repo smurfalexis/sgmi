@@ -7,13 +7,14 @@ class User < ApplicationRecord
   has_many :wallets
   has_many :nfts, through: :wallets
   has_one :watchlist, dependent: :destroy
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
 
-  private
 
+  private
 
   def create_watchlist
     @watchlist = Watchlist.create(user: self)

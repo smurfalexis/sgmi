@@ -1,6 +1,6 @@
 class WatchlistItemsController < ApplicationController
   def create
-    flash[:watchlist_item] = "The collection has already been saved to your watchlist!"
+    flash[:watchlist_item] = 'The collection has already been saved to your watchlist!'
     @watchlist_item = WatchlistItem.new
     @watchlist_item.watchlist = current_user.watchlist
     @watchlist_item.collection = Collection.find(params[:collection_id])

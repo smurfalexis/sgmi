@@ -20,4 +20,5 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     authorize @collection
   end
+
 end
