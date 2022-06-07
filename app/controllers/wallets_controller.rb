@@ -3,6 +3,8 @@ require 'net/http'
 require 'json'
 SOL = 0.000000001
 class WalletsController < ApplicationController
+
+  before_action :set_wallet, only: %i[edit update]
   def new
     @wallet = Wallet.new
     authorize @wallet
@@ -21,9 +23,30 @@ class WalletsController < ApplicationController
     end
   end
 
+
   private
 
-  # All the nfts in a wallet
+
+  def edit
+  end
+
+  def update
+    if @wallet.update(wallet_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def set_wallet
+    @wallet = Wallet.find_by(user: current_user)
+    authorize @wallet
+  end
+
+# All the nfts in a wallet
+
   def nfts(wallet_key)
     url = URI("https://api-mainnet.magiceden.dev/v2/wallets/#{wallet_key}/tokens?offset=0&limit=500&listStatus=both")
     http = Net::HTTP.new(url.hostname, url.port)

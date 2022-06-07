@@ -9,17 +9,17 @@
 
         <div class="field">
           <%= f.label :first_name %><br />
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class:"session-input" %>
+          <%= f.text_field :first_name, required: true, autofocus: true, autocomplete: "first name", class:"session-input" %>
         </div>
 
         <div class="field">
           <%= f.label :last_name %><br />
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class:"session-input" %>
+          <%= f.text_field :last_name, required: true, autofocus: true, autocomplete: "last name", class:"session-input" %>
         </div>
 
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.text_field :email, autofocus: false, autocomplete: "email", class:"session-input" %>
+          <%= f.text_field :email, required: true, autofocus: false, autocomplete: "email", class:"session-input" %>
         </div>
 
         <div class="field">
@@ -27,12 +27,12 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class:"session-input" %>
+          <%= f.password_field :password, required: true, autocomplete: "new-password", class:"session-input" %>
         </div>
 
         <div class="field">
           <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"session-input" %>
+          <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class:"session-input" %>
         </div>
 
         <div class="session-btn">
