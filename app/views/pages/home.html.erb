@@ -35,13 +35,13 @@
                   <%=image_tag "#{collection.image}", class:"dashboard-item-image"%>
                   <p class="dashboard-item-image-p"><%=collection.name%></p>
                 </div>
-                  <p class="item-p item-p1"><%= collection.supply %></p>
                   <p class="item-p item-p2"><%= collection.listings %></p>
-                  <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(0) %> SOL</p>
+                  <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
                   <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
-                  <%=link_to collection.website do %>
-                  <p class="fa-solid fa-eye" style="color: grey"> </p>
-                  <% end %>
+                  <div class="eye-button">
+                    <p class="fa-solid fa-eye" style="color: grey"></p>
+                  </div>
+
               </div>
 
             <!-- MODAL: Popular collections: More information about a specific popular collection starts here-->
@@ -60,10 +60,10 @@
                        <%=image_tag collection.image, class:"popular-collections-image" %>
                       </div>
                       <div class="col-md-6">
-                        <p class="collection-data">Supply: <%= collection.supply %></p>
                         <p class="collection-data">Listings: <%= collection.listings %>
-                        <p class="collection-data">Floor price: <%= collection.floor_price_in_sol.round(0) %>
-                        <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %>
+                        <p class="collection-data">Floor price: <%= collection.floor_price_in_sol.round(2) %> SOL
+                        <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL
+                        <p class="collection-data">Description: <%= collection.description %>
                       </div>
                     </div>
                   </div>
@@ -83,22 +83,16 @@
 
 
 
-
-
-
-
-
-
         <!-- Upcoming drops-->
         <div class="card-container">
         <h2 class="card-header-big">Upcoming drops</h2>
         <div class="wrapper-cards-btn drop">
         <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-0">
-            <%=image_tag "#{@upcoming_collections[0].image}", class:"card-xs-small-image" %>
+            <%=image_tag "#{@upcoming_collections[0][:image]}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
-              <p class="content-info collection-name"><%= @upcoming_collections[0].name %></p>
-              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[0].supply%></small></p>
+              <p class="content-info collection-name"><%= @upcoming_collections[0][:name] %></p>
+              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[0][:supply]%></small></p>
             </div>
           </div>
         </div>
@@ -107,17 +101,19 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[0].name %></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[0][:name] %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                <div class="row">
                 <div class="col-md-6">
-                  <%=image_tag "#{@upcoming_collections[0].image}", class: "upcoming-collections-image" %>
+                  <%=image_tag "#{@upcoming_collections[0][:image]}", class: "upcoming-collections-image" %>
                 </div>
                 <div class="col-md-6">
-                  <p>Name: <%= @upcoming_collections[0].name %></p>
-                  <p>Supply:<%=  @upcoming_collections[0].supply %></p>
+                  <p class="collection-data">Name: <%= @upcoming_collections[0][:name] %></p>
+                   <p class="collection-data">Supply: <%=@upcoming_collections[0][:supply]%></p>
+                   <p class="collection-data">Price: <%=@upcoming_collections[0][:price]%> SOL</p>
+                   <p class="collection-data">Description: <%=@upcoming_collections[0][:description]%></p>
                 </div>
               </div>
               </div>
@@ -130,11 +126,11 @@
         <!---->
 
         <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-1">
-          <%=image_tag "#{@upcoming_collections[1].image}", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[1][:image]}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
-              <p class="content-info collection-name"><%= @upcoming_collections[1].name %></p>
-              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[1].supply%></small></p>
+              <p class="content-info collection-name"><%= @upcoming_collections[1][:name] %></p>
+              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[1][:supply]%></small></p>
             </div>
           </div>
         </div>
@@ -145,17 +141,19 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[1].name %></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[1][:name] %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-6">
-                    <%=image_tag "#{@upcoming_collections[1].image}", class: "upcoming-collections-image"%>
+                    <%=image_tag "#{@upcoming_collections[1][:image]}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[1].name %></p>
-                    <p>Supply: <%=  @upcoming_collections[1].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[1][:name] %></p>
+                    <p class="collection-data">Supply: <%=@upcoming_collections[1][:supply]%></p>
+                   <p class="collection-data">Price: <%=@upcoming_collections[1][:price]%> SOL</p>
+                   <p class="collection-data">Description: <%=@upcoming_collections[1][:description]%></p>
                   </div>
                 </div>
               </div>
@@ -168,11 +166,11 @@
         <!---->
 
         <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-2">
-          <%=image_tag "#{@upcoming_collections[2].image}", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[2][:image]}", class:"card-xs-small-image" %>
           <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
-              <p class="content-info collection-name"><%= @upcoming_collections[2].name %></p>
-              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[2].supply%></small></p>
+              <p class="content-info collection-name"><%= @upcoming_collections[2][:name] %></p>
+              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[2][:supply]%></small></p>
             </div>
           </div>
         </div>
@@ -182,17 +180,19 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[2].name %></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[2][:name] %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-6">
-                    <%=image_tag "#{@upcoming_collections[2].image}", class: "upcoming-collections-image"%>
+                    <%=image_tag "#{@upcoming_collections[2][:image]}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[2].name %></p>
-                    <p>Supply:<%=  @upcoming_collections[2].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[2][:name] %></p>
+                    <p class="collection-data">Supply: <%=@upcoming_collections[2][:supply]%></p>
+                   <p class="collection-data">Price: <%=@upcoming_collections[2][:price]%> SOL</p>
+                   <p class="collection-data">Description: <%=@upcoming_collections[2][:description]%></p>
                   </div>
                 </div>
               </div>
@@ -205,11 +205,11 @@
         <!---->
 
         <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-3">
-          <%=image_tag "#{@upcoming_collections[3].image}", class:"card-xs-small-image" %>
+          <%=image_tag "#{@upcoming_collections[3][:image]}", class:"card-xs-small-image" %>
            <div class="card-xs-small-content">
             <div class="content-info card-xs-small-content-info">
-              <p class="content-info collection-name"><%= @upcoming_collections[3].name %></p>
-              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[2].supply%></small></p>
+              <p class="content-info collection-name"><%= @upcoming_collections[3][:name] %></p>
+              <p class="content-info card-text"><small class="text-muted">Supply: <%=@upcoming_collections[3][:supply]%></small></p>
             </div>
           </div>
 
@@ -218,17 +218,19 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[3].name %></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><%= @upcoming_collections[3][:name] %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                <div class="row">
                   <div class="col-md-6">
-                    <%=image_tag "#{@upcoming_collections[3].image}", class: "upcoming-collections-image"%>
+                    <%=image_tag "#{@upcoming_collections[3][:image]}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[3].name %></p>
-                    <p>Supply: <%=  @upcoming_collections[3].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[3][:name] %></p>
+                    <p class="collection-data">Supply: <%=@upcoming_collections[3][:supply]%></p>
+                   <p class="collection-data">Price: <%=@upcoming_collections[3][:price]%> SOL</p>
+                   <p class="collection-data">Description: <%=@upcoming_collections[3][:description]%></p>
                   </div>
                </div>
               </div>
@@ -252,7 +254,7 @@
 
       <!-- MODAL: Upcoming Drops see more START-->
       <div class="modal fade" id="upcoming-drops" tabindex="-1">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Upcoming drops</h5>
@@ -264,12 +266,11 @@
             <div class="row">
               <% @upcoming_collections.each do |collection| %>
                 <div class="col-md-6 p-1">
-                    <img src=<%= collection.image %> class="img-fluid rounded-start">
+                    <img src=<%= collection[:image] %> class="img-fluid rounded-start">
                 </div>
 
                 <div class="col-md-6">
-                  <p>Name: <%= collection.name %></p>
-                  <p>Supply: <%= collection.supply %></p>
+                  <p class="collection-data">Name: <%= collection[:name] %></p>
                 </div>
               <% end %>
             </div>
@@ -293,12 +294,12 @@
 
           <%= image_tag "#{@popular_collections_today[0].image}", class: "card-lg-image"%>
           <h2 class="h2-highest" > <%= @popular_collections_today[0].name %> </h2>
-          <p class="p-highest">Volume: <%= @popular_collections_today[0].volume %></p>
+          <p class="p-highest">Volume: <%= @popular_collections_today[0].volume_in_sol.round(0) %> SOL</p>
         </div>
           <div class="big-image" data-bs-toggle="modal" data-bs-target="#most-popular-today-1">
             <%= image_tag "#{@popular_collections_today[1].image}", class: "card-lg-image"%>
             <h2 class="h2-highest"> <%= @popular_collections_today[1].name %> </h2>
-            <p class="p-highest">Volume: <%= @popular_collections_today[1].volume %></p>
+            <p class="p-highest">Volume: <%= @popular_collections_today[1].volume_in_sol.round(0) %> SOL</p>
           </div>
 
           <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#most-popular-today">
@@ -318,10 +319,10 @@
                     <%=image_tag "#{@popular_collections_today[0].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @popular_collections_today[0].name %></p>
-                    <p>Listings: <%=  @popular_collections_today[0].listings %></p>
-                    <p>Floor price: <%=  @popular_collections_today[0].floor_price %></p>
-                    <p>Volume: <%= @popular_collections_today[0].volume %></p>
+                    <p class="collection-data">Listings: <%=  @popular_collections_today[0].listings %></p>
+                    <p class="collection-data">Floor price: <%=  @popular_collections_today[0].floor_price_in_sol.round(2) %> SOL</p>
+                    <p class="collection-data">Volume: <%= @popular_collections_today[0].volume_in_sol.round(0) %> SOL</p>
+                    <p class="collection-data">Description: <%= @popular_collections_today[0].description %></p>
                   </div>
                 </div>
               </div>
@@ -347,10 +348,10 @@
                     <%=image_tag "#{@popular_collections_today[1].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @popular_collections_today[1].name %></p>
-                    <p>Listings: <%=  @popular_collections_today[1].listings %></p>
-                    <p>Floor price: <%=  @popular_collections_today[1].floor_price %></p>
-                    <p>Volume: <%= @popular_collections_today[1].volume %></p>
+                    <p class="collection-data">Listings: <%=  @popular_collections_today[1].listings %></p>
+                    <p class="collection-data">Floor price: <%=  @popular_collections_today[1].floor_price_in_sol.round(2) %> SOL</p>
+                    <p class="collection-data">Volume: <%= @popular_collections_today[1].volume_in_sol.round(0) %> SOL</p>
+                    <p class="collection-data">Description: <%= @popular_collections_today[1].description %></p>
                   </div>
                 </div>
               </div>
@@ -366,7 +367,7 @@
 
       <!-- MODAL: Most Popular Today see more starts here -->
       <div class="modal fade" id="most-popular-today" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Most popular today</h5>
@@ -379,9 +380,9 @@
                   <img src=<%= collection.image  %> class="img-fluid rounded-start" >
               </div>
               <div class="col-md-8">
-                <p>Name: <%= collection.name %></p>
-                <p>Volume: <%= collection.volume %></p>
-              </div>
+                <p class="collection-data">Name: <%= collection.name %></p>
+                <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+            </div>
               <% end %>
             </div>
           </div>

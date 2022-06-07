@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @popular_collections = Collection.order(volume: :desc).first(5)
-    @upcoming_collections = Collection.where(volume: 0).first(4)
+    @upcoming_collections = upcoming_collections()
     @popular_collections_today = popular_collections_24h()
   end
 
@@ -120,6 +120,17 @@ class PagesController < ApplicationController
     first3.map {|collection| Collection.find_by(name: collection)}
   end
 
-
-
+  def upcoming_collections
+    url = URI("https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200")
+    http = Net::HTTP.new(url.hostname, url.port)
+    request = Net::HTTP::Get.new(url)
+    http.use_ssl = true
+    response = http.request(request)
+    result = JSON.parse(response.body)
+    first4 = result.map do |collection|
+      next unless collection["launchDatetime"].present? && Date.parse(collection["launchDatetime"]) > Date.today
+      {name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
+    end
+    first4.compact.first(4)
+  end
 end
