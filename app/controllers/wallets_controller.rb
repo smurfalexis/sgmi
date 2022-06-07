@@ -3,6 +3,7 @@ require 'net/http'
 require 'json'
 SOL = 0.000000001
 class WalletsController < ApplicationController
+  before_action :set_wallet, only: %i[edit update]
 
   def new
     @wallet = Wallet.new
@@ -22,11 +23,23 @@ class WalletsController < ApplicationController
     end
   end
 
+  def edit
+  end
 
+  def update
+    if @wallet.update(wallet_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
 
   private
 
-
+  def set_wallet
+    @wallet = Wallet.find_by(user: current_user)
+    authorize @wallet
+  end
 
 # All the nfts in a wallet
   def nfts(wallet_key)

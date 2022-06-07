@@ -7,6 +7,19 @@
   margin-left: 78px;
 }
 
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change-wallet {
+  margin-right: 150px;
+  width: auto !important;
+  padding: 15px 20px;
+}
+
 .my-wallet {
   display: flex;
   justify-content: center;

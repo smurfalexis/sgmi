@@ -37,14 +37,14 @@
             <%= link_to "About Us", about_path, class:"text", style:"text-decoration: none" %>
             <%= link_to "Introduction", "#", class:"text", style:"text-decoration: none" %>
             <%= link_to "Contact Us", "#", class:"text", style:"text-decoration: none" %>
-            <%= link_to "Connect wallet", new_user_session_path, class:"connect"%>
+            <%= link_to "Log in", new_user_session_path, class:"connect"%>
         </div>
       </div>
     </div>
   </header>
 
-<!-- Profile page-->
-<% elsif current_page?('/profile') %>
+<!-- Profile page or passing in wallet key -->
+<% elsif current_page?('/profile')  || (current_page?('/wallets/new')) %>
   <header>
     <div class="navbar">
       <div class="container">
@@ -118,7 +118,7 @@
                 </div>
               <% end %>
             </div>
-              <%= link_to "Connect wallet", profile_path, class:"connect"%>
+              <%= link_to "Log in", profile_path, class:"connect"%>
         </div>
       </div>
     </div>

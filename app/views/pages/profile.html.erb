@@ -1,5 +1,8 @@
 <div class="container">
-  <h1 class="profile-header">My Wallet</h1>
+  <div class="header-container">
+    <h1 class="profile-header">My Wallet</h1>
+    <%= link_to "Change wallet", edit_wallet_path(@wallet), class:"btn-green-big change-wallet" %>
+  </div>
   <div class="my-wallet">
 <!-- DASHBOARD-->
     <div class="dashboard-container">
