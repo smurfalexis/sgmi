@@ -39,9 +39,11 @@
                   <p class="item-p item-p2"><%= collection.listings %></p>
                   <p class="item-p item-p3"><%= collection.floor_price %> SOL</p>
                   <p class="item-p item-p4"><%= collection.volume %> SOL</p>
-                  <%=link_to collection.website do %>
-                  <p class="fa-solid fa-eye" style="color: grey"> </p>
-                  <% end %>
+
+                  <div class="eye-button">
+                    <p class="fa-solid fa-eye" style="color: grey"></p>
+                  </div>
+
               </div>
 
             <!-- MODAL: Popular collections: More information about a specific popular collection starts here-->
@@ -83,12 +85,6 @@
 
 
 
-
-
-
-
-
-
         <!-- Upcoming drops-->
         <div class="card-container">
         <h2 class="card-header-big">Upcoming drops</h2>
@@ -116,8 +112,8 @@
                   <%=image_tag "#{@upcoming_collections[0].image}", class: "upcoming-collections-image" %>
                 </div>
                 <div class="col-md-6">
-                  <p>Name: <%= @upcoming_collections[0].name %></p>
-                  <p>Supply:<%=  @upcoming_collections[0].supply %></p>
+                  <p class="collection-data">Name: <%= @upcoming_collections[0].name %></p>
+                  <p class="collection-data">Supply:<%=  @upcoming_collections[0].supply %></p>
                 </div>
               </div>
               </div>
@@ -154,8 +150,8 @@
                     <%=image_tag "#{@upcoming_collections[1].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[1].name %></p>
-                    <p>Supply: <%=  @upcoming_collections[1].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[1].name %></p>
+                    <p class="collection-data">Supply: <%=  @upcoming_collections[1].supply %></p>
                   </div>
                 </div>
               </div>
@@ -191,8 +187,8 @@
                     <%=image_tag "#{@upcoming_collections[2].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[2].name %></p>
-                    <p>Supply:<%=  @upcoming_collections[2].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[2].name %></p>
+                    <p class="collection-data">Supply:<%=  @upcoming_collections[2].supply %></p>
                   </div>
                 </div>
               </div>
@@ -227,8 +223,8 @@
                     <%=image_tag "#{@upcoming_collections[3].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @upcoming_collections[3].name %></p>
-                    <p>Supply: <%=  @upcoming_collections[3].supply %></p>
+                    <p class="collection-data">Name: <%= @upcoming_collections[3].name %></p>
+                    <p class="collection-data">Supply: <%=  @upcoming_collections[3].supply %></p>
                   </div>
                </div>
               </div>
@@ -252,7 +248,7 @@
 
       <!-- MODAL: Upcoming Drops see more START-->
       <div class="modal fade" id="upcoming-drops" tabindex="-1">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Upcoming drops</h5>
@@ -268,8 +264,8 @@
                 </div>
 
                 <div class="col-md-6">
-                  <p>Name: <%= collection.name %></p>
-                  <p>Supply: <%= collection.supply %></p>
+                  <p class="collection-data">Name: <%= collection.name %></p>
+                  <p class="collection-data">Supply: <%= collection.supply %></p>
                 </div>
               <% end %>
             </div>
@@ -318,11 +314,11 @@
                     <%=image_tag "#{@performing_collections[0].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @performing_collections[0].name %></p>
-                    <p>Supply: <%=  @performing_collections[0].supply %></p>
-                    <p>Listings: <%=  @performing_collections[0].listings %></p>
-                    <p>Floor price: <%=  @performing_collections[0].floor_price %></p>
-                    <p>Volume: <%= @performing_collections[0].volume %></p>
+                    <p class="collection-data">Name: <%= @performing_collections[0].name %></p>
+                    <p class="collection-data">Supply: <%=  @performing_collections[0].supply %></p>
+                    <p class="collection-data">Listings: <%=  @performing_collections[0].listings %></p>
+                    <p class="collection-data">Floor price: <%=  @performing_collections[0].floor_price %></p>
+                    <p class="collection-data">Volume: <%= @performing_collections[0].volume %></p>
                   </div>
                 </div>
               </div>
@@ -348,11 +344,11 @@
                     <%=image_tag "#{@performing_collections[1].image}", class: "upcoming-collections-image"%>
                   </div>
                   <div class="col-md-6">
-                    <p>Name: <%= @performing_collections[1].name %></p>
-                    <p>Supply:<%=  @performing_collections[1].supply %></p>
-                    <p>Listings: <%=  @performing_collections[1].listings %></p>
-                    <p>Floor price: <%=  @performing_collections[1].floor_price %></p>
-                    <p>Volume: <%= @performing_collections[1].volume %></p>
+                    <p class="collection-data">Name: <%= @performing_collections[1].name %></p>
+                    <p class="collection-data">Supply:<%=  @performing_collections[1].supply %></p>
+                    <p class="collection-data">Listings: <%=  @performing_collections[1].listings %></p>
+                    <p class="collection-data">Floor price: <%=  @performing_collections[1].floor_price %></p>
+                    <p class="collection-data">Volume: <%= @performing_collections[1].volume %></p>
                   </div>
                 </div>
               </div>
@@ -368,7 +364,7 @@
 
       <!-- MODAL: Most Popular Today see more starts here -->
       <div class="modal fade" id="most-popular-today" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Most popular today</h5>
@@ -381,8 +377,8 @@
                   <img src=<%= collection.image  %> class="img-fluid rounded-start" >
               </div>
               <div class="col-md-8">
-                <p>Name: <%= collection.name %></p>
-                <p>Supply: <%= collection.supply %></p>
+                <p class="collection-data">Name: <%= collection.name %></p>
+                <p class="collection-data">Supply: <%= collection.supply %></p>
               </div>
               <% end %>
             </div>
