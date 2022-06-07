@@ -4,7 +4,7 @@
       <h2 class="session-header">Pass in your wallet key</h2>
       <div class="wallet-key-form">
         <%= simple_form_for [@wallet] do |f| %>
-          <%= f.input :wallet_key, label: 'Public wallet key', required: true, error: 'A wallet key is mandatory, please specify one', class: "session-input" %>
+          <%= f.input :wallet_key, label: 'Public wallet key', required: true, error: 'A wallet key is mandatory, please specify one.', class: "session-input" %>
           <div class="session-btn">
             <%= f.submit "Submit" %>
           </div>

@@ -1,0 +1,29 @@
+.wallet-key-form {
+  margin-top: 20px;
+
+  .form-label {
+    color: #7E7D7D;
+    margin: 6px 0px 0px 0px;
+    font-size: 12px;
+}
+  .form-control {
+    color: #353535;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    outline: 0;
+    box-shadow: 0 0 0 30px white inset !important;
+    padding-left: 8px;
+    font-size: 12px;
+    height: 35px;
+    width: 350px;
+  }
+
+  .form-control:focus {
+    color: #353535;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    outline: 0;
+    box-shadow: 0 0 0 30px white inset !important;
+    padding-left: 8px;
+  }
+}
