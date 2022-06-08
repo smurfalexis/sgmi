@@ -110,7 +110,7 @@ class PagesController < ApplicationController
     @nfts = Nft.all.order(:price).first(10)
   end
 
-  private 
+  private
 
   def popular_collections_24h
     url = URI("https://api-mainnet.magiceden.io/popular_collections?more=true&timeRange=1d&edge_cache=true")
