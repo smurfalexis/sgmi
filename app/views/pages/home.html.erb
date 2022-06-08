@@ -157,7 +157,7 @@
                 <% @upcoming_collections.each do |collection| %>
                 <div class="drop-container">
                   <img src=<%= collection[:image] %> class="drop-image">
-                  <p class="collection-data">Name: <%= collection[:name] %></p>
+                  <p class="drop-modal-title">Name: <%= collection[:name] %></p>
                 </div>
                 <% end %>
               </div>
@@ -227,23 +227,22 @@
       </div>
 
       <!-- MODAL: Most Popular Today see more starts here -->
-      <div class="modal fade" id="most-popular-today" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
+        <div class="modal fade" id="most-popular-today" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content-drop">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Most popular today</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <div class="row">
+            <div class="modal-body modal-drop">
+              <!-- Iteration -->
+              <div class="wrapper-drops">
                 <% @popular_collections_today.each do |collection| %>
-                  <div class="col-md-4 p-1">
-                    <img src=<%= collection.image  %> class="img-fluid rounded-start" >
-                  </div>
-                  <div class="col-md-8">
-                    <p class="collection-data">Name: <%= collection.name %></p>
-                    <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
-                  </div>
+                <div class="drop-container">
+                  <img src=<%= collection.image %> class="drop-image">
+                  <p class="drop-modal-title">Name: <%= collection.name %></p>
+                  <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+                </div>
                 <% end %>
               </div>
             </div>
@@ -253,6 +252,4 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- Modal for most popular today ends here -->
   </div>
