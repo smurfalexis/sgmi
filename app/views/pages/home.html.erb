@@ -32,6 +32,7 @@
                 <%=image_tag "#{collection.image}", class:"dashboard-item-image"%>
                 <p class="dashboard-item-image-p"><%=collection.name%></p>
               </div>
+              <p class="item-p item-p1"><%= collection.supply %></p>
               <p class="item-p item-p2"><%= collection.listings %></p>
               <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
               <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
