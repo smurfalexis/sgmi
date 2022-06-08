@@ -1,4 +1,5 @@
 import { Controller } from "stimulus"
+import EvalSourceMapDevToolModuleTemplatePlugin from "webpack/lib/EvalSourceMapDevToolModuleTemplatePlugin"
 
 export default class extends Controller {
   static targets = ["form", "input", "collection", "list"]
@@ -7,6 +8,7 @@ export default class extends Controller {
     console.log(this.formTarget)
     console.log(this.inputTarget)
     console.log(this.collectionTarget)
+    console.log(this.listTarget)
   }
 
   update() {
@@ -14,8 +16,14 @@ export default class extends Controller {
     fetch(url, { headers: { "Accept": "text/plain" } })
       .then(response => response.text())
       .then((data) => {
-        this.listTarget.outerHTML = data
+        this.listTarget.innerHTML = data
         console.log(data)
       })
-    }
+  }
+
+  submission(event) {
+    console.log(event)
+    event.stopPropagation()
+    event.preventDefault()
+  }
 }

@@ -18,12 +18,14 @@
                 placeholder: 'Search for a collection',
                 value: params[:query],
                 data: { search_collections_target: 'input',
-                action: 'keyup->search-collections#update' } %>
+                action: 'keyup->search-collections#update',
+                # action: 'ajax:beforeSend->search-collections#submission'
+                 } %>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+
               </div>
               <% end %>
-              <li data-search-collections-target="list">hello </li>
+              <div data-search-collections-target="list"  class="search-list-container"> </div>
             </div>
         </tbody>
       </table>
