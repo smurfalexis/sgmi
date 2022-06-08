@@ -7,7 +7,7 @@
 
 .modal-nft-wrapper {
 
-  height: 500px;
+  height: auto;
   padding: 12px;
 }
 
@@ -37,16 +37,19 @@
 }
 
 .modal-nft-wrapper-info {
-  width: 50%;
+  width: 100%;
+  height: 50px;
   margin: 0px;
   position: relative;
+  display: flex;
 }
 
 .modal-desription {
-
   padding: 0px;
-  padding-top: 12px;
-
+  font-weight: lighter;
+  color: #8B8B8B;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
 
@@ -75,8 +78,7 @@
 .modal-nft-data {
   display: flex;
   justify-content: space-between;
-  padding: 50px 50px 0px 20px;
-  height: 70px;
+  height: 50px;
 
 }
 

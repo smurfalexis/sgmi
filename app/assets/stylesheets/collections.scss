@@ -83,3 +83,26 @@ padding: 16px 0px;
   display: flex;
   justify-content: space-between;
 }
+
+.collection-social-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 0px;
+  bottom: 0px;
+}
+
+.collection-social {
+  color: #C651E0;
+  font-size: 42px;
+  margin: 0px;
+  margin-right: 8px;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.collection-social:hover {
+  color: #C651E0;
+  opacity: 1;
+  transition: 0.3s;
+}
