@@ -24,14 +24,14 @@ class WalletsController < ApplicationController
   end
 
 
-  private
-
-
   def edit
   end
 
   def update
     if @wallet.update(wallet_params)
+      @new_wallet = Wallet.new
+      connect_wallet(@new_wallet)
+      get_buy_and_sell_transactions(@new_wallet)
       redirect_to profile_path
     else
       render :edit
@@ -73,7 +73,7 @@ class WalletsController < ApplicationController
     @nfts.each do |nft|
       collection = collection(nft['collection'])
       new_collection = Collection.create(name: nft['collectionName'], symbol: nft['symbol'],
-                                         floor_price: (collection['floorPrice'] * SOL), listings: collection['listedCount'],
+                                         floor_price: (collection['floorPrice']), listings: collection['listedCount'],
                                          volume: collection['volumeAll'], description: collection['description'])
       Nft.create(mint_address: nft['mintAddress'], name: nft['name'], image: nft['image'],
                  wallet: wallet, collection: new_collection)
