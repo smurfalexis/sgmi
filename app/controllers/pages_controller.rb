@@ -124,7 +124,7 @@ class PagesController < ApplicationController
     popular_all.each do |collection|
      db_collection = Collection.find_by(name: collection)
      array << db_collection if db_collection.present?
-      break if array.length == 3
+      break if array.length == 10
     end
     array
   end
