@@ -119,11 +119,11 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    popular_all = result["collections"].map {|collection| collection["name"]} 
+    popular_all = result["collections"].map {|collection| collection["name"]}
     array = []
-    popular_all.each do |collection| 
+    popular_all.each do |collection|
      db_collection = Collection.find_by(name: collection)
-     array << db_collection if db_collection.present? 
+     array << db_collection if db_collection.present?
       break if array.length == 3
     end
     array
@@ -136,10 +136,10 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    first4 = result.map do |collection|
+    first12 = result.map do |collection|
       next unless collection["launchDatetime"].present? && Date.parse(collection["launchDatetime"]) > Date.today
       {name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
     end
-    first4.compact.first(4)
+    first12.compact.first(12)
   end
 end
