@@ -4,6 +4,7 @@
   border: $modal-content-border-color;
 }
 
+
 .modal-nft-wrapper {
 
   height: 500px;
@@ -16,7 +17,7 @@
 }
 
 .modal-nft-image {
-  height: 90%;
+  height: auto;
   width: 320px;
   border-radius: 10px;
   margin-right: 12px;
@@ -91,4 +92,17 @@ width: 100%;
   font-size: 10px;
   font-weight: lighter;
   padding: 0px;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 347px;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #F0F0F0;
+  border-radius: 10px;
+  outline: 0;
 }
