@@ -10,6 +10,10 @@ class WatchlistItemsController < ApplicationController
       flash[:notice] = "The collection has already been saved to your watchlist!"
     end
     authorize current_user.watchlist
+    respond_to do |format|
+      format.html { redirect_to profile_path }
+      format.text
+    end
   end
 
   def destroy

@@ -158,26 +158,30 @@
   background-color: rgba(202, 247, 237, 0.6);
   border-radius: 10px;
   display: inline-block;
+  margin-bottom: 40px;
+  border: 1px solid #30E8BF;
+
 }
 
 .modal-search-header {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   color: #353535;
 }
 
 .modal-header {
   border: none;
-  font-family: 'Nunito Sans', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 20px;
   line-height: 27px;
-  color: #8B8B8B;
   margin: 0px;
+  font-family: sans-serif;
+  color: #353535 !important;
 }
 
 .modal-content-search {
   width: 550px;
+  height: 630px;
 }
 
 .number {
@@ -192,7 +196,7 @@
 
 .search-list-container {
   position: absolute;
-  width: 500px;
+  width: 95%;
   background-color: rgba(202, 247, 237, 0.6);
   left: 0px;
 }
@@ -207,11 +211,15 @@
 }
 
 .search-list-container {
+ background-color: #FFFFFF;
 
 }
 
 .modal-body {
   height: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .big-shadow {
