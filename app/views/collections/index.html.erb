@@ -3,23 +3,67 @@
   <div class="nft-container">
     <div class="wrapper-nfts">
       <% @collections.each do |collection| %>
-        <div class="card-nft-search">
+        <div class="card-nft-search"  data-controller="watchlist">
           <div class="wrapper-nft-search">
-            <div class="nft-seach-image">
+            <div class="nft-seach-image" data-bs-toggle="modal" data-bs-target="#s<%= collection.id.to_s %>">
               <img src=<%= collection.image %> alt="" class="nft-search-image">
-              <h2 class="nft-name"><%= collection.name %></h2>
+               <div class="nft-collection-container">
+                  <h2 class="nft-name"><%= collection.name %></h2>
+
+                  <% if current_user %>
+                    <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add" ></p>
+                  <% else %>
+                    <p class="fa-solid fa-eye" style="color: grey" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                  <% end %>
+
+                </div>
               <p class="nft-description"><%= collection.description %></p>
-              <div class="nft-data">
+              <div class="nft-search-data">
                 <p>Floor price: <%= collection.floor_price %> SOL</p>
-                <p>Volume: <%= collection.volume %></p>
+
                 <p>Listings: <%= collection.listings %></p>
               </div>
+              <p class="nft-search-data">Volume: <%= collection.volume %></p>
             </div>
-            <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#s<%= @collections[0].id.to_s %>">
+            <button type="button" class="btn collection-btn" data-bs-toggle="modal" data-bs-target="#s<%= collection.id.to_s %>">
               See more
             </button>
           </div>
         </div>
+
+         <!-- MODAL: Collection: More information about a collection-->
+          <div class="modal fade" id="s<%= collection.id.to_s %>" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-nft-wrapper">
+                    <img src=<%= collection.image %> alt="" class="modal-nft-image">
+                    <div class="modal-nft-wrapper-info">
+                      <h3 class="nft-collection"><%= collection.name %></h3>
+                    </div>
+
+                      <div class="modal-nft-data">
+                        <div>
+                          <p class="nft-data">Floor price: <%= collection.floor_price %> SOL</p>
+                      </div>
+                        <div>
+                          <p class="nft-data">Volume: <%= collection.volume%></p>
+                          <p class="nft-data">Supply: <%= collection.supply%></p>
+                          <p class="nft-data">Owners: <%= collection.owner%></p>
+                        </div>
+                      </div>
+
+                  <div class="modal-nft-container-info">
+
+                    <div  class="modal-nft-wrapper-info">
+                      <p class="nft-collection modal-desription"><%= collection.description %></p>
+                      <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal ends -->
       <% end %>
     </div>
   </div>

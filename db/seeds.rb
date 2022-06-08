@@ -55,12 +55,12 @@ end
 
 def save_collections(result)
   result.each do |r|
-    sleep 0.7
+    sleep 1
     collection_hash = collection(r['symbol'])
     p collection_hash
     next unless collection_hash['volumeAll'].present? && collection_hash['volumeAll'] > 5_000_000_000_000
     current_collection = Collection.find_or_initialize_by(symbol: r['symbol'])
-    
+
     current_collection.assign_attributes(name: r['name'], description: r['description'],
                       image: r['image'], twitter: r['twitter'], discord: r['discord'],
                       category: r['categories'], floor_price: collection_hash['floorPrice'],
@@ -80,3 +80,6 @@ def collection(collection)
 end
 
 get_buy_and_sell_transactions()
+
+
+

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   get '/best_nfts', to: 'pages#best_nfts'
   get '/about', to: 'pages#about'
+  get '/introduction', to: 'pages#introduction'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :wallets, only: [:show, :create, :new, :edit, :update]

@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
     if params[:search] && params[:search][:category].present?
       @collections = policy_scope(@collections.search_by_category(params[:search][:category]))
     elsif params[:search] && params[:search][:keyword].present?
+      @key_word = params[:search][:keyword]
       @collections = policy_scope(@collections.search_by_keyword(params[:search][:keyword]))
     elsif params[:ajax_search].present?
       @collections = policy_scope(@collections.search_by_keyword(params[:ajax_search]))
