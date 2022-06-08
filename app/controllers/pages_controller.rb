@@ -116,8 +116,14 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    first3 = result["collections"].first(3).map {|collection| collection["name"]}
-    first3.map {|collection| Collection.find_by(name: collection)}
+    popular_all = result["collections"].map {|collection| collection["name"]} 
+    array = []
+    popular_all.map do |collection| 
+     db_collection = Collection.find_by(name: collection)
+     array << db_collection if db_collection.present? 
+      break if array.length == 3
+    end
+    array
   end
 
   def upcoming_collections
