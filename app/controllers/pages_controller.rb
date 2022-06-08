@@ -121,7 +121,7 @@ class PagesController < ApplicationController
     result = JSON.parse(response.body)
     popular_all = result["collections"].map {|collection| collection["name"]} 
     array = []
-    popular_all.map do |collection| 
+    popular_all.each do |collection| 
      db_collection = Collection.find_by(name: collection)
      array << db_collection if db_collection.present? 
       break if array.length == 3
