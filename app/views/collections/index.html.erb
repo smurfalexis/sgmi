@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" data-controller="watchlist">
   <h1 class="profile-header">"<%= @key_word %>" search result</h1>
   <div class="nft-container">
     <div class="wrapper-nfts">
       <% @collections.each do |collection| %>
-        <div class="card-nft-search"  data-controller="watchlist">
+        <div class="card-nft-search" >
           <div class="wrapper-nft-search">
             <div class="nft-seach-image" data-bs-toggle="modal" data-bs-target="#s<%= collection.id.to_s %>">
               <img src=<%= collection.image %> alt="" class="nft-search-image">
@@ -11,7 +11,7 @@
                   <h2 class="nft-name"><%= collection.name %></h2>
 
                   <% if current_user %>
-                    <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add" ></p>
+                    <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"></p>
                   <% else %>
                     <p class="fa-solid fa-eye" style="color: grey" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
                   <% end %>
@@ -40,7 +40,7 @@
                    <div class="nft-collection-container">
                       <h2 class="nft-name"><%= collection.name %></h2>
                       <% if current_user %>
-                        <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"><%= flash[:notice] %></p>
+                        <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"></p>
                       <% else %>
                         <p class="fa-solid fa-eye" style="color: grey" ></p>
                       <% end %>
