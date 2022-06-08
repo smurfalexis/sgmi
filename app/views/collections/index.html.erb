@@ -37,32 +37,37 @@
               <div class="modal-content">
                 <div class="modal-nft-wrapper">
                     <img src=<%= collection.image %> alt="" class="modal-nft-image">
-                    <div class="modal-nft-wrapper-info">
-                      <h3 class="nft-collection"><%= collection.name %></h3>
+                   <div class="nft-collection-container">
+                      <h2 class="nft-name"><%= collection.name %></h2>
+                      <% if current_user %>
+                        <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"><%= flash[:notice] %></p>
+                      <% else %>
+                        <p class="fa-solid fa-eye" style="color: grey" ></p>
+                      <% end %>
                     </div>
-
-                      <div class="modal-nft-data">
-                        <div>
-                          <p class="nft-data">Floor price: <%= collection.floor_price %> SOL</p>
+                    <p class="nft-collection modal-desription"><%= collection.description %></p>
+                    <div class="modal-nft-data">
+                      <div>
+                        <p class="nft-data">Floor price: <%= collection.floor_price %> SOL</p>
+                        <p class="nft-data">Supply: <%= collection.supply%></p>
+                    </div>
+                      <div>
+                        <p class="nft-data">Volume: <%= collection.volume%></p>
+                        <p class="nft-data">Owners: <%= collection.owner%></p>
                       </div>
-                        <div>
-                          <p class="nft-data">Volume: <%= collection.volume%></p>
-                          <p class="nft-data">Supply: <%= collection.supply%></p>
-                          <p class="nft-data">Owners: <%= collection.owner%></p>
-                        </div>
-                      </div>
-
-                  <div class="modal-nft-container-info">
-
+                    </div>
                     <div  class="modal-nft-wrapper-info">
-                      <p class="nft-collection modal-desription"><%= collection.description %></p>
+                      <div class="collection-social-container">
+                        <a href="<%= collection.website%>" src="Website" target=”_blank” class="fa-solid fa-browser collection-social"></a>
+                        <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
+                        <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                      </div>
                       <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           <!-- Modal ends -->
       <% end %>
     </div>

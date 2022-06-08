@@ -7,6 +7,7 @@ class WatchlistItemsController < ApplicationController
     @error = false
     @error = true unless @watchlist_item.save!
     authorize current_user.watchlist
+    flash[:notice] = "The collection has been saved to your watchlist!"
     redirect_to profile_path
   end
 
