@@ -1,3 +1,4 @@
+
 import { Controller } from "stimulus"
 import EvalSourceMapDevToolModuleTemplatePlugin from "webpack/lib/EvalSourceMapDevToolModuleTemplatePlugin"
 
@@ -11,12 +12,12 @@ export default class extends Controller {
     console.log(this.listTarget)
   }
 
-  update() {
-    const url = `${this.formTarget.action}?ajax_search=${this.inputTarget.value}`
-    fetch(url, { headers: { "Accept": "text/plain" } })
-      .then(response => response.text())
+  update(event) {
+    console.log(event)
+    const url = `${this.formTarget.action}.json?ajax_search=${this.inputTarget.value}`
+    fetch(url, { headers: { "Accept":"Application/json" } })
+      .then(response => response.json())
       .then((data) => {
-        this.listTarget.innerHTML = data
         console.log(data)
       })
   }
