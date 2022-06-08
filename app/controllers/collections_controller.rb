@@ -13,7 +13,7 @@ class CollectionsController < ApplicationController
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'pages/collections_list', locals: { collections: @collections }, formats: [:html] }
+      format.json { render json: @collections }
     end
   end
 

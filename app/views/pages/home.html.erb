@@ -38,7 +38,7 @@
               <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
               <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
               <div class="eye-button">
-                <p class="fa-solid fa-eye" style="color: grey"></p>
+              <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
               </div>
             </div>
 
@@ -181,6 +181,7 @@
           <% @popular_collections_today.first(2).each do |collection| %>
             <div class="big-image" data-bs-toggle="modal" data-bs-target="#most-popular-today-0<%= collection.id %>">
               <%= image_tag "#{collection.image}", class: "card-lg-image"%>
+              <div class="big-shadow"></div>
               <h2 class="h2-highest" > <%= collection.name %> </h2>
               <p class="p-highest">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
             </div>
