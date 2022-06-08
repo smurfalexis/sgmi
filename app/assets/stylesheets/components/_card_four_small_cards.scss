@@ -2,7 +2,7 @@
 
 .card-container {
   height: 492px;
-  width: 270px;
+  width: 330px;
   border-radius: 10px;
   position: relative;
   margin-right: 20px;
@@ -25,15 +25,16 @@
 
   .wrapper-cards-btn {
     height: 392px;
-    width: 270px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 88px;
     align-items: center;
+    padding: 0px 12px;
 
     .card-xs-small {
-      width: 270px;
+      width: 100%;
       height: 81px;
       border-radius: 10px;
       margin-bottom: 8px;
