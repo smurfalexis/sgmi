@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
-  has_many :nfts
+  has_many :nfts , dependent: :delete_all
   has_one :photo
   CATEGORIES = %w[Gaming Music Sports Art
                   Utility Metaverse]

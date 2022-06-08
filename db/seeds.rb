@@ -79,6 +79,7 @@ def collection(collection)
   JSON.parse(response.body)
 end
 
+get_buy_and_sell_transactions()
 
 
-get_buy_and_sell_transactions
+
