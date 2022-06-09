@@ -43,6 +43,7 @@ class PagesController < ApplicationController
     # highest floor price - original price
     @wallet_value = 0
     @wallet_paid = 0
+
     @array = []
     @nfts.each do |nft|
       delta = nft.collection.floor_price_in_sol.round(2)
