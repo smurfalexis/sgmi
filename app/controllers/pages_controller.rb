@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
   def home
-    @popular_collections = Collection.order(volume: :desc).first(5)
+    @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
     @upcoming_collections = upcoming_collections()
     @popular_collections_today = popular_collections_24h()
   end
@@ -48,56 +48,56 @@ class PagesController < ApplicationController
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
     @user = current_user
-    @data_keys = { '12.04.2022' => 5,
-                   '19.04.2022' => 7,
-                   '26.04.2022' => 10,
-                   '03.05.2022' => 25,
-                   '10.05.2022' => 36,
-                   '17.05.2022' => 47,
-                   '24.05.2022' => 33,
-                   '31.05.2022' => 110 }
+    # @data_keys = { '12.04.2022' => 5,
+    #                '19.04.2022' => 7,
+    #                '26.04.2022' => 10,
+    #                '03.05.2022' => 25,
+    #                '10.05.2022' => 36,
+    #                '17.05.2022' => 47,
+    #                '24.05.2022' => 33,
+    #                '31.05.2022' => 110 }
 
-    @okay = Collection.find_by(name: 'Okay Bears')
-    @okay.floor_price = @data_keys
+    # @okay = Collection.find_by(name: 'Okay Bears')
+    # @okay.floor_price = @data_keys
 
-    @data_values = [100, 400, 175, 200, 50, 350, 600]
+    # @data_values = [100, 400, 175, 200, 50, 350, 600]
 
-    @degods_fp = { '12.04.2022' => 8,
-                   '19.04.2022' => 10,
-                   '26.04.2022' => 14,
-                   '03.05.2022' => 23,
-                   '10.05.2022' => 29,
-                   '17.05.2022' => 55,
-                   '24.05.2022' => 33,
-                   '31.05.2022' => 110 }
-    @degods = Collection.find_by(name: 'DeGods')
-    @degods.floor_price = @degods_fp
-    @smokeheads = Collection.find_by(name: 'Smoke Heads')
-    @smokeheads_fp = { '12.04.2022' => 5,
-                       '19.04.2022' => 29,
-                       '26.04.2022' => 90,
-                       '03.05.2022' => 25,
-                       '10.05.2022' => 16,
-                       '17.05.2022' => 47,
-                       '24.05.2022' => 53,
-                       '31.05.2022' => 193 }
-    @smokeheads.floor_price = @smokeheads_fp
-    @cardboard = Collection.find_by(name: 'Cardboard Citizens')
-    @cardboard_fp = { '12.04.2022' => 5,
-                      '19.04.2022' => 7,
-                      '26.04.2022' => 10,
-                      '03.05.2022' => 5,
-                      '10.05.2022' => 26,
-                      '17.05.2022' => 97,
-                      '24.05.2022' => 32,
-                      '31.05.2022' => 300 }
-    @cardboard.floor_price = @cardboard_fp
-    @nfts_chart = []
-    @nfts_chart << @okay
-    @nfts_chart << @degods
-    @nfts_chart << @smokeheads
-    @nfts_chart << @cardboard
-    @collections = Collection.all
+    # @degods_fp = { '12.04.2022' => 8,
+    #                '19.04.2022' => 10,
+    #                '26.04.2022' => 14,
+    #                '03.05.2022' => 23,
+    #                '10.05.2022' => 29,
+    #                '17.05.2022' => 55,
+    #                '24.05.2022' => 33,
+    #                '31.05.2022' => 110 }
+    # @degods = Collection.find_by(name: 'DeGods')
+    # @degods.floor_price = @degods_fp
+    # @smokeheads = Collection.find_by(name: 'Smoke Heads')
+    # @smokeheads_fp = { '12.04.2022' => 5,
+    #                    '19.04.2022' => 29,
+    #                    '26.04.2022' => 90,
+    #                    '03.05.2022' => 25,
+    #                    '10.05.2022' => 16,
+    #                    '17.05.2022' => 47,
+    #                    '24.05.2022' => 53,
+    #                    '31.05.2022' => 193 }
+    # @smokeheads.floor_price = @smokeheads_fp
+    # @cardboard = Collection.find_by(name: 'Cardboard Citizens')
+    # @cardboard_fp = { '12.04.2022' => 5,
+    #                   '19.04.2022' => 7,
+    #                   '26.04.2022' => 10,
+    #                   '03.05.2022' => 5,
+    #                   '10.05.2022' => 26,
+    #                   '17.05.2022' => 97,
+    #                   '24.05.2022' => 32,
+    #                   '31.05.2022' => 300 }
+    # @cardboard.floor_price = @cardboard_fp
+    # @nfts_chart = []
+    # @nfts_chart << @okay
+    # @nfts_chart << @degods
+    # @nfts_chart << @smokeheads
+    # @nfts_chart << @cardboard
+    # @collections = Collection.all
   end
 
   def about; end
@@ -119,12 +119,32 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    popular_all = result["collections"].map {|collection| collection["name"]}
+    popular_three = result['collections'].first(3)
     array = []
-    popular_all.each do |collection|
-     db_collection = Collection.find_by(name: collection)
-     array << db_collection if db_collection.present?
-      break if array.length == 10
+
+    popular_three.each do |popular_collection|
+     db_collection = Collection.find_by(name: popular_collection["name"])
+      if db_collection.present?
+
+        if db_collection.volume.nil?
+
+          collection_data = collection(popular_collection["symbol"])
+          updated_collection = Collection.update(db_collection.id, :volume => collection_data["volumeAll"])
+          array << updated_collection if updated_collection.valid?
+        else
+          array << db_collection
+        end
+      else
+
+        collection_data = collection(popular_collection["symbol"])
+
+        new_collection = Collection.create(name: popular_collection['name'], symbol: popular_collection['symbol'],
+                                         floor_price: (collection_data['floorPrice']), listings: collection_data['listedCount'],
+                                         volume: collection_data['volumeAll'], description: popular_collection['description'],
+                                         discord: popular_collection["discord"], twitter: popular_collection["twitter"],
+                                         website: popular_collection["website"], image: popular_collection["image"])
+        array << new_collection if new_collection.valid?
+      end
     end
     array
   end
@@ -136,10 +156,33 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    first12 = result.map do |collection|
-      next unless collection["launchDatetime"].present? && Date.parse(collection["launchDatetime"]) > Date.today
-      {name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
+    first10 = []
+    result.each do |upcoming_collection|
+      next unless upcoming_collection["launchDatetime"].present? && Date.parse(upcoming_collection["launchDatetime"]) > Date.today
+      db_collection = Collection.find_by(name: upcoming_collection["name"])
+
+      if !db_collection.present?
+        db_collection = Collection.create(name: upcoming_collection['name'], symbol: upcoming_collection['symbol'],
+                                         floor_price: upcoming_collection['price']*1000000000, description: upcoming_collection['description'],
+                                         discord: upcoming_collection["discord"], twitter: upcoming_collection["twitter"],
+                                         website: upcoming_collection["website"], image: upcoming_collection["image"],
+                                         supply: upcoming_collection["size"])
+      end
+      first10 << db_collection if db_collection.valid?
+      break if first10.length == 10
+      # { name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
     end
-    first12.compact.first(12)
+    first10
   end
+
+#need to be DRY put all apis in one place that can be imported
+  def collection(collection)
+    url = URI("https://api-mainnet.magiceden.dev/v2/collections/#{collection}/stats")
+    http = Net::HTTP.new(url.hostname, url.port)
+    request = Net::HTTP::Get.new(url)
+    http.use_ssl = true
+    response = http.request(request)
+    JSON.parse(response.body)
+  end
+
 end
