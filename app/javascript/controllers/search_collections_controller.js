@@ -20,26 +20,26 @@ export default class extends Controller {
         const list = [];
         data.forEach((collection) => {
           list.push(
-          `<div class="modal-search-container">
-            <div class="modal-search-result-wrapper">
-              <div class="card-search-result" data-bs-dismiss="modal" data-collection="${collection.id}">
-                <div class="card-search-result-content">
-                  <img src="${collection.image}" alt="Collection image" class="card-search-result-image" %>
-                  <div class="card-search-result-content-header">
-                    ${collection.name}
-                  </div>
-                </div>
-                <a class="btn modal-search-collection-add" rel="nofollow" data-method="post" href="/collections/${collection.id}/watchlist_items" data-remote=true>Add</a>
-
-                </div>
+          `<div class="drop-container-modal">
+            <img src="${collection.image}" alt="Collection image" class="drop-image">
+            <div class="card-xs-small-content-modal-search">
+              <div class="card-xs-small-content-headers">
+                ${collection.name}
               </div>
-            </div>
-          </div>
-`
 
+              <div class="modal-social-container-search">
+              <a href="${collection.discord}" src="Discord" target="_blank" class="fa-brands fa-discord modal-social"></a>
+              <a href="${collection.twitter}" src="Twitter" target="_blank" class="fa-brands fa-twitter modal-social"></a>
+            </div>
+
+            </div>
+            <div class="modal-social-container">
+              <a class="btn modal-search-collection-add" rel="nofollow" data-method="post" href="/collections/${collection.id}/watchlist_items" data-remote=true>Add</a>
+            </div>
+          </div>`
           )
         });
-        this.listTarget.innerHTML = list
+        this.listTarget.innerHTML = list.join("")
       })
   }
 

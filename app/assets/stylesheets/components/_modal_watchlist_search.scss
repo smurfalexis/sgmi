@@ -48,13 +48,16 @@
   border: 1px solid #30E8BF;
   width: 60px;
   margin-right: 12px;
-  height: 48px;
+  height: 40px;
   text-decoration: none;
   text-align: center;
   border-radius: 10px;
-  padding: 10px 0px;
+  padding: 11px 0px;
   font-size: 12px;
   font-weight: bold;
+  position: absolute;
+    bottom: 18px;
+    right: 8px;
 }
 
 .modal-search-collection-add:hover {
@@ -82,7 +85,7 @@
   transition: none;
   width: 350px !important;
   height: 35px;
-  margin-top: 1.5px;
+  margin-top: 15px;
   color: #353535;
 
  }
@@ -96,7 +99,33 @@
   transition: none;
   width: 350px !important;
   height: 35px;
-  margin-top: 1.5px;
+
   color: #353535;
 
+}
+
+.modal-social-container-search {
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  height: 128px;
+  padding-bottom: 12px;
+  position: absolute;
+  bottom: 5px;
+  left: 148px;
+  font-size: 20px;
+}
+
+.card-xs-small-content-modal-search {
+  padding-top: 20px !important;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-grow: 1;
+  height: 128px;
+  justify-content: space-between;
+}
+
+.modal-search {
+  height: 571px;
 }
