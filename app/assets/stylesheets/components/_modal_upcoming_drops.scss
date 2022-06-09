@@ -12,6 +12,7 @@
   height: auto;
   padding: 20px;
   height: 430px;
+  padding-right: 12px !important;
 }
 
 .modal-drop {
@@ -36,6 +37,15 @@
   padding: 20px;
 }
 
+.card-xs-small-content-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-grow: 1;
+  height: 128px;
+  justify-content: space-between;
+}
+
 .drop-modal-title {
   border: none;
   font-style: normal;
@@ -53,7 +63,6 @@
   display: flex;
   height: 100px;
   border-radius: 10px;
-  margin-right: 20px;
 }
 
 
@@ -69,22 +78,31 @@
 
 
   .drop-image {
-  height: 100px;
-  width: 100px;
+  height: 128px;
+  width: 128px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 
 .drop-container {
   display: flex;
-  width: 100%;
+  width: 425px;
   border-radius: 10px;
   align-items: center;
   margin-bottom: 15px;
   border: 1px solid #F0F0F0;
+}
+
+.drop-container-modal {display: flex;
+width: 425px;
+border-radius: 10px;
+align-items: center;
+margin-bottom: 15px;
+border: 1px solid #F0F0F0;
+height: 128px;
 }
 
 .modal-titels {
@@ -94,4 +112,27 @@
 .drops-data {
   display: flex;
   justify-content: center;
+}
+
+.modal-social-container {
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  height: 128px;
+  padding-bottom: 12px;
+
+}
+
+.modal-social {
+  color: #C651E0;
+  font-size: 28px !important;
+  margin: 0px;
+  margin-right: 8px;
+  text-decoration: none;
+  opacity: 1 !important;
+}
+
+.modal-social:hover {
+  color: #C651E0;
+  opacity: 0.6 !important;
 }
