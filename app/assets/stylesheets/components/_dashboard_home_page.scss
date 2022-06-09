@@ -15,7 +15,7 @@
     .dashboard-header {
       position: absolute;
       top: 7.55%;
-      font-family: 'Nunito Sans', sans-serif;
+      font-family: sans-serif !important;
       font-style: normal;
       font-weight: 800;
       font-size: 20px;
@@ -90,7 +90,7 @@
 
            .dashboard-item-image-p {
             margin-left: 8px;
-            font-family: 'Nunito Sans', sans-serif;
+            font-family: sans-serif !important;
             color: #8B8B8B;
             font-weight: lighter;
             font-size: 12px;
@@ -99,7 +99,7 @@
 
           .item-p {
             margin-left: 8px;
-            font-family: 'Nunito Sans', sans-serif;
+            font-family: sans-serif !important;
             color: #8B8B8B;
             font-weight: lighter;
             font-size: 12px;

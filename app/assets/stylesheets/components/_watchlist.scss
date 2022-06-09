@@ -26,7 +26,7 @@
   left: 30px;
   top: 11.55%;
 
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: sans-serif !important;
   font-style: normal;
   font-weight: 800;
   font-size: 20px;
@@ -105,7 +105,7 @@
 
 .watchlist-p {
   margin-left: 8px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: sans-serif !important;
   color: #8B8B8B;
   font-weight: lighter;
   text-decoration: none;
@@ -114,7 +114,7 @@
 
 .remove-p:hover {
   margin-left: 8px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: sans-serif !important;
   color: #8B8B8B;
   font-weight: lighter;
   text-decoration: underline;
