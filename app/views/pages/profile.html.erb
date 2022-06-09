@@ -223,14 +223,16 @@
                       <h2 class="nft-name"><%= nft.name %></h2>
                     </div>
                     <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
-                    <div class="modal-nft-data">
 
-                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= @nft_supply %></p>
+                    <div class="d-flex justify-content-around">
+                      <div class="modal-nft-data">
+                        <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	 <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p> 	&nbsp &nbsp &nbsp
+                        <p class="nft-data"><strong class="headers-black">Supply: </strong> 	&nbsp <%= nft.collection.supply %></p>
+                      </div>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= nft.collection.volume_in_sol.round(0)%> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= @nft_owners%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> 	&nbsp <%= nft.collection.volume_in_sol.round(0)%></p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> 	&nbsp <%= nft.collection.owner%> SOL</p>
 
                     </div>
                   </div>

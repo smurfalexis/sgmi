@@ -39,6 +39,7 @@
               <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
               </div>
               <div class="eye-button">
+
                 <% if current_user %>
                     <a class="fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
                   <% else %>
@@ -64,12 +65,14 @@
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
 
-                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= @nft_supply %></p>
+
+                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	&nbsp <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong> &nbsp <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= collection.volume_in_sol.round(0)%> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= @nft_owners%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> 	&nbsp <%= collection.volume_in_sol.round(0)%></p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> 	&nbsp <%= collection.owner%> SOL</p>
+
 
                     </div>
                   </div>
@@ -122,8 +125,8 @@
                     <div class="modal-nft-data">
 
 
-                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> <%= collection[:floor_price] * 0.000000001 %> SOL</p>
-                        <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= collection[:supply]%></p>
+                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> 	&nbsp <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                        <p class="nft-data"><strong class="headers-black">Supply: </strong> 	&nbsp <%= collection[:supply]%></p>
 
                     </div>
                     </div>
@@ -199,12 +202,14 @@
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
 
-                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= @nft_supply %></p>
+
+                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	&nbsp <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong>  	&nbsp <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= collection.volume_in_sol.round(0)%> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= @nft_owners%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> &nbsp  <%= collection.volume_in_sol.round(0)%></p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> &nbsp  <%= collection.owner%> SOL</p>
+
 
                     </div>
                   </div>
