@@ -1,5 +1,7 @@
 require 'json'
 NFT_PRICES = [2.4, 5 ,3.2 ,1.3 ,1.5, 1.9 ]
+NFT_OWNERS = "No Data"
+NFT_SUPPLY = "No Data"
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
@@ -7,6 +9,8 @@ class PagesController < ApplicationController
     @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
     @upcoming_collections = upcoming_collections()
     @popular_collections_today = popular_collections_24h()
+    @nft_supply = NFT_SUPPLY
+    @nft_owners = NFT_OWNERS
   end
 
   # def highest_floor_price
@@ -24,6 +28,8 @@ class PagesController < ApplicationController
     @watchlist = Watchlist.where(user: current_user)
     @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
     @nft_prices = NFT_PRICES
+    @nft_supply = NFT_SUPPLY
+    @nft_owners = NFT_OWNERS
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
     # Highest floor price
@@ -36,16 +42,20 @@ class PagesController < ApplicationController
     # Best performing NFTs
     # highest floor price - original price
     @wallet_value = 0
+    @wallet_paid = 0
     @array = []
     @nfts.each do |nft|
       delta = nft.collection.floor_price_in_sol.round(2)
       @wallet_value += nft.collection.floor_price_in_sol.round(2)
+      @wallet_paid += nft.price || 0
       @array << { delta: delta, nft: nft }
     end
 
-    @usd_wallet_value = (@wallet_value * 39.7).round(2) #Find real time Sol to Usd
+    @usd_wallet_value = (@wallet_value * 39.7).round(2)
+    @usd_wallet_paid = (@wallet_paid * 39.7). round(2)   #Find real time Sol to Usd
     @highest_delta = @array.sort_by { |element| -element[:delta] }
     @best_performing_nfts = @highest_delta.map { |element| element[:nft] }
+
 
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
