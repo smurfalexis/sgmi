@@ -43,6 +43,7 @@ class PagesController < ApplicationController
     # highest floor price - original price
     @wallet_value = 0
     @wallet_paid = 0
+
     @array = []
     @nfts.each do |nft|
       delta = nft.collection.floor_price_in_sol.round(2)
@@ -60,6 +61,7 @@ class PagesController < ApplicationController
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
     @user = current_user
+    raise
     # @data_keys = { '12.04.2022' => 5,
     #                '19.04.2022' => 7,
     #                '26.04.2022' => 10,

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :wallets
   has_many :nfts, through: :wallets , dependent: :delete_all
   has_one :watchlist, dependent: :destroy
-
+  has_many :watchlist_items , through: :watchlist
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
