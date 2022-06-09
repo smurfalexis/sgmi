@@ -35,13 +35,15 @@ class PagesController < ApplicationController
 
     # Best performing NFTs
     # highest floor price - original price
-
+    @wallet_value = 0
     @array = []
     @nfts.each do |nft|
       delta = nft.collection.floor_price
+      @wallet_value += nft.collection.floor_price
       @array << { delta: delta, nft: nft }
     end
 
+    @usd_wallet_value = (@wallet_value * 39.7).round(2) #Find real time Sol to Usd
     @highest_delta = @array.sort_by { |element| -element[:delta] }
     @best_performing_nfts = @highest_delta.map { |element| element[:nft] }
 
@@ -98,6 +100,16 @@ class PagesController < ApplicationController
     # @nfts_chart << @smokeheads
     # @nfts_chart << @cardboard
     # @collections = Collection.all
+
+    # @collections = Collection.all
+
+    # url = URI("https://api-mainnet.magiceden.dev/v2/wallets/#{wallet_key}/tokens?offset=0&limit=500&listStatus=both")
+    # http = Net::HTTP.new(url.hostname, url.port)
+    # request = Net::HTTP::Get.new(url)
+    # http.use_ssl = true
+    # response = http.request(request)
+    # JSON.parse(response.body)
+
   end
 
   def about; end
@@ -119,7 +131,7 @@ class PagesController < ApplicationController
     http.use_ssl = true
     response = http.request(request)
     result = JSON.parse(response.body)
-    popular_three = result['collections'].first(3)
+    popular_three = result['collections'].first(10)
     array = []
 
     popular_three.each do |popular_collection|
@@ -145,6 +157,7 @@ class PagesController < ApplicationController
                                          website: popular_collection["website"], image: popular_collection["image"])
         array << new_collection if new_collection.valid?
       end
+
     end
     array
   end
