@@ -1,7 +1,7 @@
 <div class="container" data-controller="watchlist">
   <h1 class="profile-header">"<%= @key_word %>" search result</h1>
   <div class="nft-container">
-    <div class="wrapper-nfts">
+    <div class="wrapper-nfts wrapper">
       <% @collections.each do |collection| %>
         <div class="card-nft-search" >
           <div class="wrapper-nft-search">
@@ -19,11 +19,11 @@
                 </div>
               <p class="nft-description"><%= collection.description %></p>
               <div class="nft-search-data">
-                <p>Floor price: <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                <p><strong class="headers-black">Floor price: </strong> &nbsp; <%= collection.floor_price_in_sol.round(2) %> SOL</p>
 
-                <p>Listings: <%= collection.listings %></p>
+                &nbsp; &nbsp; <p><strong class="headers-black">Listings: </strong> <%= collection.listings %></p>
               </div>
-              <p class="nft-search-data">Volume: <%= collection.volume_in_sol.round(0) %></p>
+              <p class="nft-search-data"><strong class="headers-black">Volume: &nbsp; </strong> <%= collection.volume_in_sol.round(0) %> SOL</p>
             </div>
             <button type="button" class="btn collection-btn" data-bs-toggle="modal" data-bs-target="#s<%= collection.id.to_s %>">
               See more
@@ -49,12 +49,12 @@
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong>Supply: </strong> <%= @nft_supply %></p>
+                      <p class="nft-data"><strong class="headers-black">Floor price: &nbsp; </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Supply: &nbsp;</strong> <%= @nft_supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong>Owners: </strong> <%= @nft_owners%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: &nbsp;</strong><%= collection.volume_in_sol.round(0)%> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Owners: &nbsp;</strong> <%= @nft_owners%></p>
                     </div>
                   </div>
                 </div>
