@@ -10,18 +10,6 @@
           <h2 class="dashboard-header">Your wallet performance</h2>
             <div class="d-flex justify-content-center mt-2">
             <div class="dashboard-speedometer">
-
-              <div class="wallet-data-container">
-                <div class="wallet-value-container">
-                  <h3 class="wallet-details-title">Total Spent Today (SOL)</h3>
-                  <p class="secondary"><%= @wallet_paid.round(2) %> </p>
-                </div>
-                <div class="wallet-value-container">
-                  <h3 class="wallet-details-title">Total Value Today (SOL)</h3>
-                  <p class="primary"><%= @wallet_value.round(2) %></p>
-                </div>
-              </div>
-
              <%= render "shared/speedometer", profit: @wallet_value - @wallet_paid, profit_in_usd: @usd_wallet_value - @usd_wallet_paid %>
               </div>
             </div>
@@ -244,8 +232,8 @@
 
                     <div class="d-flex justify-content-around">
                       <div class="modal-nft-data">
-                        <p class="nft-data"><strong class="headers-black">Floor price: </strong> &nbsp <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p> 	&nbsp &nbsp &nbsp
-                        <p class="nft-data"><strong class="headers-black">Supply: </strong> 	&nbsp <%= nft.collection.supply %></p>
+                        <p class="nft-data"><strong class="headers-black">Floor price: &nbsp;</strong> 	 <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p> 	&nbsp &nbsp &nbsp
+                        <p class="nft-data"><strong class="headers-black">Supply: &nbsp;</strong> 	&nbsp <%= @nft_supply %></p>
                       </div>
                     </div>
                     <div class="modal-nft-data">

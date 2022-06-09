@@ -51,6 +51,7 @@
   font-style: normal;
   font-weight: 800;
   font-size: 20px;
+  font-family: sans-serif;
   line-height: 27px;
   margin: 0px 20px 0px 0px;
   font-family: sans-serif;
@@ -135,4 +136,9 @@ height: 128px;
 .modal-social:hover {
   color: #C651E0;
   opacity: 0.6 !important;
+}
+
+
+.font-change {
+  font-family: sans-serif;
 }
