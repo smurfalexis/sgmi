@@ -59,15 +59,17 @@ def save_collections(result)
     sleep 0.6
     collection_hash = collection(r['symbol'])
     collection_more = collection_stats(r['symbol'])
-    p collection_hash
+    p collection_more['results']['totalSupply']
+    p collection_more['results']['uniqueHolders']
     next unless collection_hash['volumeAll'].present? && collection_hash['volumeAll'] > 5_000_000_000_000
     current_collection = Collection.find_or_initialize_by(symbol: r['symbol'])
-
+    if collection_more['results']['totalSupply'] != 'nil' && collection_more['results']['uniqueHolders']
     current_collection.assign_attributes(name: r['name'], description: r['description'],
                       image: r['image'], twitter: r['twitter'], discord: r['discord'],
                       category: r['categories'], floor_price: collection_hash['floorPrice'],
                       listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'], supply: collection_more['results']['totalSupply'], owner: collection_more['results']['uniqueHolders'])
     current_collection.save!
+    end
   end
   puts 'collections saved'
 end
