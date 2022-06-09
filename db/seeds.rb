@@ -56,9 +56,10 @@ end
 
 def save_collections(result)
   result.each do |r|
-    sleep 0.6
     collection_hash = collection(r['symbol'])
+    sleep 0.6
     collection_more = collection_stats(r['symbol'])
+    sleep 0.6
     p collection_more
     next unless collection_hash['volumeAll'].present? && collection_hash['volumeAll'] > 5_000_000_000_000 && collection_more['results'].present?
     current_collection = Collection.find_or_initialize_by(symbol: r['symbol'])
