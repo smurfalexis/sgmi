@@ -38,8 +38,8 @@ class PagesController < ApplicationController
     @wallet_value = 0
     @array = []
     @nfts.each do |nft|
-      delta = nft.collection.floor_price
-      @wallet_value += nft.collection.floor_price
+      delta = nft.collection.floor_price_in_sol.round(2)
+      @wallet_value += nft.collection.floor_price_in_sol.round(2)
       @array << { delta: delta, nft: nft }
     end
 
@@ -199,4 +199,3 @@ class PagesController < ApplicationController
   end
 
 end
-
