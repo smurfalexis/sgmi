@@ -11,9 +11,9 @@
                   <h2 class="nft-name"><%= collection.name %></h2>
 
                   <% if current_user %>
-                    <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"></p>
+                    <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
                   <% else %>
-                    <p class="fa-solid fa-eye" style="color: grey" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                    <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
                   <% end %>
 
                 </div>
@@ -41,11 +41,11 @@
                   <div>
                     <div class="nft-collection-container">
                       <h2 class="nft-name"><%= collection.name %></h2>
-                      <% if current_user %>
-                        <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
-                      <% else %>
-                        <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
-                      <% end %>
+                        <% if current_user %>
+                          <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+                        <% else %>
+                          <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                        <% end %>
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">

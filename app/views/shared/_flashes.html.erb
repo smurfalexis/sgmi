@@ -1,4 +1,6 @@
-<% if notice %>
+<%
+=begin%>
+ <% if notice %>
   <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
     <%= notice %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -14,3 +16,14 @@
     </button>
   </div>
 <% end %>
+<%
+=end%>
+  <% if flash.any? %>
+    <% flash.each do |type, msg| %>
+      <% if type != 'notice' %>
+      <div class='alert alert-<%= type == 'alert' ? 'danger' : type %>' role="alert">
+      <%= msg %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
