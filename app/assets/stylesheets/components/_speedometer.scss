@@ -9,7 +9,7 @@
   -webkit-align-items: center;
   position: relative;
   &__groove {
-    height: 300px;
+    height: 250px;
     width: 300px;
     background: transparent;
     border-top-left-radius: 147px;
@@ -41,10 +41,10 @@
   }
   &__base {
     width: 400px;
-    height: 134px;
+    height: 112px;
     background: white;
     position: relative;
-    top: 166px;
+    top: 149px;
     z-index: 20;
     &:before {
       content: '';
@@ -59,7 +59,7 @@
     text-align: center;
     position: absolute;
     color: #5c6f7b;
-    bottom: -6px;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
     i {
