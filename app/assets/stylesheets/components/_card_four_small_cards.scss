@@ -1,15 +1,16 @@
 // This refers to the four small cards with a button
 
 .card-container {
+  background-color: #F6F6F6;
   height: 492px;
-  width: 330px;
+  width: 270px;
   border-radius: 10px;
   position: relative;
-  margin-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
   .card-header-big {
     position: absolute;
@@ -25,7 +26,7 @@
 
   .wrapper-cards-btn {
     height: 392px;
-    width: 100%;
+    width: 340px;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -39,11 +40,12 @@
       border-radius: 10px;
       margin-bottom: 8px;
       background-color: #FFFFFF;
+      border: 1px solid #F0F0F0;
       display: flex;
 
 
       .card-xs-small-image {
-        height: 109px;
+        height: 108px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
       }
@@ -59,6 +61,7 @@
         flex-grow: 1;
         cursor: pointer;
         font-size: 15px;
+        font-family: sans-serif !important;
 
         .collection-name {
           color: #353535;

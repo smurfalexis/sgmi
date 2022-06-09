@@ -178,7 +178,7 @@
   font-size: 20px;
   line-height: 27px;
   margin: 0px;
-  font-family: sans-serif;
+  font-family: sans-serif !important;
   color: #353535 !important;
 }
 
@@ -235,6 +235,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 0px;
 }
 
 .big-shadow {
