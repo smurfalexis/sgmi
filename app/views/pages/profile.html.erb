@@ -174,7 +174,7 @@
               </div>
               <p class="watchlist-p supply-p"><%= item.collection.supply %></p>
               <p class="watchlist-p floor-p"><%= item.collection.floor_price_in_sol.round(2) %> SOL</p>
-              <p class="watchlist-p volume-p"><%= item.collection.volume_in_sol.round(2) %></p>
+              <p class="watchlist-p volume-p"><%= item.collection.volume_in_sol.round(2) %> SOL</p>
               <%# <p class="watchlist-p owners-p"><%= item.collection.owners %>
 
               <%= link_to "Remove", watchlist_item_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this collection?" }, class: "watchlist-p remove-p"%>
@@ -224,14 +224,10 @@
                     </div>
                     <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
                     <div class="modal-nft-data">
-
-                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= nft.collection.supply %></p>
+                      <p class="nft-data"><strong class="headers-black">Floor price: &nbsp;</strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= nft.collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= nft.collection.owner%></p>
-
+                      <p class="nft-data"><strong class="headers-black">Volume: &nbsp;</strong> <%= nft.collection.volume_in_sol.round(0)%> SOL</p>
                     </div>
                   </div>
                 </div>
