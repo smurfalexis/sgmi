@@ -69,6 +69,7 @@ def save_collections(result)
                       category: r['categories'], floor_price: collection_hash['floorPrice'],
                       listings: collection_hash['listedCount'], volume: collection_hash['volumeAll'], supply: collection_more['results']['totalSupply'], owner: collection_more['results']['uniqueHolders'])
     current_collection.save!
+    end
   end
   puts 'collections saved'
 end
