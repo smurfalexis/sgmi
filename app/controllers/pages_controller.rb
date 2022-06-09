@@ -1,12 +1,16 @@
 require 'json'
 NFT_PRICES = [2.4, 5 ,3.2 ,1.3 ,1.5, 1.9 ]
+NFT_OWNERS = "No Data"
+NFT_SUPPLY = "No Data"
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home about]
+  skip_before_action :authenticate_user!, only: %i[home about introduction faq]
 
   def home
     @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
     @upcoming_collections = upcoming_collections()
     @popular_collections_today = popular_collections_24h()
+    @nft_supply = NFT_SUPPLY
+    @nft_owners = NFT_OWNERS
   end
 
   # def highest_floor_price
@@ -24,6 +28,8 @@ class PagesController < ApplicationController
     @watchlist = Watchlist.where(user: current_user)
     @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
     @nft_prices = NFT_PRICES
+    @nft_supply = NFT_SUPPLY
+    @nft_owners = NFT_OWNERS
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
     # Highest floor price
@@ -183,11 +189,10 @@ class PagesController < ApplicationController
                                          floor_price: upcoming_collection['price']*1000000000, description: upcoming_collection['description'],
                                          discord: upcoming_collection["discord"], twitter: upcoming_collection["twitter"],
                                          website: upcoming_collection["website"], image: upcoming_collection["image"],
-                                         supply: upcoming_collection["size"])
+                                         supply: upcoming_collection["size"], launchdate: upcoming_collection["launchDatetime"])
       end
       first10 << db_collection if db_collection.valid?
       break if first10.length == 10
-      # { name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
     end
     first10
   end

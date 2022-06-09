@@ -67,11 +67,11 @@
 
 
                       <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	&nbsp <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong> &nbsp <%= collection.supply %></p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong> &nbsp <%= @nft_supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> 	&nbsp <%= collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> 	&nbsp <%= collection.owner%> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> 	&nbsp <%= collection.volume_in_sol.round(0)%> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> 	&nbsp <%= @nft_owners%></p>
 
 
                     </div>
@@ -92,17 +92,24 @@
         </div>
       </div>
     </div>
+
+
     <!-- Upcoming drops-->
     <div class="card-container">
       <h2 class="card-header-big">Upcoming drops</h2>
       <div class="wrapper-cards-btn drop">
         <% @upcoming_collections.first(3).each do |collection| %>
           <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-<%= collection[:id] %>">
-            <%=image_tag "#{collection[:image]}", class:"card-xs-small-image" %>
+          <%= image_tag "#{collection[:image]}", class:"card-xs-small-image" %>
             <div class="card-xs-small-content">
-              <div class="content-info card-xs-small-content-info">
-                <p class="content-info collection-name"><%= collection[:name] %></p>
-                <p class="content-info card-text"><small class="text-muted"><strong class="headers-black">Supply:</strong> <%=collection[:supply]%></small></p>
+              <div class="card-xs-small-content-headers">
+                <%= collection[:name] %>
+              </div>
+               <div class="card-xs-small-content-info">
+                <div>
+                  <p class="card-text-thin"><strong class="headers-black"> Launchdate:</strong> <%= collection[:launchdate]%> </p>
+                  <p class="card-text-thin"><strong class="headers-black"> Mint price:</strong> <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
+                </div>
               </div>
             </div>
           </div>
@@ -125,8 +132,13 @@
                     <div class="modal-nft-data">
 
 
-                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> 	&nbsp <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> 	&nbsp <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
                         <p class="nft-data"><strong class="headers-black">Supply: </strong> 	&nbsp <%= collection[:supply]%></p>
+
+
+                    </div>
+                    <div class="modal-nft-data">
+                        <p class="nft-data"><strong class="headers-black">Launchdate: </strong>  &nbsp&nbsp<%= collection[:launchdate]%></p>
 
                     </div>
                     </div>
@@ -143,7 +155,7 @@
           </div>
         <% end %>
         <!-- Modal trigger button -->
-        <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#upcoming-drops">
+        <button type="button" class="btn-big-white-green-border four-cards" data-bs-toggle="modal" data-bs-target="#upcoming-drops">
           See more
         </button>
       </div>
@@ -160,9 +172,25 @@
               <!-- Iteration -->
               <div class="wrapper-drops">
                 <% @upcoming_collections.each do |collection| %>
-                <div class="drop-container">
+                <div class="drop-container-modal">
                   <img src=<%= collection[:image] %> class="drop-image">
-                  <p class="drop-modal-title"><strong class="headers-black"> Name: </strong><%= collection[:name] %></p>
+                  <div class="card-xs-small-content-modal">
+                    <div class="card-xs-small-content-headers">
+                      <%= collection[:name] %>
+                    </div>
+                    <div class="card-xs-small-content-info">
+                  <div>
+                  <p class="card-text-thin"><strong class="headers-black"> Launchdate:</strong> &nbsp<%= collection[:launchdate]%>  </p>
+                  <p class="card-text-thin"><strong class="headers-black"> Mint price:</strong> <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                  <p class="card-text-thin"><strong class="headers-black"> Supply:</strong> <%= collection[:supply] %> </p>
+
+                </div>
+              </div>
+            </div>
+               <div class="modal-social-container">
+                    <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord modal-social"></a>
+                    <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter modal-social"></a>
+                  </div>
                 </div>
                 <% end %>
               </div>
@@ -204,11 +232,11 @@
 
 
                       <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	&nbsp <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong class="headers-black">Supply: </strong>  	&nbsp <%= collection.supply %></p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong>  	&nbsp <%= @nft_supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong class="headers-black">Volume: </strong> &nbsp  <%= collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong class="headers-black">Owners: </strong> &nbsp  <%= collection.owner%> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> &nbsp  <%= collection.volume_in_sol.round(0)%> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> &nbsp  <%= @nft_owners%></p>
 
 
                     </div>
@@ -243,17 +271,28 @@
               <!-- Iteration -->
               <div class="wrapper-drops">
                 <% @popular_collections_today.each do |collection| %>
-                <div class="drop-container">
-                  <img src=<%= collection.image %> class="drop-image">
+                        <div class="drop-container-modal">
+                  <img src=<%= collection[:image] %> class="drop-image">
+                  <div class="card-xs-small-content-modal">
+                    <div class="card-xs-small-content-headers">
+                      <%= collection[:name] %>
+                    </div>
+                    <div class="card-xs-small-content-info">
                   <div>
-                    <p class="drop-modal-title"><%= collection.name %></p>
-                    <p class="collection-data"><strong class="headers-black">Volume:</strong> 	&nbsp  <%= collection.volume_in_sol.round(0) %> SOL</p>
+                  <p class="card-text-thin"><strong class="headers-black"> Floor price:</strong> <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
+                  <p class="card-text-thin"><strong class="headers-black"> Supply:</strong> <%= @nft_supply %> </p>
+                </div>
+              </div>
+            </div>
+               <div class="modal-social-container">
+                    <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord modal-social"></a>
+                    <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter modal-social"></a>
                   </div>
                 </div>
                 <% end %>
               </div>
             </div>
-            <div class="modal-footer">
+            <div class="">
               <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
