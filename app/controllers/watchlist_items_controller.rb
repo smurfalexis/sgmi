@@ -4,11 +4,12 @@ class WatchlistItemsController < ApplicationController
     @watchlist_item = WatchlistItem.new
     @watchlist_item.watchlist = current_user.watchlist
     @watchlist_item.collection = Collection.find(params[:collection_id])
-    @error = false
-    @error = true unless @watchlist_item.save!
+    if @watchlist_item.save!
+      flash[:notice] = "The collection has been saved to your watchlist!"
+    else
+      flash[:notice] = "The collection has already been saved to your watchlist!"
+    end
     authorize current_user.watchlist
-    flash[:notice] = "The collection has been saved to your watchlist!"
-    redirect_to profile_path
   end
 
   def destroy

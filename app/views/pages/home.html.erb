@@ -11,6 +11,7 @@
     <% end %>
   </div>
 </div>
+
 <div class="container">
   <div class="wrapper">
     <!-- Popular collections-->
@@ -32,193 +33,228 @@
                 <%=image_tag "#{collection.image}", class:"dashboard-item-image"%>
                 <p class="dashboard-item-image-p"><%=collection.name%></p>
               </div>
+              <p class="item-p item-p1"><%= collection.supply %></p>
               <p class="item-p item-p2"><%= collection.listings %></p>
               <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
               <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
               <div class="eye-button">
-                <p class="fa-solid fa-eye" style="color: grey"></p>
+              <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
               </div>
             </div>
+
             <!-- MODAL: Popular collections: More information about a specific popular collection starts here-->
-            <div class="modal fade" id="popular-collections-<%= collection.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="popular-collections"><%= collection.name %></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <%=image_tag collection.image, class:"popular-collections-image" %>
-                      </div>
-                      <div class="col-md-6">
-                        <p class="collection-data">Listings: <%= collection.listings %>
-                          <p class="collection-data">Floor price: <%= collection.floor_price_in_sol.round(2) %> SOL
-                            <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL
-                              <p class="collection-data">Description: <%= collection.description %>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- MODAL: Popular collections: More information about a specific popular collection ends here-->
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <!-- Upcoming drops-->
-            <div class="card-container">
-              <h2 class="card-header-big">Upcoming drops</h2>
-              <div class="wrapper-cards-btn drop">
-                <% @upcoming_collections.each do |collection| %>
-                  <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-0">
-                    <%=image_tag "#{collection[:image]}", class:"card-xs-small-image" %>
-                    <div class="card-xs-small-content">
-                      <div class="content-info card-xs-small-content-info">
-                        <p class="content-info collection-name"><%= collection[:name] %></p>
-                        <p class="content-info card-text"><small class="text-muted">Supply: <%=collection[:supply]%></small></p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- MODAL -->
-                  <div class="modal fade" id="upcoming-drops-0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"><%= collection[:name] %></h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="row">
-                            <div class="col-md-6">
-                              <%=image_tag "#{collection[:image]}", class: "upcoming-collections-image" %>
-                            </div>
-                            <div class="col-md-6">
-                              <p class="collection-data">Name: <%= collection[:name] %></p>
-                              <p class="collection-data">Supply: <%=collection[:supply]%></p>
-                              <p class="collection-data">Price: <%=collection[:price]%> SOL</p>
-                              <p class="collection-data">Description: <%=collection[:description]%></p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-                <!-- Modal trigger button -->
-                <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#upcoming-drops">
-                  See more
-                </button>
-              </div>
-            </div>
-            <!-- MODAL: Upcoming Drops see more START-->
-            <div class="modal fade" id="upcoming-drops" tabindex="-1">
+            <div class="modal fade" id="popular-collections-<%= collection.id %>" tabindex="-1">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Upcoming drops</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!-- Iteration -->
-                    <div class="row">
-                      <% @upcoming_collections.each do |collection| %>
-                        <div class="col-md-6 p-1">
-                          <img src=<%= collection[:image] %> class="img-fluid rounded-start">
+                  <div class="modal-nft-wrapper">
+                      <img src=<%= collection.image %> alt="" class="modal-nft-image">
+                    <div class="nft-collection-container">
+                        <h2 class="nft-name"><%= collection.name %></h2>
+                        <% if current_user %>
+                          <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"><%= flash[:notice] %></p>
+                        <% else %>
+                          <p class="fa-solid fa-eye" style="color: grey" ></p>
+                        <% end %>
+                      </div>
+                      <p class="nft-collection modal-desription"><%= collection.description %></p>
+                      <div class="modal-nft-data">
+                        <div>
+                          <p class="nft-data">Floor price: <%= collection.floor_price %> SOL</p>
+                          <p class="nft-data">Supply: <%= collection.supply%></p>
+                      </div>
+                        <div>
+                          <p class="nft-data">Volume: <%= collection.volume%></p>
+                          <p class="nft-data">Owners: <%= collection.owner%></p>
                         </div>
-                        <div class="col-md-6">
-                          <p class="collection-data">Name: <%= collection[:name] %></p>
+                      </div>
+                      <div  class="modal-nft-wrapper-info">
+                        <div class="collection-social-container">
+                          <a href="<%= collection.website%>" src="Website" target=”_blank” class="fa-solid fa-browser collection-social"></a>
+                          <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
+                          <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
                         </div>
-                      <% end %>
+                        <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
+
+            <!-- MODAL: Popular collections: More information about a specific popular collection ends here-->
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Upcoming drops-->
+    <div class="card-container">
+      <h2 class="card-header-big">Upcoming drops</h2>
+      <div class="wrapper-cards-btn drop">
+        <% @upcoming_collections.each do |collection| %>
+          <div class="card-xs-small" data-bs-toggle="modal" data-bs-target="#upcoming-drops-<%= collection[:id] %>">
+            <%=image_tag "#{collection[:image]}", class:"card-xs-small-image" %>
+            <div class="card-xs-small-content">
+              <div class="content-info card-xs-small-content-info">
+                <p class="content-info collection-name"><%= collection[:name] %></p>
+                <p class="content-info card-text"><small class="text-muted">Supply: <%=collection[:supply]%></small></p>
+              </div>
             </div>
-            <!-- Modal for upcoming drops ends -->
-            <!-- Most popular today -->
-            <div class="card-container2">
-              <h2 class="card-header-big">Most popular today</h2>
-              <div class="wrapper-cards-btn" data-bs-toggle="modal" data-bs-target="#most-popular-today-0">
-                <% @popular_collections_today.first(2).each do |collection| %>
-                  <div class="big-image" data-bs-toggle="modal" data-bs-target="#most-popular-today-0">
-                    <%= image_tag "#{collection.image}", class: "card-lg-image"%>
-                    <h2 class="h2-highest" > <%= collection.name %> </h2>
-                    <p class="p-highest">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+          </div>
+
+          <!-- MODAL upcoming drops -->
+          <div class="modal fade" id="upcoming-drops-<%= collection[:id] %>" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-nft-wrapper">
+                  <%=image_tag "#{collection[:image]}", class: "modal-nft-image" %>
+                  <div class="nft-collection-container">
+                    <h2 class="nft-name"><%= collection[:name] %></h2>
+                    <% if current_user %>
+                      <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection[:id] %>" data-action="click->watchlist#add"><%= flash[:notice] %></p>
+                    <% else %>
+                      <p class="fa-solid fa-eye" style="color: grey" ></p>
+                    <% end %>
                   </div>
-                   <% end %>
-                  <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#most-popular-today">
-                    See more </button>
-                </div>
-                <!--MODAL-->
-                <% @popular_collections_today.each do |collection| %>
-                <div class="modal fade" id="most-popular-today-0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><%= collection.name %></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <%=image_tag "#{collection.image}", class: "upcoming-collections-image"%>
-                          </div>
-                          <div class="col-md-6">
-                            <p class="collection-data">Listings: <%=  collection.listings %></p>
-                            <p class="collection-data">Floor price: <%=  collection.floor_price_in_sol.round(2) %> SOL</p>
-                            <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
-                            <p class="collection-data">Description: <%= collection.description %></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
-                      </div>
+                  <p class="nft-collection modal-desription"><%= collection[:description] %></p>
+                  <div class="modal-nft-data">
+                    <div>
+                      <p class="nft-data">Floor price: <%= collection[:floor_price] %> SOL</p>
+                      <p class="nft-data">Supply: <%= collection[:supply]%></p>
                     </div>
                   </div>
-                </div>
-                <!-- MODAL ends-->
-             <% end %>
-            </div>
-            <!-- MODAL: Most Popular Today see more starts here -->
-            <div class="modal fade" id="most-popular-today" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Most popular today</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="row">
-                      <% @popular_collections_today.each do |collection| %>
-                        <div class="col-md-4 p-1">
-                          <img src=<%= collection.image  %> class="img-fluid rounded-start" >
-                        </div>
-                        <div class="col-md-8">
-                          <p class="collection-data">Name: <%= collection.name %></p>
-                          <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
-                        </div>
-                      <% end %>
+                  <div  class="modal-nft-wrapper-info">
+                    <div class="collection-social-container">
+                      <a href="<%= collection[:discord]%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
+                      <a href="<%= collection[:twitter]%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
+                    <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Modal for most popular today ends here -->
+        <% end %>
+        <!-- Modal trigger button -->
+        <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#upcoming-drops">
+          See more
+        </button>
+      </div>
+    </div>
+
+
+      <!-- MODAL: Upcoming Drops see more START-->
+      <div class="modal fade" id="upcoming-drops" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Upcoming drops</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Iteration -->
+              <div class="row">
+                <% @upcoming_collections.each do |collection| %>
+                  <div class="col-md-6 p-1">
+                    <img src=<%= collection[:image] %> class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-6">
+                    <p class="collection-data">Name: <%= collection[:name] %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
+      </div>
+      <!-- Modal for upcoming drops ends -->
+
+
+
+      <!-- Most popular today -->
+      <div class="card-container2">
+        <h2 class="card-header-big">Most popular today</h2>
+        <div class="wrapper-cards-btn" data-bs-toggle="modal" data-bs-target="#most-popular-today-0">
+          <% @popular_collections_today.first(2).each do |collection| %>
+            <div class="big-image" data-bs-toggle="modal" data-bs-target="#most-popular-today-0<%= collection.id %>">
+              <%= image_tag "#{collection.image}", class: "card-lg-image"%>
+              <div class="big-shadow"></div>
+              <h2 class="h2-highest" > <%= collection.name %> </h2>
+              <p class="p-highest">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+            </div>
+
+            <div class="modal fade" id="most-popular-today-0<%= collection.id %>" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-nft-wrapper">
+                    <img src=<%= collection.image %> alt="" class="modal-nft-image">
+                    <div class="nft-collection-container">
+                      <h2 class="nft-name"><%= collection.name %></h2>
+                      <% if current_user %>
+                        <p class="fa-solid fa-eye" style="color: grey" data-collection="<%= collection.id.to_s %>" data-action="click->watchlist#add"><%= flash[:notice] %></p>
+                      <% else %>
+                        <p class="fa-solid fa-eye" style="color: grey" ></p>
+                      <% end %>
+                    </div>
+                    <p class="nft-collection modal-desription"><%= collection.description %></p>
+                    <div class="modal-nft-data">
+                      <div>
+                        <p class="nft-data">Floor price: <%= collection.floor_price %> SOL</p>
+                        <p class="nft-data">Supply: <%= collection.supply%></p>
+                      </div>
+                      <div>
+                        <p class="nft-data">Volume: <%= collection.volume%></p>
+                        <p class="nft-data">Owners: <%= collection.owner%></p>
+                      </div>
+                    </div>
+                    <div  class="modal-nft-wrapper-info">
+                      <div class="collection-social-container">
+                        <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
+                        <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                      </div>
+                      <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- MODAL: Popular collections: More information about a specific popular collection ends here-->
+          <% end %>
+          <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#most-popular-today">
+            See more </button>
+        </div>
+      </div>
+
+      <!-- MODAL: Most Popular Today see more starts here -->
+      <div class="modal fade" id="most-popular-today" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Most popular today</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <% @popular_collections_today.each do |collection| %>
+                  <div class="col-md-4 p-1">
+                    <img src=<%= collection.image  %> class="img-fluid rounded-start" >
+                  </div>
+                  <div class="col-md-8">
+                    <p class="collection-data">Name: <%= collection.name %></p>
+                    <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-green-link" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for most popular today ends here -->
+  </div>

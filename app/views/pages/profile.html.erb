@@ -1,7 +1,6 @@
 <div class="container">
   <div class="header-container">
     <h1 class="profile-header">My Wallet</h1>
-    <%= link_to "Change wallet", edit_wallet_path(@wallet), class:"btn-green-big change-wallet" %>
   </div>
   <div class="my-wallet">
 <!-- DASHBOARD-->
@@ -46,8 +45,8 @@
               </div>
                <div class="card-xs-small-content-info">
                 <div>
-                  <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
-                  <p class="card-text-thin">Floor price: <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
+                  <p class="card-text-thin"><strong>Purchased price:</strong> <%= nft.price %> SOL </p>
+                  <p class="card-text-thin"><strong>Floor price:</strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
                 </div>
               </div>
             </div>
@@ -61,7 +60,7 @@
 
     <!-- MODAL: BEST PERFORMING NFTs: See more -->
     <div class="modal fade" id="best-performing" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"> Your best performing NFTs</h5>
@@ -80,8 +79,8 @@
                       </div>
                       <div class="modal-collection-card-content-info">
                         <div>
-                          <p class="card-text-thin">Purchased price: <%= nft.price %> SOL </p>
-                          <p class="card-text-thin">Floor price: <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
+                          <p class="card-text-thin"><strong>Purchased price:</strong> <%= nft.price %> SOL </p>
+                          <p class="card-text-thin"><strong>Floor price:</strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
                         </div>
                     </div>
                   </div>
@@ -103,7 +102,11 @@
         <% @highest_floor_price_nfts.each do |nft| %>
           <div class="big-image" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
             <img src="<%= nft.image %>" alt="" class="card-lg-image">
+<<<<<<< HEAD
 
+=======
+            <div class="big-shadow"></div>
+>>>>>>> master
             <h2 class="h2-highest"> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</h2>
             <p class="p-highest"> <%= nft.collection.name %> </p>
           </div>
@@ -139,8 +142,8 @@
     <div class="watchlist-container">
       <h2 class="watchlist-header">My watchlist</h2>
       <%# <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button> %>
-      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-
+      <button type="button" class="btn-green-big btn-watchlist" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+        Add collections to your watchlist
       </button>
       <div class="watchlist-wrapper">
         <div class="watchlist-headers">
@@ -163,7 +166,7 @@
               <p class="watchlist-p volume-p"><%= item.collection.volume_in_sol.round(2) %></p>
               <%# <p class="watchlist-p owners-p"><%= item.collection.owners %>
 
-              <%= link_to "Remove", watchlist_item_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this collection?" }, class: "watchlist-p owners-p"%>
+              <%= link_to "Remove", watchlist_item_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this collection?" }, class: "watchlist-p remove-p"%>
             </div>
           <% end %>
         </div>
@@ -186,8 +189,8 @@
               <h2 class="nft-name" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>"><%= nft.name %></h2>
               <h3 class="nft-collection"><%= nft.collection.name %></h3>
               <div class="nft-data">
-                <p>Floor price: <%= nft.collection.floor_price_in_sol.round(2) %></p>
-                <p>Supply: <%= nft.collection.supply %></p>
+                <p><strong>Floor price:</strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
+                <p><strong>Supply:</strong> <%= nft.collection.supply %></p>
               </div>
             </div>
              <!-- Modal trigger button -->
@@ -198,44 +201,37 @@
 
           <!-- MODAL: MY NFTs: More information about an NFT-->
           <div class="modal fade" id="s<%= nft.id.to_s %>" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-nft-wrapper">
-                  <div class="modal-nft-wrapper-image-dashboard">
-                    <img src=<%= nft.image %> alt="" class="modal-nft-image">
-                    <div class="wrapper-dashboard-data">
-                      <div class="modal-nft-dashboard">
-                        <!-- insert dashboard here -->
-                        <%= line_chart (@data_keys) %>
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-nft-wrapper">
+                      <img src=<%= nft.image %> alt="" class="modal-nft-image">
+                    <div class="nft-collection-container">
+                        <h2 class="nft-name"><%= nft.name %></h2>
                       </div>
+                      <h3 class="nft-collection"><%= nft.collection.name %></h3>
+                      <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
                       <div class="modal-nft-data">
                         <div>
-                          <p class="nft-data">Purchased price: <%= nft.price %> SOL</p>
-                          <p class="nft-data">Floor price: <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
+                          <p class="nft-data"><strong>Floor price:</strong> <%= nft.collection.floor_price %> SOL</p>
+                          <p class="nft-data"><strong>Supply:</strong> <%= nft.collection.supply%></p>
                       </div>
                         <div>
-                          <p class="nft-data">Volume: <%= nft.collection.volume_in_sol.round(2)%></p>
-                          <p class="nft-data">Supply: <%= nft.collection.supply%></p>
-                          <p class="nft-data">Owners: <%= nft.collection.owner%></p>
+                          <p class="nft-data"><strong>Volume:</strong> <%= nft.collection.volume%></p>
+                          <p class="nft-data"><strong>Owners:</strong> <%= nft.collection.owner%></p>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="modal-nft-container-info">
-                    <div class="modal-nft-wrapper-info">
-                      <h2 class="nft-name"><%= nft.name %></h2>
-                      <h3 class="nft-collection"><%= nft.collection.name %></h3>
-                    </div>
-                    <div  class="modal-nft-wrapper-info">
-                      <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
-                      <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                      <div  class="modal-nft-wrapper-info">
+                        <div class="collection-social-container">
+                          <a href="<%= nft.collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
+                          <a href="<%= nft.collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                        </div>
+                        <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        <!-- Modal ends -->
+          <!-- Modal ends -->
 
         <% end %>
       </div>
