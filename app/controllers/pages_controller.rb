@@ -61,7 +61,6 @@ class PagesController < ApplicationController
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
     @user = current_user
-    raise
     # @data_keys = { '12.04.2022' => 5,
     #                '19.04.2022' => 7,
     #                '26.04.2022' => 10,
