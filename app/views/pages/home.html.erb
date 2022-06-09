@@ -27,6 +27,7 @@
         <!-- This is the iteration for most popular collections-->
         <div class="dashboard">
           <% @popular_collections.each do |collection| %>
+            <div class="dashboard-item">
             <div class="dashboard-item" data-bs-toggle="modal" data-bs-target="#popular-collections-<%= collection.id %>">
               <div class="dashboard-item-image-wrapper">
                 <%=image_tag "#{collection.image}", class:"dashboard-item-image"%>
@@ -36,8 +37,13 @@
               <p class="item-p item-p2"><%= collection.listings %></p>
               <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
               <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
+              </div>
               <div class="eye-button">
-              <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
+                <% if current_user %>
+                    <a class="fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+                  <% else %>
+                    <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                  <% end %>
               </div>
             </div>
             <!-- MODAL: Popular collections: More information about a specific popular collection starts here-->
@@ -50,19 +56,21 @@
                     <div class="nft-collection-container">
                       <h2 class="nft-name"><%= collection.name %></h2>
                         <% if current_user %>
-                          <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+                          <a class="fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
                         <% else %>
                           <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
                         <% end %>
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong>Supply: </strong> <%= collection.supply %></p>
+
+                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(2)%></p>
-                      <p class="nft-data"><strong>Owners: </strong> <%= collection.owner%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= collection.volume_in_sol.round(0)%></p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= collection.owner%></p>
+
                     </div>
                   </div>
                 </div>
@@ -91,7 +99,7 @@
             <div class="card-xs-small-content">
               <div class="content-info card-xs-small-content-info">
                 <p class="content-info collection-name"><%= collection[:name] %></p>
-                <p class="content-info card-text"><small class="text-muted"><strong>Supply:</strong> <%=collection[:supply]%></small></p>
+                <p class="content-info card-text"><small class="text-muted"><strong class="headers-black">Supply:</strong> <%=collection[:supply]%></small></p>
               </div>
             </div>
           </div>
@@ -105,15 +113,18 @@
                     <div class="nft-collection-container">
                       <h2 class="nft-name"><%= collection[:name] %></h2>
                       <% if current_user %>
-                        <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
+                        <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection[:id].to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
                       <% else %>
-                        <i class="fa-solid fa-bookmark" style="color: #30E8BF"></i>
+                          <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
                       <% end %>
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
-                        <p class="nft-data"><strong>Floor price: </strong> <%= collection[:floor_price] %> SOL</p>
-                        <p class="nft-data"><strong>Supply:</strong> <%= collection[:supply]%></p>
+
+
+                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                        <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= collection[:supply]%></p>
+
                     </div>
                     </div>
                 </div>
@@ -148,7 +159,7 @@
                 <% @upcoming_collections.each do |collection| %>
                 <div class="drop-container">
                   <img src=<%= collection[:image] %> class="drop-image">
-                  <p class="drop-modal-title">Name: <%= collection[:name] %></p>
+                  <p class="drop-modal-title"><strong class="headers-black"> Name: </strong><%= collection[:name] %></p>
                 </div>
                 <% end %>
               </div>
@@ -187,12 +198,14 @@
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong>Supply: </strong> <%= collection.supply %></p>
+
+                      <p class="nft-data"><strong class="headers-black">Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                      <p class="nft-data"><strong class="headers-black">Supply: </strong> <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong>Owners: </strong> <%= collection.owner%></p>
+                      <p class="nft-data"><strong class="headers-black">Volume: </strong> <%= collection.volume_in_sol.round(0)%></p>
+                      <p class="nft-data"><strong class="headers-black">Owners: </strong> <%= collection.owner%></p>
+
                     </div>
                   </div>
                 </div>
@@ -229,7 +242,7 @@
                   <img src=<%= collection.image %> class="drop-image">
                   <div>
                     <p class="drop-modal-title"><%= collection.name %></p>
-                    <p class="collection-data">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
+                    <p class="collection-data"><strong class="headers-black">Volume: </strong> <%= collection.volume_in_sol.round(0) %> SOL</p>
                   </div>
                 </div>
                 <% end %>
