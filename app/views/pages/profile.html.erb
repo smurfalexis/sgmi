@@ -10,7 +10,7 @@
           <h2 class="dashboard-header">Your wallet performance</h2>
             <div class="d-flex justify-content-center mt-2">
             <div class="dashboard-speedometer">
-              <%= render "shared/speedometer" %>
+             <%= render "shared/speedometer", profit: @wallet_value - @wallet_paid, profit_in_usd: @usd_wallet_value - @usd_wallet_paid %>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@
               <p class="watchlist-p supply-p"><%= @nft_supply %></p>
               <p class="watchlist-p floor-p"><%= item.collection.floor_price_in_sol.round(2) %> SOL</p>
               <p class="watchlist-p volume-p"><%= item.collection.volume_in_sol.round(2) %> SOL</p>
-              <<p class="watchlist-p owners-p"><%= @nft_owners %>
+              <p class="watchlist-p owners-p"><%= @nft_owners %>
 
               <%= link_to "Remove", watchlist_item_path(item), method: :delete, data: { confirm: "Are you sure you want to delete this collection?" }, class: "watchlist-p remove-p"%>
             </div>
