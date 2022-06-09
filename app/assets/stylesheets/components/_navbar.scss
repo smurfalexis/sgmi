@@ -17,7 +17,7 @@
   font-family: "Poppins", sans-serif;
   color: #FFFFFF;
   margin-bottom: 0px;
-  font-size: 42px;
+  font-size: 50px;
   margin-left: 15px;
   font-weight: bolder;
 }
@@ -89,11 +89,16 @@
 .fa-solid {
   position: relative !important;
   right: 0px !important;
-  padding: 20px 0px;
+  padding: 4px 0px;
 
 }
 
-.fa-solid:hover {
+.fa-bookmark {
+padding: 20px 0px;
+
+}
+
+.fa-bookmark:hover {
   color: #1EC29F !important;
 }
 
@@ -124,7 +129,7 @@
   text-align: center;
   padding: 16px 20px;
   font-family: "Roboto", sans-serif !important;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 
