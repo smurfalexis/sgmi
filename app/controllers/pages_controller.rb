@@ -1,5 +1,7 @@
 require 'json'
 NFT_PRICES = [2.4, 5 ,3.2 ,1.3 ,1.5, 1.9 ]
+NFT_OWNERS = "No Data"
+NFT_SUPPLY = "No Data"
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
@@ -7,6 +9,9 @@ class PagesController < ApplicationController
     @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
     @upcoming_collections = upcoming_collections()
     @popular_collections_today = popular_collections_24h()
+    @nft_prices = NFT_PRICES
+    @nft_owners = NFT_OWNERS
+    @nft_supply = NFT_SUPPLY
   end
 
   # def highest_floor_price
@@ -24,6 +29,8 @@ class PagesController < ApplicationController
     @watchlist = Watchlist.where(user: current_user)
     @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
     @nft_prices = NFT_PRICES
+    @nft_owners = NFT_OWNERS
+    @nft_supply = NFT_SUPPLY
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
     # Highest floor price
