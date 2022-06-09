@@ -9,7 +9,7 @@
             </div>
             <%= link_to "About us", about_path, class:"text", style:"text-decoration: none" %>
             <%= link_to "Introduction", introduction_path, class:"text", style:"text-decoration: none" %>
-            <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "FAQ", faq_path, class:"text", style:"text-decoration: none" %>
             <div>
               <% if current_user.wallets.empty?%>
               <%= link_to "My wallet", new_wallet_path, class:"session"%>
@@ -24,7 +24,6 @@
     </div>
   </header>
 
-
 <!-- Home page not logged in-->
 <% elsif current_page?('/') %>
   <header>
@@ -35,8 +34,8 @@
             <%= link_to "SGMI", root_path, class:"logo", style:"text-decoration: none" %>
             </div>
             <%= link_to "About Us", about_path, class:"text", style:"text-decoration: none" %>
-            <%= link_to "Introduction", "#", class:"text", style:"text-decoration: none" %>
-            <%= link_to "FAQ", "#", class:"text", style:"text-decoration: none" %>
+            <%= link_to "Introduction", introduction_path, class:"text", style:"text-decoration: none" %>
+            <%= link_to "FAQ", faq_path, class:"text", style:"text-decoration: none" %>
             <%= link_to "Log in", new_user_session_path, class:"connect"%>
         </div>
       </div>
@@ -69,7 +68,6 @@
       </div>
     </div>
   </header>
-
 
 <!-- Logged in but not on home page or profile page -->
 <% elsif current_user && (!current_page?('/') && !current_page?('/profile')) %>

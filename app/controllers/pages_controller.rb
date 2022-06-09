@@ -3,7 +3,7 @@ NFT_PRICES = [2.4, 5 ,3.2 ,1.3 ,1.5, 1.9 ]
 NFT_OWNERS = "No Data"
 NFT_SUPPLY = "No Data"
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home about]
+  skip_before_action :authenticate_user!, only: %i[home about introduction faq]
 
   def home
     @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
