@@ -24,8 +24,17 @@ export default class extends Controller {
     }
     const ratioColor = this.pickHex(lowColor, highColor, ratio)
     console.log(degResult, profit, ratioColor, ratio )
-    this.speedTarget.style.borderColor = `transparent white rgb(${ratioColor[0]},${ratioColor[1]},${ratioColor[2]}) rgb(${ratioColor[0]},${ratioColor[1]},${ratioColor[2]})`;
+    const rgbColor = `${ratioColor[0]},${ratioColor[1]},${ratioColor[2]}`
+    const animateKeyframes = {
+      borderColor: ['transparent transparent #C651E0 #C651E0', `transparent transparent rgb(${rgbColor}) rgb(${rgbColor})`]
+
+    }
+
+
+
     this.speedTarget.style.transform = "rotate(" + degResult + "deg)";
+    this.speedTarget.animate(animateKeyframes,2000)
+    this.speedTarget.style.borderColor = `transparent white rgb(${rgbColor}) rgb(${rgbColor})`;
   }
 
 
