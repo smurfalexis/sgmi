@@ -11,7 +11,6 @@
     <% end %>
   </div>
 </div>
-
 <div class="container">
   <div class="wrapper">
     <!-- Popular collections-->
@@ -47,9 +46,7 @@
                   <% end %>
               </div>
             </div>
-
             <!-- MODAL: Popular collections: More information about a specific popular collection starts here-->
-
             <div class="modal fade" id="popular-collections-<%= collection.id %>" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content modal-drops">
@@ -70,29 +67,28 @@
                       <p class="nft-data"><strong>Supply: </strong> <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(0) %></p>
+
+                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(2)%></p>
+
                       <p class="nft-data"><strong>Owners: </strong> <%= collection.owner%></p>
                     </div>
                   </div>
                 </div>
                 <div class="collection-social-container">
                   <div>
-                    <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
-                    <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                    <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord collection-social"></a>
+                    <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter collection-social"></a>
                   </div>
                   <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                  </div>
               </div>
             </div>
           </div>
-
             <!-- MODAL: Popular collections: More information about a specific popular collection ends here-->
           <% end %>
         </div>
       </div>
     </div>
-
-
     <!-- Upcoming drops-->
     <div class="card-container">
       <h2 class="card-header-big">Upcoming drops</h2>
@@ -107,7 +103,6 @@
               </div>
             </div>
           </div>
-
           <!-- MODAL upcoming drops -->
           <div class="modal fade" id="upcoming-drops-<%= collection[:id] %>" tabindex="-1">
             <div class="modal-dialog">
@@ -126,23 +121,22 @@
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
 
-                        <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                        <p class="nft-data"><strong>Supply:</strong> <%= collection[:supply]%></p>
+                        <p class="nft-data"><strong>Floor price: </strong> <%= collection[:floor_price] %> SOL</p>
 
+                        <p class="nft-data"><strong>Supply:</strong> <%= collection[:supply]%></p>
                     </div>
                     </div>
                 </div>
                      <div class="collection-social-container">
                      <div>
-                        <a href="<%= collection[:discord]%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
-                        <a href="<%= collection[:twitter]%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                        <a href="<%= collection[:discord]%>" src="Discord" target="_blank" class="fa-brands fa-discord collection-social"></a>
+                        <a href="<%= collection[:twitter]%>" src="Twitter" target="_blank" class="fa-brands fa-twitter collection-social"></a>
                       </div>
                       <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                       </div>
               </div>
             </div>
           </div>
-
         <% end %>
         <!-- Modal trigger button -->
         <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#upcoming-drops">
@@ -150,8 +144,6 @@
         </button>
       </div>
     </div>
-
-
       <!-- MODAL: Upcoming Drops see more START-->
       <div class="modal fade" id="upcoming-drops" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -178,9 +170,6 @@
         </div>
       </div>
       <!-- Modal for upcoming drops ends -->
-
-
-
       <!-- Most popular today -->
       <div class="card-container2">
         <h2 class="card-header-big">Most popular today</h2>
@@ -192,7 +181,6 @@
               <h2 class="h2-highest" > <%= collection.name %> </h2>
               <p class="p-highest">Volume: <%= collection.volume_in_sol.round(0) %> SOL</p>
             </div>
-
           <div class="modal fade" id="most-popular-today-0<%= collection.id %>" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content modal-drops">
@@ -220,25 +208,21 @@
                 </div>
                 <div class="collection-social-container">
                   <div>
-                    <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
-                    <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                    <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord collection-social"></a>
+                    <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter collection-social"></a>
                   </div>
                   <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                  </div>
               </div>
             </div>
           </div>
-
           <!-- Modal ends -->
-
-
           <!-- MODAL: Popular collections: More information about a specific popular collection ends here-->
           <% end %>
           <button type="button" class="btn btn-green-link" data-bs-toggle="modal" data-bs-target="#most-popular-today">
             See more </button>
         </div>
       </div>
-
       <!-- MODAL: Most Popular Today see more starts here -->
         <div class="modal fade" id="most-popular-today" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -267,8 +251,5 @@
           </div>
         </div>
       </div>
-
-
-
   </div>
 </div>
