@@ -31,8 +31,8 @@
     width: 300px;
     background: transparent;
     border-radius: 50%;
-    border: 20px solid #5c6f7b;
-    border-color: transparent transparent #5c6f7b #5c6f7b;
+    border: 20px solid #30E8BF;
+    border-color: transparent transparent #30E8BF #30E8BF;
     box-sizing: border-box;
     cursor: pointer;
     z-index: 1;
@@ -100,4 +100,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.fa-arrow-circle-up {
+  color: #30E8BF;
 }
