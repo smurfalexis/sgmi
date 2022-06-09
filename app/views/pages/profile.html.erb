@@ -5,13 +5,29 @@
   <div class="my-wallet">
 <!-- DASHBOARD-->
     <div class="dashboard-container">
-      <h2 class="dashboard-header">My wallet's performance</h2>
-      <div class="dashboard-wrapper">
-        <div class="sol-usd">
-          <p>SOL/USD</p>
-        </div>
-        <div class="dashboard">
-          <%= line_chart @nfts_chart, colors: ['purple'], legend: false, dataset: {fill: true}, library: {scales: { x: {display: false} }}%>
+      <div class="wrapper">
+        <div class="container">
+          <div><h3 class="text-center">My wallet's performance</h3></div>
+            <div class="d-flex justify-content-center mt-2">
+              <div class="container m-4">
+
+                <div class="sol mb-4">
+                  <div class="details">
+                    <h3>SOL</h3>
+                    <p><%= @wallet_value %></p>
+                  </div>
+                </div>
+
+                <div class="sol mt-4">
+                  <div class="details">
+                    <div>
+                      <h3>USD</h3>
+                      <p><%=  @usd_wallet_value %></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +102,11 @@
         <% @highest_floor_price_nfts.each do |nft| %>
           <div class="big-image" data-bs-toggle="modal" data-bs-target="#s<%= nft.id.to_s %>">
             <img src="<%= nft.image %>" alt="" class="card-lg-image">
+<<<<<<< HEAD
+
+=======
             <div class="big-shadow"></div>
+>>>>>>> master
             <h2 class="h2-highest"> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</h2>
             <p class="p-highest"> <%= nft.collection.name %> </p>
           </div>
