@@ -230,11 +230,11 @@
                     </div>
                     <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Floor price: </strong> <%= nft.collection.floor_price %> SOL</p>
+                      <p class="nft-data"><strong>Floor price: </strong> <%= nft.collection.floor_price_in_sol.round(2) %> SOL</p>
                       <p class="nft-data"><strong>Supply: </strong> <%= nft.collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= nft.collection.volume%></p>
+                      <p class="nft-data"><strong>Volume: </strong> <%= nft.collection.volume_in_sol.round(0)%></p>
                       <p class="nft-data"><strong>Owners: </strong> <%= nft.collection.owner%></p>
                     </div>
                   </div>
