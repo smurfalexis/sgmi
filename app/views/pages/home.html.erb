@@ -107,8 +107,8 @@
               </div>
                <div class="card-xs-small-content-info">
                 <div>
-                  <p class="card-text-thin"><strong class="headers-black"> Launchdate:</strong> <%= collection[:launchdate]%>  </p>
-                  <p class="card-text-thin"><strong class="headers-black"> Mint price:</strong> <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                  <p class="card-text-thin"><strong class="headers-black"> Launchdate:</strong> <%= collection[:launchdate]%> </p>
+                  <p class="card-text-thin"><strong class="headers-black"> Mint price:</strong> <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
                 </div>
               </div>
             </div>
@@ -132,9 +132,9 @@
                     <div class="modal-nft-data">
 
 
-                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> 	&nbsp <%= collection[:floor_price] * 0.000000001 %> SOL</p>
+                        <p class="nft-data"><strong class="headers-black">Mint Price: </strong> 	&nbsp <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
                         <p class="nft-data"><strong class="headers-black">Supply: </strong> 	&nbsp <%= collection[:supply]%></p>
-    
+
 
                     </div>
                     <div class="modal-nft-data">
@@ -280,8 +280,7 @@
                     <div class="card-xs-small-content-info">
                   <div>
                   <p class="card-text-thin"><strong class="headers-black"> Floor price:</strong> <%= (collection[:floor_price] * 0.000000001).round(2) %> SOL</p>
-                  <p class="card-text-thin"><strong class="headers-black"> Supply:</strong> <%= collection[:supply] %> </p>
-
+                  <p class="card-text-thin"><strong class="headers-black"> Supply:</strong> <%= @nft_supply %> </p>
                 </div>
               </div>
             </div>
