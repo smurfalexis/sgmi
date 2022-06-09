@@ -19,11 +19,11 @@
                 </div>
               <p class="nft-description"><%= collection.description %></p>
               <div class="nft-search-data">
-                <p>Floor price: <%= collection.floor_price %> SOL</p>
+                <p>Floor price: <%= collection.floor_price_in_sol.round(2) %> SOL</p>
 
                 <p>Listings: <%= collection.listings %></p>
               </div>
-              <p class="nft-search-data">Volume: <%= collection.volume %></p>
+              <p class="nft-search-data">Volume: <%= collection.volume_in_sol.round(2) %></p>
             </div>
             <button type="button" class="btn collection-btn" data-bs-toggle="modal" data-bs-target="#s<%= collection.id.to_s %>">
               See more
@@ -49,19 +49,19 @@
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price %> SOL</p>
+                      <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
                       <p class="nft-data"><strong>Supply: </strong> <%= collection.supply %></p>
                     </div>
                     <div class="modal-nft-data">
-                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume%></p>
+                      <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(2)%></p>
                       <p class="nft-data"><strong>Owners: </strong> <%= collection.owner%></p>
                     </div>
                   </div>
                 </div>
                 <div class="collection-social-container">
                   <div>
-                    <a href="<%= collection.discord%>" src="Discord" target=”_blank” class="fa-brands fa-discord collection-social"></a>
-                    <a href="<%= collection.twitter%>" src="Twitter" target=”_blank” class="fa-brands fa-twitter collection-social"></a>
+                    <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord collection-social"></a>
+                    <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter collection-social"></a>
                   </div>
                   <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                  </div>

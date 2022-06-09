@@ -1,5 +1,5 @@
 require 'json'
-
+NFT_PRICES = [2.4, 5 ,3.2 ,1.3 ,1.5, 1.9 ]
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home about]
 
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     @wallet = Wallet.find_by(user: current_user)
     @watchlist = Watchlist.where(user: current_user)
     @watchlist_items = WatchlistItem.where(watchlist: @watchlist)
-
+    @nft_prices = NFT_PRICES
     # Grab all NFTs related to current user from the wallet
     @nfts = @wallet.nfts
     # Highest floor price
@@ -199,3 +199,4 @@ class PagesController < ApplicationController
   end
 
 end
+
