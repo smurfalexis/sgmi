@@ -10,7 +10,7 @@
           <h2 class="dashboard-header">Your wallet performance</h2>
             <div class="d-flex justify-content-center mt-2">
             <div class="dashboard-speedometer">
-              <%= render "shared/speedometer" %>
+             <%= render "shared/speedometer", profit: @wallet_value - @wallet_paid, profit_in_usd: @usd_wallet_value - @usd_wallet_paid %>
               </div>
             </div>
           </div>
