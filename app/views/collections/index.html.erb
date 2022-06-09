@@ -21,7 +21,7 @@
               <div class="nft-search-data">
                 <p>Floor price: <%= collection.floor_price_in_sol.round(2) %> SOL</p>
 
-                <p>Listings: <%= @nft_listings.sample %></p>
+                <p>Listings: <%= @nft_listings %></p>
               </div>
               <p class="nft-search-data">Volume: <%= collection.volume_in_sol.round(0) %></p>
             </div>
@@ -50,11 +50,11 @@
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
                       <p class="nft-data"><strong>Floor price: </strong> <%= collection.floor_price_in_sol.round(2) %> SOL</p>
-                      <p class="nft-data"><strong>Supply: </strong> <%= collection.supply %></p>
+                      <p class="nft-data"><strong>Supply: </strong> <%= @nft_supply %></p>
                     </div>
                     <div class="modal-nft-data">
                       <p class="nft-data"><strong>Volume: </strong> <%= collection.volume_in_sol.round(0)%></p>
-                      <p class="nft-data"><strong>Owners: </strong> <%= @nft_owners.sample%></p>
+                      <p class="nft-data"><strong>Owners: </strong> <%= @nft_owners%></p>
                     </div>
                   </div>
                 </div>

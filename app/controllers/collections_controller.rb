@@ -1,5 +1,10 @@
+NFT_OWNERS = "No Data"
+NFT_SUPPLY = "No Data"
+
 class CollectionsController < ApplicationController
   def index
+    @nft_owners = NFT_OWNERS
+    @nft_supply = NFT_SUPPLY
     @collections = policy_scope(Collection)
     if params[:search] && params[:search][:category].present?
       @collections = policy_scope(@collections.search_by_category(params[:search][:category]))
@@ -18,6 +23,8 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    @nft_owners = NFT_OWNERS
+    @nft_supply = NFT_SUPPLY
     @collection = Collection.find(params[:id])
     authorize @collection
   end
