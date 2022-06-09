@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @popular_collections_today = popular_collections_24h()
     @nft_supply = NFT_SUPPLY
     @nft_owners = NFT_OWNERS
+    @watchlist_items = current_user.watchlist_items
   end
 
   # def highest_floor_price
@@ -61,6 +62,7 @@ class PagesController < ApplicationController
     @wallet = Wallet.where(user: current_user)
     @nfts = Nft.where(wallet: @wallet)
     @user = current_user
+    @watchlist_items = current_user.watchlist_items
     # @data_keys = { '12.04.2022' => 5,
     #                '19.04.2022' => 7,
     #                '26.04.2022' => 10,

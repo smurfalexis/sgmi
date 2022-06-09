@@ -9,13 +9,16 @@
               <img src=<%= collection.image %> alt="" class="nft-search-image">
                <div class="nft-collection-container">
                   <h2 class="nft-name"><%= collection.name %></h2>
-
-                  <% if current_user %>
-                    <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+    <% if current_user %>
+                    <% if @watchlist_items.any? {|item| item.collection_id == collection.id } %>
+                      <% @class = "#30E8BF"%>
+                    <%else %>
+                      <% @class="#7E7D7D" %>
+                    <%end %>
+                    <a class="btn fa-solid fa-bookmark" style="color: <%= @class%>" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
                   <% else %>
-                    <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                    <p class="fa-solid fa-bookmark" style="color: #7E7D7D" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
                   <% end %>
-
                 </div>
               <p class="nft-description"><%= collection.description %></p>
               <div class="nft-search-data">
@@ -41,11 +44,16 @@
                   <div>
                     <div class="nft-collection-container">
                       <h2 class="nft-name"><%= collection.name %></h2>
-                        <% if current_user %>
-                          <a class="btn fa-solid fa-bookmark" style="color: #30E8BF" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
-                        <% else %>
-                          <p class="fa-solid fa-bookmark" style="color: #30E8BF" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
-                        <% end %>
+                    <% if current_user %>
+                    <% if @watchlist_items.any? {|item| item.collection_id == collection.id } %>
+                      <% @class = "#30E8BF"%>
+                    <%else %>
+                      <% @class="#7E7D7D" %>
+                    <%end %>
+                    <a class="btn fa-solid fa-bookmark" style="color: <%= @class%>" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+                  <% else %>
+                    <p class="fa-solid fa-bookmark" style="color: #7E7D7D" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                  <% end %>
                     </div>
                     <p class="nft-collection modal-desription"><%= collection[:description] %></p>
                     <div class="modal-nft-data">
