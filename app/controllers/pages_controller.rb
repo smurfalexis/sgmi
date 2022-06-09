@@ -189,11 +189,10 @@ class PagesController < ApplicationController
                                          floor_price: upcoming_collection['price']*1000000000, description: upcoming_collection['description'],
                                          discord: upcoming_collection["discord"], twitter: upcoming_collection["twitter"],
                                          website: upcoming_collection["website"], image: upcoming_collection["image"],
-                                         supply: upcoming_collection["size"])
+                                         supply: upcoming_collection["size"], launchdate: upcoming_collection["launchDatetime"])
       end
       first10 << db_collection if db_collection.valid?
       break if first10.length == 10
-      # { name: collection["name"], price: collection["price"], image: collection["image"], supply: collection["size"], description: collection["description"]}
     end
     first10
   end
