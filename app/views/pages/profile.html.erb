@@ -38,6 +38,7 @@
             <div class="card-xs-small-content">
               <div class="card-xs-small-content-headers">
                 <%= nft.name %>
+                <p class="small-card-nft-collection"><%= nft.collection.name %></p>
               </div>
                <div class="card-xs-small-content-info">
                 <div>
@@ -75,6 +76,8 @@
                   <div class="card-xs-small-content-modal">
                     <div class="card-xs-small-content-headers">
                       <%= nft[:name] %>
+                      <p class="small-card-nft-collection"><%= nft.collection.name %></p>
+
                     </div>
                     <div class="card-xs-small-content-info">
                   <div>
@@ -137,6 +140,8 @@
                   <div class="card-xs-small-content-modal">
                     <div class="card-xs-small-content-headers">
                       <%= nft[:name] %>
+                      <p class="small-card-nft-collection"><%= nft.collection.name %></p>
+
                     </div>
                     <div class="card-xs-small-content-info">
                   <div>
@@ -235,8 +240,9 @@
                 <div class="modal-nft-wrapper drop-header">
                   <%=image_tag nft.image, class: "modal-nft-image" %>
                   <div>
-                    <div class="nft-collection-container">
+                    <div class="nft-collection-container-nft">
                       <h2 class="nft-name"><%= nft.name %></h2>
+                      <h2 class="nft-collection-name"><%= nft.collection.name %></h2>
                     </div>
                     <p class="nft-collection modal-desription"><%= nft.collection.description %></p>
 
