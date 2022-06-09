@@ -11,11 +11,11 @@
   outline: 0;
   height: auto;
   padding: 20px;
-  height: 666px;
+  height: 430px;
 }
 
 .modal-drop {
-  height: auto;
+  height: 430px;
   display: flex;
   align-items: flex-start !important;
   flex-direction: column;
@@ -40,12 +40,13 @@
   border: none;
   font-style: normal;
   font-weight: 800;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 27px;
   margin: 0px 20px 0px 0px;
   font-family: sans-serif;
   color: #353535 !important;
   font-weight: lighter;
+  padding: 0px;
 }
 
 .upcoming-collections-image {
@@ -60,7 +61,7 @@
     color: #8B8B8B;
     width: 100%;
     display: flex;
-    font-size: 20px;
+    font-size: 14px;
     font-family: sans-serif;
     font-weight: lighter;
 }
@@ -69,6 +70,7 @@
 
   .drop-image {
   height: 100px;
+  width: 100px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   align-items: center;
@@ -83,4 +85,13 @@
   align-items: center;
   margin-bottom: 15px;
   border: 1px solid #F0F0F0;
+}
+
+.modal-titels {
+  font-size: 28px !important;
+}
+
+.drops-data {
+  display: flex;
+  justify-content: center;
 }
