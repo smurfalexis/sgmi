@@ -51,6 +51,14 @@
   font-size: 14px;
   margin-bottom: 12px;
   height: 185px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: initial;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  padding: 0px;
 }
 
 
@@ -128,4 +136,11 @@ width: 100%;
   font-family: sans-serif !important;
   color: #7E7D7D;
 
+}
+
+
+.btn-close {
+  width: 5px;
+  height: 5px;
+  color: #353535 !important;
 }

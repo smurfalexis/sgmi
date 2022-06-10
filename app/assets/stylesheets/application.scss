@@ -16,12 +16,12 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?&display=swap');
 
 // Style that should apply to all components with these classes:
  body {
    font-family: sans-serif !important;
    background-color: #F6F6F6;
+   color: #353535;
  }
 
  .link {
@@ -35,4 +35,8 @@
 .alert {
   margin: 0px;
   border-radius: 0px;
+}
+
+h1, h2 {
+  font-family: sans-serif !important;
 }
