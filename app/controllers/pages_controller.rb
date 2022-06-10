@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     @popular_collections_today = popular_collections_24h()
     @nft_supply = NFT_SUPPLY
     @nft_owners = NFT_OWNERS
-    @watchlist_items = current_user.watchlist_items
+    @watchlist_items = current_user.watchlist_items if current_user
   end
 
   # def highest_floor_price
