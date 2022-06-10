@@ -116,9 +116,8 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
-  grid-gap: 20px;
-
+  align-content: flex-start;
+  gap: 20px;
 }
 
 .h2-highest {
@@ -128,6 +127,13 @@
   left: 12px;
   bottom: 16px;
   font-family: sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: initial;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 0px;
 }
 
 .p-highest {
