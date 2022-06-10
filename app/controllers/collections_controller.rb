@@ -2,10 +2,11 @@ NFT_OWNERS = "No Data"
 NFT_SUPPLY = "No Data"
 
 class CollectionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @nft_owners = NFT_OWNERS
     @nft_supply = NFT_SUPPLY
-    @watchlist_items = current_user.watchlist_items
+    @watchlist_items = current_user.watchlist_items if current_user
     @collections = policy_scope(Collection)
     if params[:search] && params[:search][:category].present?
       @collections = policy_scope(@collections.search_by_category(params[:search][:category]))
