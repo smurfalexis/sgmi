@@ -226,7 +226,7 @@
       <div class="card-container2">
         <h2 class="card-header-big">Most popular today</h2>
         <div class="wrapper-cards-btn" data-bs-toggle="modal">
-          <% @popular_collections_today.first(2).each do |collection| %>
+          <% @popular_collections_today && @popular_collections_today.first(2).each do |collection| %>
             <div class="big-image" data-bs-toggle="modal" data-bs-target="#most-popular-today-0<%= collection.id %>">
               <%= image_tag "#{collection.image}", class: "card-lg-image"%>
               <div class="big-shadow"></div>
@@ -297,7 +297,7 @@
             <div class="modal-body modal-drop">
               <!-- Iteration -->
               <div class="wrapper-drops">
-                <% @popular_collections_today.each do |collection| %>
+                <% @popular_collections_today && @popular_collections_today.each do |collection| %>
                         <div class="drop-container-modal">
                   <img src=<%= collection[:image] %> class="drop-image">
                   <div class="card-xs-small-content-modal">
