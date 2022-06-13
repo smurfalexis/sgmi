@@ -8,21 +8,21 @@ class PagesController < ApplicationController
   def home
     @popular_collections = Collection.order('volume DESC NULLS LAST').first(5)
     @upcoming_collections = upcoming_collections()
-    @popular_collections_today = popular_collections_24h()
+    # @popular_collections_today = popular_collections_24h()
     @nft_supply = NFT_SUPPLY
     @nft_owners = NFT_OWNERS
     @watchlist_items = current_user.watchlist_items if current_user
   end
 
-  # def highest_floor_price
-  #   nfts = []
-  #   user_wallet = Wallet.where(user_id: current_user)
-  #   user_wallet.nfts.each do |nft|
-  #     nfts << nft
-  #   end
-  #   nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
-  #   raise
-  # end
+  def highest_floor_price
+    nfts = []
+    user_wallet = Wallet.where(user_id: current_user)
+    user_wallet.nfts.each do |nft|
+      nfts << nft
+    end
+    nfts.sort { |a, b| a[:floor_price] <=> b[:floor_price] }
+
+  end
 
   def profile
     @wallet = Wallet.find_by(user: current_user)
