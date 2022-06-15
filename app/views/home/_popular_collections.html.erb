@@ -1,0 +1,87 @@
+<div class="dashboard-container col-xxl-6 col-md-12 col-sm-12 col-12">
+  <h2 class="dashboard-header">Popular collections</h2>
+  <div class="dashboard-wrapper">
+    <div class="dashboard-wrapper-headers">
+      <p class="p1">Collection</p>
+      <p class="p2">Supply</p>
+      <p class="p3">Listings</p>
+      <p class="p4">Floor price</p>
+      <p class="p5">Volume</p>
+    </div>
+    <!-- Dashboard with all popular collections -->
+    <div class="dashboard">
+      <% @popular_collections.each do |collection| %>
+        <div class="dashboard-item">
+          <div class="dashboard-item" data-bs-toggle="modal" data-bs-target="#popular-collections-<%= collection.id %>">
+            <div class="dashboard-item-image-wrapper">
+              <%=image_tag "#{collection.image}", class:"dashboard-item-image"%>
+              <p class="dashboard-item-image-p"><%=collection.name%></p>
+            </div>
+            <p class="item-p item-p1"><%= @nft_supply %></p>
+            <p class="item-p item-p2"><%= collection.listings %></p>
+            <p class="item-p item-p3"><%= collection.floor_price_in_sol.round(2) %> SOL</p>
+            <p class="item-p item-p4"><%= collection.volume_in_sol.round(0) %> SOL</p>
+          </div>
+          <div class="eye-button">
+            <% if current_user %>
+              <% if @watchlist_items.any? {|item| item.collection_id == collection.id } %>
+                <% @class = "#30E8BF"%>
+                <% @icon = "solid"%>
+              <%else %>
+                <% @class="#7E7D7D" %>
+                <% @icon = "regular"%>
+              <%end %>
+                <a class="btn fa-<%=@icon%> fa-bookmark" style="color: <%= @class%>" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+            <% else %>
+              <p class="fa-regular fa-bookmark" style="color: #7E7D7D" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Modal for each collection -->
+        <div class="modal fade" id="popular-collections-<%= collection.id %>" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content modal-drops">
+              <div class="modal-nft-wrapper drop-header">
+                <%=image_tag collection.image, class: "modal-nft-image" %>
+                <div>
+                  <div class="nft-collection-container">
+                    <h2 class="nft-name"><%= collection.name %></h2>
+                    <% if current_user %>
+                      <% if @watchlist_items.any? {|item| item.collection_id == collection.id } %>
+                        <% @class = "#30E8BF"%>
+                        <% @icon = "solid"%>
+                      <%else %>
+                        <% @class="#7E7D7D" %>
+                        <% @icon = "regular"%>
+                      <%end %>
+                      <a class="btn fa-<%=@icon%> fa-bookmark" style="color: <%= @class%>" rel="nofollow" data-method="post" href="/collections/<%=collection.id.to_s %>/watchlist_items?stop_redirect=true" data-remote=true></a>
+                    <% else %>
+                      <p class="fa-regular fa-bookmark" style="color: #7E7D7D" class="btn" data-bs-toggle="popover" title="Popover title" data-bs-content="You need to log in to save this collection to your watchlist"></p>
+                    <% end %>
+                  </div>
+                  <p class="nft-collection modal-desription"><%= collection[:description] %></p>
+                  <div class="modal-nft-data">
+                    <p class="nft-data"><strong class="headers-black">Floor price: </strong> 	&nbsp <%= collection.floor_price_in_sol.round(2) %> SOL</p>
+                    <p class="nft-data"><strong class="headers-black">Supply: </strong> &nbsp <%= @nft_supply %></p>
+                  </div>
+                  <div class="modal-nft-data">
+                    <p class="nft-data"><strong class="headers-black">Volume: </strong> 	&nbsp <%= collection.volume_in_sol.round(0)%> SOL</p>
+                    <p class="nft-data"><strong class="headers-black">Owners: </strong> 	&nbsp <%= @nft_owners%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="collection-social-container">
+                <div>
+                  <a href="<%= collection.discord%>" src="Discord" target="_blank" class="fa-brands fa-discord collection-social"></a>
+                  <a href="<%= collection.twitter%>" src="Twitter" target="_blank" class="fa-brands fa-twitter collection-social"></a>
+                </div>
+                <button class="close-modal" data-bs-target="" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
