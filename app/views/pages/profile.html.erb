@@ -4,7 +4,7 @@
   </div>
   <div class="wrapper">
 <!-- DASHBOARD-->
-    <div class="dashboard-container">
+    <div class="dashboard-container col-xxl-6 col-md-12 col-sm-12 col-12">
       <div class="wrapper">
         <div class="container">
           <h2 class="dashboard-header">Your wallet performance</h2>
@@ -29,6 +29,7 @@
     </div>
 
 <!-- BEST PERFOMING NFTs-->
+<div class="background col-xxl-3 col-md-6 col-sm-12 col-12">
     <div class="card-container">
       <h2 class="card-header-big">Your best performing NFTs</h2>
       <div class="wrapper-cards-btn">
@@ -56,6 +57,7 @@
         </button>
       </div>
     </div>
+  </div>
 
     <!-- MODAL: BEST PERFORMING NFTs: See more -->
 
@@ -103,7 +105,8 @@
       </div>
 
     <!-- HIGHEST FLOOR PRICE -->
-    <div class="card-container2">
+    <div class="background col-xxl-3 col-md-6 col-sm-12 col-12">
+    <div class="white">
       <h2 class="card-header-big">Highest floor price</h2>
       <div class="wrapper-cards-btn">
         <% @highest_floor_price_nfts.each do |nft| %>
@@ -120,6 +123,7 @@
           See more
         </button>
       </div>
+    </div>
     </div>
 
     <!-- MODAL: HIGHEST FLOOR PRICE: See more -->

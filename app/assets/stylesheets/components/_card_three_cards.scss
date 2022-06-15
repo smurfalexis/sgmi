@@ -3,12 +3,14 @@
 .card-container {
   background-color: #F6F6F6;
   height: 492px;
-  width: 270px;
+
+
   border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 
@@ -26,13 +28,13 @@
 
   .wrapper-cards-btn {
     height: 392px;
-    width: 340px;
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 92px;
     align-items: center;
     padding: 0px 12px;
+    width: 100%;
 
     .card-xs-small {
       width: 100%;
@@ -46,6 +48,7 @@
 
       .card-xs-small-image {
         height: 108px;
+        width: 108px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
       }
